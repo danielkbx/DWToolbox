@@ -3,11 +3,11 @@
 //  dwToolbox
 //
 //  Created by Daniel Wetzel on 05.07.12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 danielkbx. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface dwToolbox : NSObject
+@interface DWToolbox : NSObject
 
 @end
