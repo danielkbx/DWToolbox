@@ -7,8 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		652513EB15B6F38000B9F5CF /* UIDevice+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 652513E915B6F38000B9F5CF /* UIDevice+Additions.h */; };
-		652513EC15B6F38000B9F5CF /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */; };
+		653AA27B15B76E6C008FA885 /* CAKeyframeAnimation+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653AA27315B76E6C008FA885 /* CAKeyframeAnimation+Additions.h */; };
+		653AA27C15B76E6C008FA885 /* CAKeyframeAnimation+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AA27415B76E6C008FA885 /* CAKeyframeAnimation+Additions.m */; };
+		653AA27D15B76E6C008FA885 /* UIDevice+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653AA27515B76E6C008FA885 /* UIDevice+Additions.h */; };
+		653AA27E15B76E6C008FA885 /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AA27615B76E6C008FA885 /* UIDevice+Additions.m */; };
+		653AA27F15B76E6C008FA885 /* UIImage+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653AA27715B76E6C008FA885 /* UIImage+Additions.h */; };
+		653AA28015B76E6C008FA885 /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AA27815B76E6C008FA885 /* UIImage+Additions.m */; };
+		653AA28115B76E6C008FA885 /* UIView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 653AA27915B76E6C008FA885 /* UIView+Additions.h */; };
+		653AA28215B76E6C008FA885 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 653AA27A15B76E6C008FA885 /* UIView+Additions.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		655E6B3715A61A2D00F9E6C5 /* dwToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E6B3615A61A2D00F9E6C5 /* dwToolbox.m */; };
 		65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE94E15AEF273000B2FE7 /* DWAlertView.h */; settings = {ATTRIBUTES = (); }; };
@@ -17,10 +23,6 @@
 		65CAE96015AEF3B7000B2FE7 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE95E15AEF3B7000B2FE7 /* TTTAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		65CAE96315AEF3E5000B2FE7 /* NSAttributedString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE96115AEF3E5000B2FE7 /* NSAttributedString+Attributes.h */; };
 		65CAE96415AEF3E5000B2FE7 /* NSAttributedString+Attributes.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE96215AEF3E5000B2FE7 /* NSAttributedString+Attributes.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		65CAE98C15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE98815AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h */; };
-		65CAE98D15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE98915AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m */; };
-		65CAE99215AEF4D8000B2FE7 /* UIView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE99015AEF4D8000B2FE7 /* UIView+Additions.h */; };
-		65CAE99315AEF4D8000B2FE7 /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE99115AEF4D8000B2FE7 /* UIView+Additions.m */; };
 		65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */; };
 		65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */; };
 		65CAE9A415AEFFA0000B2FE7 /* DWAlertViewBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE9A215AEFFA0000B2FE7 /* DWAlertViewBackgroundView.h */; };
@@ -28,8 +30,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		652513E915B6F38000B9F5CF /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Additions.h"; sourceTree = "<group>"; };
-		652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Additions.m"; sourceTree = "<group>"; };
+		653AA27315B76E6C008FA885 /* CAKeyframeAnimation+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "CAKeyframeAnimation+Additions.h"; path = "dwToolbox/CAKeyframeAnimation+Additions.h"; sourceTree = SOURCE_ROOT; };
+		653AA27415B76E6C008FA885 /* CAKeyframeAnimation+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "CAKeyframeAnimation+Additions.m"; path = "dwToolbox/CAKeyframeAnimation+Additions.m"; sourceTree = SOURCE_ROOT; };
+		653AA27515B76E6C008FA885 /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIDevice+Additions.h"; path = "dwToolbox/UIDevice+Additions.h"; sourceTree = SOURCE_ROOT; };
+		653AA27615B76E6C008FA885 /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIDevice+Additions.m"; path = "dwToolbox/UIDevice+Additions.m"; sourceTree = SOURCE_ROOT; };
+		653AA27715B76E6C008FA885 /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Additions.h"; path = "dwToolbox/UIImage+Additions.h"; sourceTree = SOURCE_ROOT; };
+		653AA27815B76E6C008FA885 /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Additions.m"; path = "dwToolbox/UIImage+Additions.m"; sourceTree = SOURCE_ROOT; };
+		653AA27915B76E6C008FA885 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIView+Additions.h"; path = "dwToolbox/UIView+Additions.h"; sourceTree = SOURCE_ROOT; };
+		653AA27A15B76E6C008FA885 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIView+Additions.m"; path = "dwToolbox/UIView+Additions.m"; sourceTree = SOURCE_ROOT; };
+		653AA28315B76EAB008FA885 /* Log.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = "<group>"; };
 		655E6B2D15A61A2D00F9E6C5 /* libdwToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdwToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		655E6B3415A61A2D00F9E6C5 /* dwToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dwToolbox-Prefix.pch"; sourceTree = "<group>"; };
@@ -41,10 +50,6 @@
 		65CAE95E15AEF3B7000B2FE7 /* TTTAttributedLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTAttributedLabel.m; sourceTree = "<group>"; };
 		65CAE96115AEF3E5000B2FE7 /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Attributes.h"; path = "../../NSAttributedString+Attributes.h"; sourceTree = "<group>"; };
 		65CAE96215AEF3E5000B2FE7 /* NSAttributedString+Attributes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSAttributedString+Attributes.m"; path = "../../NSAttributedString+Attributes.m"; sourceTree = "<group>"; };
-		65CAE98815AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+Additions.h"; sourceTree = "<group>"; };
-		65CAE98915AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+Additions.m"; sourceTree = "<group>"; };
-		65CAE99015AEF4D8000B2FE7 /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
-		65CAE99115AEF4D8000B2FE7 /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		65CAE9A215AEFFA0000B2FE7 /* DWAlertViewBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWAlertViewBackgroundView.h; sourceTree = "<group>"; };
@@ -101,6 +106,7 @@
 				655E6B3515A61A2D00F9E6C5 /* dwToolbox.h */,
 				655E6B3615A61A2D00F9E6C5 /* dwToolbox.m */,
 				655E6B3315A61A2D00F9E6C5 /* Supporting Files */,
+				653AA28315B76EAB008FA885 /* Log.h */,
 			);
 			path = dwToolbox;
 			sourceTree = "<group>";
@@ -147,12 +153,14 @@
 		65CAE98715AEF49D000B2FE7 /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				65CAE99015AEF4D8000B2FE7 /* UIView+Additions.h */,
-				65CAE99115AEF4D8000B2FE7 /* UIView+Additions.m */,
-				65CAE98815AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h */,
-				65CAE98915AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m */,
-				652513E915B6F38000B9F5CF /* UIDevice+Additions.h */,
-				652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */,
+				653AA27315B76E6C008FA885 /* CAKeyframeAnimation+Additions.h */,
+				653AA27415B76E6C008FA885 /* CAKeyframeAnimation+Additions.m */,
+				653AA27515B76E6C008FA885 /* UIDevice+Additions.h */,
+				653AA27615B76E6C008FA885 /* UIDevice+Additions.m */,
+				653AA27715B76E6C008FA885 /* UIImage+Additions.h */,
+				653AA27815B76E6C008FA885 /* UIImage+Additions.m */,
+				653AA27915B76E6C008FA885 /* UIView+Additions.h */,
+				653AA27A15B76E6C008FA885 /* UIView+Additions.m */,
 			);
 			name = Additions;
 			path = ../../Additions;
@@ -167,11 +175,12 @@
 			files = (
 				65CAE95F15AEF3B7000B2FE7 /* TTTAttributedLabel.h in Headers */,
 				65CAE96315AEF3E5000B2FE7 /* NSAttributedString+Attributes.h in Headers */,
-				65CAE98C15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h in Headers */,
-				65CAE99215AEF4D8000B2FE7 /* UIView+Additions.h in Headers */,
 				65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */,
 				65CAE9A415AEFFA0000B2FE7 /* DWAlertViewBackgroundView.h in Headers */,
-				652513EB15B6F38000B9F5CF /* UIDevice+Additions.h in Headers */,
+				653AA27B15B76E6C008FA885 /* CAKeyframeAnimation+Additions.h in Headers */,
+				653AA27D15B76E6C008FA885 /* UIDevice+Additions.h in Headers */,
+				653AA27F15B76E6C008FA885 /* UIImage+Additions.h in Headers */,
+				653AA28115B76E6C008FA885 /* UIView+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -229,10 +238,11 @@
 				65CAE95115AEF273000B2FE7 /* DWAlertView.m in Sources */,
 				65CAE96015AEF3B7000B2FE7 /* TTTAttributedLabel.m in Sources */,
 				65CAE96415AEF3E5000B2FE7 /* NSAttributedString+Attributes.m in Sources */,
-				65CAE98D15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m in Sources */,
-				65CAE99315AEF4D8000B2FE7 /* UIView+Additions.m in Sources */,
 				65CAE9A515AEFFA0000B2FE7 /* DWAlertViewBackgroundView.m in Sources */,
-				652513EC15B6F38000B9F5CF /* UIDevice+Additions.m in Sources */,
+				653AA27C15B76E6C008FA885 /* CAKeyframeAnimation+Additions.m in Sources */,
+				653AA27E15B76E6C008FA885 /* UIDevice+Additions.m in Sources */,
+				653AA28015B76E6C008FA885 /* UIImage+Additions.m in Sources */,
+				653AA28215B76E6C008FA885 /* UIView+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
