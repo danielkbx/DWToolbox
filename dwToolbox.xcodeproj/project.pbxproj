@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		652513EB15B6F38000B9F5CF /* UIDevice+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 652513E915B6F38000B9F5CF /* UIDevice+Additions.h */; };
+		652513EC15B6F38000B9F5CF /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		655E6B3715A61A2D00F9E6C5 /* dwToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 655E6B3615A61A2D00F9E6C5 /* dwToolbox.m */; };
-		65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE94E15AEF273000B2FE7 /* DWAlertView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE94E15AEF273000B2FE7 /* DWAlertView.h */; settings = {ATTRIBUTES = (); }; };
 		65CAE95115AEF273000B2FE7 /* DWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE94F15AEF273000B2FE7 /* DWAlertView.m */; };
 		65CAE95F15AEF3B7000B2FE7 /* TTTAttributedLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 65CAE95D15AEF3B7000B2FE7 /* TTTAttributedLabel.h */; };
 		65CAE96015AEF3B7000B2FE7 /* TTTAttributedLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65CAE95E15AEF3B7000B2FE7 /* TTTAttributedLabel.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
@@ -26,6 +28,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		652513E915B6F38000B9F5CF /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Additions.h"; sourceTree = "<group>"; };
+		652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Additions.m"; sourceTree = "<group>"; };
 		655E6B2D15A61A2D00F9E6C5 /* libdwToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libdwToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		655E6B3415A61A2D00F9E6C5 /* dwToolbox-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "dwToolbox-Prefix.pch"; sourceTree = "<group>"; };
@@ -147,6 +151,8 @@
 				65CAE99115AEF4D8000B2FE7 /* UIView+Additions.m */,
 				65CAE98815AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h */,
 				65CAE98915AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m */,
+				652513E915B6F38000B9F5CF /* UIDevice+Additions.h */,
+				652513EA15B6F38000B9F5CF /* UIDevice+Additions.m */,
 			);
 			name = Additions;
 			path = ../../Additions;
@@ -159,12 +165,13 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */,
 				65CAE95F15AEF3B7000B2FE7 /* TTTAttributedLabel.h in Headers */,
 				65CAE96315AEF3E5000B2FE7 /* NSAttributedString+Attributes.h in Headers */,
 				65CAE98C15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.h in Headers */,
 				65CAE99215AEF4D8000B2FE7 /* UIView+Additions.h in Headers */,
+				65CAE95015AEF273000B2FE7 /* DWAlertView.h in Headers */,
 				65CAE9A415AEFFA0000B2FE7 /* DWAlertViewBackgroundView.h in Headers */,
+				652513EB15B6F38000B9F5CF /* UIDevice+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +232,7 @@
 				65CAE98D15AEF49D000B2FE7 /* CAKeyframeAnimation+Additions.m in Sources */,
 				65CAE99315AEF4D8000B2FE7 /* UIView+Additions.m in Sources */,
 				65CAE9A515AEFFA0000B2FE7 /* DWAlertViewBackgroundView.m in Sources */,
+				652513EC15B6F38000B9F5CF /* UIDevice+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

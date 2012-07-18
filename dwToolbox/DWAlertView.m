@@ -190,7 +190,7 @@ static UIView * coverView;
 		if ([newMessage isKindOfClass:[NSString class]])
 		{
 			self->attributedMessage = [[NSMutableAttributedString alloc] initWithString:newMessage];
-			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:NSLineBreakByWordWrapping];
+			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:UILineBreakModeWordWrap];
 			[self.attributedMessage setTextColor:[UIColor grayColor]];
 			[self.attributedMessage setFont:[UIFont systemFontOfSize:15.0f]];
 			self->message = [newMessage copy];
@@ -397,7 +397,7 @@ static UIView * coverView;
 			titleLabel.textColor = self.titleColor;
 			titleLabel.backgroundColor = [UIColor clearColor];
 			titleLabel.text = self.title;
-			titleLabel.textAlignment = NSTextAlignmentCenter;
+			titleLabel.textAlignment = UITextAlignmentCenter;
 			[contentView addSubview:titleLabel];
 		}
 		
@@ -407,8 +407,8 @@ static UIView * coverView;
 		messageLabel.font = messageFont;
 		messageLabel.backgroundColor = [UIColor clearColor];
 		messageLabel.textColor = [UIColor whiteColor];
-		messageLabel.textAlignment = NSTextAlignmentCenter;
-		messageLabel.lineBreakMode = NSLineBreakByWordWrapping;
+		messageLabel.textAlignment = UITextAlignmentCenter;
+		messageLabel.lineBreakMode = UILineBreakModeWordWrap;
 		messageLabel.numberOfLines = 0;
 
 		messageLabel.text = self.attributedMessage;
