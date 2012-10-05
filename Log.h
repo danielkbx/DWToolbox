@@ -7,7 +7,7 @@
 //
 
 #ifdef DEBUG
-#define DLog(__FORMAT__, ...) NSLog((@"%s:%d " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
+#define DWLog(__FORMAT__, ...) NSLog((@"%s:%d " __FORMAT__), __PRETTY_FUNCTION__, __LINE__, ##__VA_ARGS__)
 #else
-#define DLog(__FORMAT__, ...)
+#define DWLog(__FORMAT__, ...)
 #endif

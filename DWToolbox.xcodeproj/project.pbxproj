@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */; settings = {ATTRIBUTES = (); }; };
+		654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */; };
 		65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */; };
@@ -39,6 +41,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLConnection.h; path = Classes/DWURLConnection.h; sourceTree = SOURCE_ROOT; };
+		654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLConnection.m; path = Classes/DWURLConnection.m; sourceTree = SOURCE_ROOT; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -85,6 +89,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		654525DB161F1F2100EAAEE7 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */,
+				654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */,
+			);
+			name = Helper;
+			sourceTree = "<group>";
+		};
 		655E6B2215A61A2D00F9E6C5 = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +128,7 @@
 		655E6B3215A61A2D00F9E6C5 /* DWToolbox */ = {
 			isa = PBXGroup;
 			children = (
+				654525DB161F1F2100EAAEE7 /* Helper */,
 				65D4CFA1161F18340093076D /* AlertView */,
 				65D4CF8C161F18120093076D /* Additions */,
 				65D4CF86161F17E30093076D /* DWToolbox.h */,
@@ -207,6 +221,7 @@
 				65D4CFA6161F18400093076D /* DWAlertView.h in Headers */,
 				65D4CFA8161F18400093076D /* DWAlertViewBackgroundView.h in Headers */,
 				65D4CFAB161F18540093076D /* DWToolbox-Prefix.pch in Headers */,
+				654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -272,6 +287,7 @@
 				65D4CFA0161F18120093076D /* UIView+Additions.m in Sources */,
 				65D4CFA7161F18400093076D /* DWAlertView.m in Sources */,
 				65D4CFA9161F18400093076D /* DWAlertViewBackgroundView.m in Sources */,
+				654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

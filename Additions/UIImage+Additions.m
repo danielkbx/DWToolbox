@@ -13,6 +13,8 @@
 #import <CommonCrypto/CommonDigest.h>
 #import <QuartzCore/QuartzCore.h>
 
+#import "Log.h"
+
 @implementation UIImage (UIImage_Additions)
 
 - (BOOL)hasAlphaChannel {
@@ -192,7 +194,7 @@
 		NSError *error = nil;
 		[data writeToFile:filename options:NSDataWritingAtomic error:&error];
 		if (error) {
-			DLog(@"Error writing PNG to file %@", filename);
+			DWLog(@"Error writing PNG to file %@", filename);
 			return NO;
 		}
 		return YES;
@@ -207,7 +209,7 @@
 		NSError *error = nil;
 		[data writeToFile:filename options:NSDataWritingAtomic error:&error];
 		if (error) {
-			DLog(@"Error writing PNG to file %@", filename);
+			DWLog(@"Error writing PNG to file %@", filename);
 			return NO;
 		}
 		return YES;
