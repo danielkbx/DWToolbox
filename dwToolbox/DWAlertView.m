@@ -8,7 +8,7 @@
 
 #import "DWAlertView.h"
 #import "CAKeyframeAnimation+Additions.h"
-#import "TTTAttributedLabel.h"
+#import "OHAttributedLabel.h"
 #import <CoreText/CoreText.h>
 #import "NSAttributedString+Attributes.h"
 
@@ -403,7 +403,7 @@ static UIView * coverView;
 		
 		UIFont *messageFont = [UIFont systemFontOfSize:15.0f];
 
-		TTTAttributedLabel *messageLabel = [[TTTAttributedLabel alloc] initWithFrame:CGRectZero];
+		OHAttributedLabel *messageLabel = [[OHAttributedLabel alloc] initWithFrame:CGRectZero];
 		messageLabel.font = messageFont;
 		messageLabel.backgroundColor = [UIColor clearColor];
 		messageLabel.textColor = [UIColor whiteColor];
@@ -411,7 +411,7 @@ static UIView * coverView;
 		messageLabel.lineBreakMode = UILineBreakModeWordWrap;
 		messageLabel.numberOfLines = 0;
 
-		messageLabel.text = self.attributedMessage;
+		messageLabel.attributedText = self.attributedMessage;
 		CGSize messageSize = [messageLabel sizeThatFits:CGSizeMake(contentWidth, 500.0f)];
 		
 		messageLabel.frame = CGRectMake(10.0f,
