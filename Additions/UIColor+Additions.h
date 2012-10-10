@@ -10,6 +10,8 @@
 
 @interface UIColor (Additions)
 
++ (UIColor *)colorFromHexString:(NSString*)hexString;
+
 @property (nonatomic, readonly) CGFloat red;
 @property (nonatomic, readonly) CGFloat green;
 @property (nonatomic, readonly) CGFloat blue;

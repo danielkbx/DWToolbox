@@ -10,7 +10,36 @@
 
 @implementation UIColor (Additions)
 
-
++ (UIColor *)colorFromHexString:(NSString*)hexString
+{
+    
+    if (![hexString hasPrefix:@"#"])
+    {
+        NSAssert(![hexString hasPrefix:@"#"], @"hex color needs # prefix!");
+        return nil;
+    }
+    if ([hexString length] < 7)
+    {
+        NSAssert(([hexString length] < 7), @"hex color needs at least 6 digist plus # prefix!");
+        return nil;
+    }
+    
+    if ([hexString length] == 7)
+    {
+        hexString = [NSString stringWithFormat:@"%@ff",hexString];
+    }
+    
+    
+    // Scan values
+    unsigned int r, g, b, a;
+    [[NSScanner scannerWithString:[[hexString lowercaseString] substringWithRange:NSMakeRange(1, 2)]] scanHexInt:&r];
+    [[NSScanner scannerWithString:[[hexString lowercaseString] substringWithRange:NSMakeRange(3, 2)]] scanHexInt:&g];
+    [[NSScanner scannerWithString:[[hexString lowercaseString] substringWithRange:NSMakeRange(5, 2)]] scanHexInt:&b];
+    [[NSScanner scannerWithString:[[hexString lowercaseString] substringWithRange:NSMakeRange(7, 2)]] scanHexInt:&a];
+	
+    return [UIColor colorWithRed:((float) r / 255.0f)  green:((float) g / 255.0f)  blue:((float) b / 255.0f)  alpha:((float) a / 255.0f)];
+	
+}
 
 - (CGFloat)red
 {
