@@ -11,6 +11,9 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CAKeyframeAnimation+Additions.h"
 
+static UIColor *backgroundColor;
+static UIColor *textColor;
+
 @interface DWActivityItem()
 
 @property (nonatomic, strong, readwrite) NSString *title;
@@ -18,6 +21,10 @@
 
 @property (nonatomic, weak) DWActivityManager *manager;
 @property (nonatomic, strong) UIView *view;
+
+@property (nonatomic, strong) NSTimer *hideTimer;
+
+- (void)itemWillAppear;
 
 @end
 
@@ -33,12 +40,34 @@
 
 @implementation DWActivityItem
 
++ (void)initialize {
+	[self setBackgroundColor:nil];
+	[self setTextColor:nil];
+}
+
++ (void)setBackgroundColor:(UIColor *)color {
+	if (color != nil) {
+		backgroundColor = [color copy];
+	} else {
+		[self setBackgroundColor:[UIColor colorWithWhite:0.0f alpha:0.8f]];
+	}
+}
+
++ (void)setTextColor:(UIColor *)color {
+	if (color != nil) {
+		textColor = [color copy];
+	} else {
+		[self setTextColor:[UIColor whiteColor]];
+	}
+}
+
+
 - (id)initWithType:(DWActivityItemType)type title:(NSString *)title {
 	if ((self = [super init])) {
 		self.type = type;
 		self.title = title;
-		self.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.8f];
-		self.textColor = [UIColor whiteColor];
+		self.backgroundColor = backgroundColor;
+		self.textColor = textColor;
 	}
 	return self;
 }
@@ -53,11 +82,27 @@
 }
 
 - (void)hide {
+	[self.hideTimer invalidate];
+	self.hideTimer = nil;
 	[self.manager removeActivityItem:self];
 }
 
 - (BOOL)isVisible {
 	return (self.manager.visibleActivityItem == self);
+}
+
+- (void)itemWillAppear {
+	if (self.hideTimeout > 0) {
+		self.hideTimer = [NSTimer scheduledTimerWithTimeInterval:self.hideTimeout
+														  target:self
+														selector:@selector(hideTimerFired)
+														userInfo:nil
+														 repeats:NO];
+	}
+}
+
+- (void)hideTimerFired {
+	[self hide];
 }
 
 - (UIView *)view {
@@ -68,7 +113,7 @@
 		
 		UIActivityIndicatorView *activityIndicator = nil;
 		
-		CGSize textSize = [self.title sizeWithFont:textFont forWidth:viewFrame.size.width lineBreakMode:NSLineBreakByWordWrapping];
+		CGSize textSize = [self.title sizeWithFont:textFont constrainedToSize:CGSizeMake(250.0f, 400.0f) lineBreakMode:NSLineBreakByWordWrapping];
 		if (self.type == DWActivityItemTypeTextOnly) {
 
 			if (textSize.width < 100) textSize.width = 100;
@@ -152,6 +197,12 @@
 	return item;
 }
 
+- (DWActivityItem *)addActivityWithTitle:(NSString *)title timeout:(NSTimeInterval)timeout {
+	DWActivityItem *item = [self addActivityWithTitle:title];
+	item.hideTimeout = timeout;
+	return item;
+}
+
 - (DWActivityItem *)addActivityWithTitle:(NSString *)title progress:(float)progress {
 	DWActivityItem *item = [[DWActivityItem alloc] initWithType:DWActivityItemTypeProgress title:title];
 	item.progress = progress;
@@ -196,6 +247,7 @@
 	[item.view.layer addAnimation:bumpInAnimation forKey:@"intro"];
 	item.view.layer.transform = lastTransform;
 	
+	[item itemWillAppear];
 	[rootView addSubview:item.view];
 
 }

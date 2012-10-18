@@ -26,6 +26,11 @@ typedef enum {
 @property (nonatomic, copy) UIColor *backgroundColor;
 @property (nonatomic, copy) UIColor *textColor;
 
+@property (nonatomic, assign) NSTimeInterval hideTimeout;
+
++ (void)setBackgroundColor:(UIColor *)color;
++ (void)setTextColor:(UIColor *)color;
+
 - (id)initWithType:(DWActivityItemType)type title:(NSString *)title;
 - (void)hide;
 
@@ -39,6 +44,7 @@ typedef enum {
 
 - (void)addActivityItem:(DWActivityItem *)item;
 - (DWActivityItem *)addActivityWithTitle:(NSString *)title;
+- (DWActivityItem *)addActivityWithTitle:(NSString *)title timeout:(NSTimeInterval)timeout;
 - (DWActivityItem *)addActivityWithTitle:(NSString *)title progress:(float)progress;
 
 - (void)removeActivityItem:(DWActivityItem *)item;
