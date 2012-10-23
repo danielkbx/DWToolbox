@@ -12,4 +12,6 @@
 
 - (BOOL)isEmailAddress;
 
+- (NSString *)MD5;
+
 @end

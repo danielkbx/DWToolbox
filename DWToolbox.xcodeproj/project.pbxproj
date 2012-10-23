@@ -12,6 +12,8 @@
 		650978C81625D397004A6A04 /* DWActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 650978C61625D397004A6A04 /* DWActivityManager.h */; };
 		650978C91625D397004A6A04 /* DWActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 650978C71625D397004A6A04 /* DWActivityManager.m */; };
 		6529B89F1625A53000A82EC4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6529B89E1625A53000A82EC4 /* CoreText.framework */; };
+		6543530C1636CF4F0042E120 /* DWLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6543530A1636CF4F0042E120 /* DWLabel.h */; };
+		6543530D1636CF4F0042E120 /* DWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6543530B1636CF4F0042E120 /* DWLabel.m */; };
 		654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */; settings = {ATTRIBUTES = (); }; };
 		654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
@@ -51,6 +53,8 @@
 		650978C61625D397004A6A04 /* DWActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWActivityManager.h; path = Classes/DWActivityManager.h; sourceTree = SOURCE_ROOT; };
 		650978C71625D397004A6A04 /* DWActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWActivityManager.m; path = Classes/DWActivityManager.m; sourceTree = SOURCE_ROOT; };
 		6529B89E1625A53000A82EC4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		6543530A1636CF4F0042E120 /* DWLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWLabel.h; sourceTree = SOURCE_ROOT; };
+		6543530B1636CF4F0042E120 /* DWLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWLabel.m; sourceTree = SOURCE_ROOT; };
 		654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLConnection.h; path = Classes/DWURLConnection.h; sourceTree = SOURCE_ROOT; };
 		654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLConnection.m; path = Classes/DWURLConnection.m; sourceTree = SOURCE_ROOT; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 		654525DB161F1F2100EAAEE7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				6543530A1636CF4F0042E120 /* DWLabel.h */,
+				6543530B1636CF4F0042E120 /* DWLabel.m */,
 				650978C61625D397004A6A04 /* DWActivityManager.h */,
 				650978C71625D397004A6A04 /* DWActivityManager.m */,
 				654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */,
@@ -240,6 +246,7 @@
 				654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */,
 				650978BF1625D129004A6A04 /* NSString+Additions.h in Headers */,
 				650978C81625D397004A6A04 /* DWActivityManager.h in Headers */,
+				6543530C1636CF4F0042E120 /* DWLabel.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,6 +315,7 @@
 				654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */,
 				650978C01625D129004A6A04 /* NSString+Additions.m in Sources */,
 				650978C91625D397004A6A04 /* DWActivityManager.m in Sources */,
+				6543530D1636CF4F0042E120 /* DWLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

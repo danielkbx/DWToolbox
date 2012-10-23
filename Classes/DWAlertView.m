@@ -412,6 +412,7 @@ static UIView * coverView;
 		messageLabel.numberOfLines = 0;
 
 		messageLabel.attributedText = self.attributedMessage;
+		[messageLabel performSelector:@selector(recomputeLinksInTextIfNeeded)];
 		CGSize messageSize = [messageLabel sizeThatFits:CGSizeMake(contentWidth, 500.0f)];
 		
 		messageLabel.frame = CGRectMake(10.0f,
@@ -535,7 +536,7 @@ static UIView * coverView;
 				coverView.backgroundColor = [UIColor clearColor];
 				coverView.userInteractionEnabled = YES;
 			}
-			[[UIApplication sharedApplication].keyWindow.rootViewController.view insertSubview:coverView atIndex:0];
+			[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:coverView];
 		}
 		
 		[[self instances] addObject:alertView];
