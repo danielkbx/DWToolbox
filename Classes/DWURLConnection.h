@@ -26,6 +26,8 @@ typedef enum {
 @property (nonatomic, strong) NSString *userAgent;
 
 + (DWURLConnection *)connectionWithURL:(NSURL *)URL;
++ (DWURLConnection *)startConnectionWithURL:(NSURL *)URL completion:(DWURLConnectionCompletionHandler)completion;
+
 - (id)initWithURL:(NSURL *)URL;
 
 #pragma mark - Headers

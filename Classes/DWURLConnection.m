@@ -37,6 +37,12 @@
 	return [[[self class] alloc] initWithURL:URL];
 }
 
++ (DWURLConnection *)startConnectionWithURL:(NSURL *)URL completion:(DWURLConnectionCompletionHandler)completion {
+	DWURLConnection *connection = [self connectionWithURL:URL];
+	[connection startWithCompletionHandler:completion];
+	return connection;
+}
+
 - (void)dealloc {
 	[self cancel];
 }
