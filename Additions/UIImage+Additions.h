@@ -1,6 +1,6 @@
 //
 //  UIImage+Additions.h
-//  DigiDiary
+//  dwToolbox
 //
 //  Created by cme on 5/7/11.
 //  Copyright 2011 danielkbx. All rights reserved.

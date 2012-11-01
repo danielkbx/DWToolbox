@@ -1,6 +1,6 @@
 //
 //  NSString+Additions.m
-//  DWToolbox
+//  dwToolbox
 //
 //  Created by Daniel Wetzel on 10.10.12.
 //

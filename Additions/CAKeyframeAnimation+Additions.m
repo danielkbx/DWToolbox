@@ -1,6 +1,6 @@
 //
 //  CAKeyframeAnimation+Additions.m
-//  The Diary
+//  dwToolbox
 //
 //  Created by Daniel Wetzel on 25.01.12.
 //  Copyright (c) 2012 danielkbx. All rights reserved.

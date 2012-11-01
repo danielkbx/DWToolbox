@@ -11,5 +11,7 @@
 @interface UIDevice (Additions)
 
 - (BOOL)isIPad;
+- (BOOL)hasRetinaDisplay;
+- (BOOL)hasRetina4Display;
 
 @end
