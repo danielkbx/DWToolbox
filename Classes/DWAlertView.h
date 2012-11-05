@@ -60,6 +60,9 @@ typedef enum {
 
 @property (nonatomic, assign) BOOL					dismissAutomatically;
 
++ (void)setScreenBackgroundColor:(UIColor *)color;
++ (UIColor *)screenBackgroundColor;
+
 + (DWAlertView *)alertViewWithTitle:(NSString *)title andMessage:(id)message;
 - (id)initWithTitle:(NSString *)title andMessage:(id)message;
 

@@ -137,6 +137,8 @@ static UIView * coverView;
 
 @end
 
+static UIColor *screenBackgroundColor;
+
 @implementation DWAlertView
 
 @synthesize backgroundViewClass = backgroundViewClass_;
@@ -155,7 +157,21 @@ static UIView * coverView;
 
 @synthesize dismissAutomatically;
 
+#pragma mark Setup
+
++ (void)setScreenBackgroundColor:(UIColor *)color {
+	screenBackgroundColor = [color copy];
+}
+
++ (UIColor *)screenBackgroundColor {
+	return screenBackgroundColor;
+}
+
 #pragma mark - Creation & Lifecycle
+
++ (void)initialize {
+	[self setScreenBackgroundColor:[UIColor clearColor]];
+}
 
 + (DWAlertView *)alertViewWithTitle:(NSString *)title andMessage:(id)message
 {
@@ -533,7 +549,7 @@ static UIView * coverView;
 			{
 				coverView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
 				coverView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-				coverView.backgroundColor = [UIColor clearColor];
+				coverView.backgroundColor = [[self class] screenBackgroundColor];
 				coverView.userInteractionEnabled = YES;
 			}
 			[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:coverView];
@@ -567,7 +583,14 @@ static UIView * coverView;
 		[[self instances] removeObject:alertView];
 		
 		if ([self instances].count == 0) {
-			[coverView removeFromSuperview];
+			[UIView animateWithDuration:0.2f
+							 animations:^{
+								 coverView.alpha = 0.0f;
+							 }
+							 completion:^(BOOL finished) {
+								[coverView removeFromSuperview];
+								 coverView.alpha = 1.0f;
+							 }];
 		}
 	}];		
 	

@@ -10,9 +10,8 @@
 
 @implementation UIColor (Additions)
 
-+ (UIColor *)colorFromHexString:(NSString*)hexString
-{
-    
++ (UIColor *)colorFromHexString:(NSString*)hexString {
+
     if (![hexString hasPrefix:@"#"])
     {
         NSAssert(![hexString hasPrefix:@"#"], @"hex color needs # prefix!");
@@ -41,8 +40,7 @@
 	
 }
 
-- (CGFloat)red
-{
+- (CGFloat)red {
 	if (CGColorGetNumberOfComponents(self.CGColor))
 	{
 		return CGColorGetComponents(self.CGColor)[0];
@@ -50,8 +48,7 @@
 	return 0.0f;
 }
 
-- (CGFloat)green
-{
+- (CGFloat)green {
 	if (CGColorGetNumberOfComponents(self.CGColor))
 	{
 		return CGColorGetComponents(self.CGColor)[1];
@@ -59,8 +56,7 @@
 	return 0.0f;
 }
 
-- (CGFloat)blue
-{
+- (CGFloat)blue {
 	if (CGColorGetNumberOfComponents(self.CGColor))
 	{
 		return CGColorGetComponents(self.CGColor)[2];
@@ -68,8 +64,7 @@
 	return 0.0f;
 }
 
-- (CGFloat)alpha
-{
+- (CGFloat)alpha {
 	if (CGColorGetNumberOfComponents(self.CGColor))
 	{
 		return CGColorGetComponents(self.CGColor)[3];
@@ -77,10 +72,14 @@
 	return 0.0f;
 }
 
-- (UIColor *)lighterColor
-{
-	CGFloat lighterNumber = 0.2f;
-	
+
+
+- (UIColor *)lighterColor {
+	return [self colorByLightenWithValue:0.2f];
+}
+
+- (UIColor *)colorByLightenWithValue:(float)value {
+	CGFloat lighterNumber = value;
 	CGFloat red = self.red;
 	CGFloat green = self.green;
 	CGFloat blue = self.blue;
@@ -93,21 +92,12 @@
 						   alpha:self.alpha];
 }
 
-- (UIColor *)darkerColor
-{
-	CGFloat darkerNumber = 0.2f;
-	
-	CGFloat red = self.red;
-	CGFloat green = self.green;
-	CGFloat blue = self.blue;
-	red = MAX(0.0f,red - darkerNumber);
-	green = MAX(0.0f,green - darkerNumber);
-	blue = MAX(0.0f, blue - darkerNumber);
-	return [UIColor colorWithRed:red
-						   green:green
-							blue:blue
-						   alpha:self.alpha];
-	
+- (UIColor *)darkerColor {
+	return [self colorByDarkenWithValue:0.2f];
+}
+
+- (UIColor *)colorByDarkenWithValue:(float)value {
+	return [self colorByLightenWithValue:value * -1.0f];
 }
 
 @end

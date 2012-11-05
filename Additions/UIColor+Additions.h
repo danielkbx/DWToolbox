@@ -20,4 +20,7 @@
 @property (nonatomic, readonly) UIColor *lighterColor;
 @property (nonatomic, readonly) UIColor *darkerColor;
 
+- (UIColor *)colorByDarkenWithValue:(float)value;
+- (UIColor *)colorByLightenWithValue:(float)value;
+
 @end
