@@ -14,10 +14,10 @@
 - (BOOL)hasAlphaChannel;
 
 - (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize;
-//- (UIImage *)imageScaledToSize:(CGSize)targetSize;
+- (UIImage *)imageScaledToSize:(CGSize)targetSize;
 
 - (UIImage *)imageByScalingToWidth:(float)width;
-//- (UIImage *)imageByScalingToHeight:(float)height;
+- (UIImage *)imageByScalingToHeight:(float)height;
 
 - (UIImage *)imageByCenteredScalingToSize:(CGSize)size;
 
@@ -26,13 +26,13 @@
 - (UIImage *)imageByCropingWithFrame:(CGRect)cropFrame;
 
 - (UIImage *)imageByRotatingByDegrees:(CGFloat)degrees;
-//
-//- (UIImage *)imageByFlipingHorizontally;
+
+- (UIImage *)imageByFlipingHorizontally;
 - (UIImage *)imageByFlipingVertically;
-//
-//- (CGSize)sizeWhenScalingToWidth:(float)width;
-//- (CGSize)sizeWhenScalingToHeight:(float)height;
-//
+
+- (CGSize)sizeWithWidth:(float)width;
+- (CGSize)sizeWithHeight:(float)height;
+
 - (BOOL)writeAsPNGToFile:(NSString *)filename;
 - (BOOL)writeAsJPEGToFile:(NSString *)filename quality:(CGFloat)quality;
 

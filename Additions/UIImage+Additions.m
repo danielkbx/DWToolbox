@@ -125,11 +125,11 @@
 	return newImage;
 }
 
-- (CGSize)sizeWhenScalingToWidth:(float)width {
+- (CGSize)sizeWithWidth:(float)width {
 	return CGSizeMake(width, self.size.height * width / self.size.width);
 }
 
-- (CGSize)sizeWhenScalingToHeight:(float)height {
+- (CGSize)sizeWithHeight:(float)height {
 	return CGSizeMake(self.size.width * height / self.size.height, height);
 }
 
@@ -166,8 +166,8 @@
 }
 
 - (UIImage *)imageMatchingWidthOrHeightOfSize:(CGSize)size {
-	CGSize size1 = [self sizeWhenScalingToWidth:size.width];
-	CGSize size2 = [self sizeWhenScalingToHeight:size.height];
+	CGSize size1 = [self sizeWithWidth:size.width];
+	CGSize size2 = [self sizeWithHeight:size.height];
 	
 	CGFloat area1 = size1.width * size1.height;
 	CGFloat area2 = size2.width * size2.height;
