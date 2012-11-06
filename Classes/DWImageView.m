@@ -12,9 +12,7 @@
 
 static UIImage *staticDefaultImage;
 
-@interface DWImageView () {
-	
-}
+@interface DWImageView ()
 
 @property (nonatomic, strong) DWURLDownload *download;
 
@@ -95,5 +93,6 @@ static UIImage *staticDefaultImage;
 	
 	[super setImage:effectiveImage];
 }
+
 
 @end

@@ -14,6 +14,8 @@
 		650B799D163D4D2000EDC8CB /* DWURLDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = 650B799B163D4D2000EDC8CB /* DWURLDownload.h */; };
 		650B799E163D4D2000EDC8CB /* DWURLDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 650B799C163D4D2000EDC8CB /* DWURLDownload.m */; };
 		6529B89F1625A53000A82EC4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6529B89E1625A53000A82EC4 /* CoreText.framework */; };
+		65359202164826A70002FB40 /* DWBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = 65359200164826A70002FB40 /* DWBadge.h */; };
+		65359203164826A70002FB40 /* DWBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 65359201164826A70002FB40 /* DWBadge.m */; };
 		654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */; settings = {ATTRIBUTES = (); }; };
 		654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
@@ -59,6 +61,8 @@
 		650B799B163D4D2000EDC8CB /* DWURLDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLDownload.h; path = Classes/DWURLDownload.h; sourceTree = SOURCE_ROOT; };
 		650B799C163D4D2000EDC8CB /* DWURLDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLDownload.m; path = Classes/DWURLDownload.m; sourceTree = SOURCE_ROOT; };
 		6529B89E1625A53000A82EC4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
+		65359200164826A70002FB40 /* DWBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWBadge.h; path = Classes/DWBadge.h; sourceTree = SOURCE_ROOT; };
+		65359201164826A70002FB40 /* DWBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWBadge.m; path = Classes/DWBadge.m; sourceTree = SOURCE_ROOT; };
 		654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLConnection.h; path = Classes/DWURLConnection.h; sourceTree = SOURCE_ROOT; };
 		654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLConnection.m; path = Classes/DWURLConnection.m; sourceTree = SOURCE_ROOT; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -238,6 +242,8 @@
 				65D991E21647BF4000B7CBAC /* DWLabel.m */,
 				65D991DC1647BF1F00B7CBAC /* DWImageView.h */,
 				65D991DD1647BF1F00B7CBAC /* DWImageView.m */,
+				65359200164826A70002FB40 /* DWBadge.h */,
+				65359201164826A70002FB40 /* DWBadge.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -269,6 +275,7 @@
 				650B799D163D4D2000EDC8CB /* DWURLDownload.h in Headers */,
 				65D991DE1647BF1F00B7CBAC /* DWImageView.h in Headers */,
 				65D991E31647BF4000B7CBAC /* DWLabel.h in Headers */,
+				65359202164826A70002FB40 /* DWBadge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -340,6 +347,7 @@
 				650B799E163D4D2000EDC8CB /* DWURLDownload.m in Sources */,
 				65D991DF1647BF1F00B7CBAC /* DWImageView.m in Sources */,
 				65D991E41647BF4000B7CBAC /* DWLabel.m in Sources */,
+				65359203164826A70002FB40 /* DWBadge.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
