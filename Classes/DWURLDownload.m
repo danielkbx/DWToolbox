@@ -58,10 +58,10 @@ static NSTimeInterval cacheLifetime;
 }
 
 + (NSURL *)cacheDirectory {
-	NSArray *libraryDirs = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
+	NSArray *libraryDirs = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
 	if (libraryDirs.count > 0) {
 		NSURL *libraryURL = [NSURL fileURLWithPath:[libraryDirs objectAtIndex:0] isDirectory:YES];
-		libraryURL = [libraryURL URLByAppendingPathComponent:@"DownloadCache" isDirectory:YES];
+		libraryURL = [libraryURL URLByAppendingPathComponent:@"Downloads" isDirectory:YES];
 		BOOL isDir = NO;
 		if (![[NSFileManager defaultManager] fileExistsAtPath:libraryURL.path isDirectory:&isDir] || isDir == NO) {
 			[[NSFileManager defaultManager] createDirectoryAtURL:libraryURL
