@@ -327,4 +327,67 @@
 	
 }
 
+/** 
+	Taken from http://forrst.com/posts/Easily_loading_images_from_other_bundles_with_UI-BBF 
+	Thanks!!!
+ */
+
++ (UIImage *)imageNamed:(NSString *)name bundle:(NSBundle *)bundle
+{
+	if (bundle == nil) {
+		// Use main bundle
+		bundle = [NSBundle mainBundle];
+	}
+	
+	// Split into extension and name
+	NSString *extension = [name pathExtension];
+	NSAssert1(extension != nil, @"Invalid image name %@", name);
+	name = [name stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@".%@", extension]
+										   withString:@""
+											  options:NSBackwardsSearch | NSAnchoredSearch
+												range:NSMakeRange(0, [name length])];
+	
+	// Get scale
+	UIScreen *screen = [UIScreen mainScreen];
+	CGFloat scale = 1.0f;
+	if ([screen respondsToSelector:@selector(scale)]) {
+		scale = screen.scale;
+	}
+	
+	// Transform into int
+	NSUInteger intScale = (NSUInteger)round(scale);
+	
+	// Generate modified
+	NSString *modifier = @"";
+	if (intScale != 1) {
+		modifier = [NSString stringWithFormat:@"@%dx", intScale];
+	}
+	
+	// Generate resolution dependent name
+	NSString *resolutionDependentName = [NSString stringWithFormat:@"%@%@", name, modifier];
+	
+	// Search for resolution dependent file in bundle
+	NSString *path = [bundle pathForResource:resolutionDependentName ofType:extension];
+	if (path == nil) {
+		// Not found, try to find standard res file
+		path = [bundle pathForResource:name ofType:extension];
+	}
+	
+	
+	if (path == nil) {
+		
+		if (extension.length == 0) {
+			// Still not work, we try again with a .png extension
+			return [UIImage imageNamed:[NSString stringWithFormat:@"%@.png",name] bundle:bundle];
+		} else {
+		
+			// Still not found, return nil
+			return nil;
+		}
+	} else {
+		// Load and return image
+		return [UIImage imageWithContentsOfFile:path];
+	}
+}
+
 @end

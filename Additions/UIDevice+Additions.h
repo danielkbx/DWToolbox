@@ -14,4 +14,14 @@
 - (BOOL)hasRetinaDisplay;
 - (BOOL)hasRetina4Display;
 
+- (BOOL)isIOS5OrLater;
+- (BOOL)supportsViewContainer;
+
+- (void)addNetworkActivity;
+- (void)removeNetworkActivity;
+
+- (NSString *)MACAddress;
+- (NSString *)uniqueDeviceIdentifier;
+- (NSString *)uniqueGlobalDeviceIdentifier;
+
 @end

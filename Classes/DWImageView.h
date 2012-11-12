@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DWImageViewDelegate;
+
 @interface DWImageView : UIImageView
 
 typedef enum {
@@ -20,9 +22,18 @@ typedef enum {
 @property (nonatomic, assign) DWImageViewURLChangeBehaviorType URLChangeBehavior;
 @property (nonatomic, strong) UIImage *defaultImage;		// is displayed when no image or URL is assigned
 
+@property (nonatomic, weak) id <DWImageViewDelegate> delegate;
+
 + (void)setDefaultImage:(UIImage *)defaultImage;
 + (UIImage *)defaultImage;
 
 - (id)initWithURL:(NSURL *)URL;
+
+@end
+
+@protocol  DWImageViewDelegate <NSObject>
+@optional
+
+- (void)imageViewDidLoadRemoteImage:(DWImageView *)imageView;
 
 @end

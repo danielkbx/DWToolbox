@@ -73,8 +73,8 @@ static UIImage *staticDefaultImage;
 					UIImage *image = [UIImage imageWithData:receivedData];
 					if (image) {
 						self.image = image;
-						if (CGSizeEqualToSize(self.frame.size, CGSizeZero)) {
-							self.frame = (CGRect){self.frame.origin,self.image.size};
+						if ([self.delegate respondsToSelector:@selector(imageViewDidLoadRemoteImage:)]) {
+							[self.delegate imageViewDidLoadRemoteImage:self];
 						}
 					}
 				}

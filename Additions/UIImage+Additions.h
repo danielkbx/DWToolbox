@@ -11,6 +11,8 @@
 
 @interface UIImage (UIImage_Additions)
 
++ (UIImage *)imageNamed:(NSString *)name bundle:(NSBundle *)bundle;
+
 - (BOOL)hasAlphaChannel;
 
 - (UIImage *)imageByScalingAndCroppingForSize:(CGSize)targetSize;
@@ -41,5 +43,7 @@
 - (NSData *)data;
 
 - (UIImage*)imageFittingForOrientation:(UIInterfaceOrientation)orientation;
+
+
 
 @end
