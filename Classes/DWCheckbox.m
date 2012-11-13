@@ -9,6 +9,9 @@
 #import "DWCheckbox.h"
 
 #import "UIImage+Additions.h"
+#import "NSBundle+DWToolbox.h"
+
+#define kDWCheckboxSize CGSizeMake(32.0f,40.0f)
 
 @interface DWCheckbox ()
 
@@ -20,7 +23,7 @@
 
 - (id)initWithFrame:(CGRect)frame
 {
-    self = [super initWithFrame:frame];
+    self = [super initWithFrame:(CGRect){frame.origin,kDWCheckboxSize}];
     if (self) {
 		[self prepareControl];
     }
@@ -59,7 +62,6 @@
 		[self setImage:image2 forState:UIControlStateSelected];
 	}
 
-	//self.button.selected = YES;
 }
 
 - (void)setImage:(UIImage *)image forState:(UIControlState)state {
@@ -83,6 +85,10 @@
 - (void)setEnabled:(BOOL)enabled {
 	[super setEnabled:enabled];
 	self.button.enabled = enabled;
+}
+
+- (CGSize)sizeThatFits:(CGSize)size {
+	return kDWCheckboxSize;
 }
 
 @end

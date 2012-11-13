@@ -13,6 +13,7 @@
 - (id)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.verticalAlignment = DWLabelVerticalAlignmentMiddle;
+		self.verticalContentOffset = 0.0f;
     }
     return self;
 }
@@ -28,16 +29,18 @@
 - (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
     CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
 
+	CGFloat verticalOffset = (textRect.size.height < (self.bounds.size.height + self.verticalContentOffset)) ? self.verticalContentOffset : 0.0f;
+	
     switch (self.verticalAlignment) {
         case DWLabelVerticalAlignmentTop:
-            textRect.origin.y = bounds.origin.y;
+            textRect.origin.y = bounds.origin.y + verticalOffset;
             break;
         case DWLabelVerticalAlignmentBottom:
-            textRect.origin.y = bounds.origin.y + bounds.size.height - textRect.size.height;
+            textRect.origin.y = bounds.origin.y + bounds.size.height - textRect.size.height + verticalOffset;
             break;
         case DWLabelVerticalAlignmentMiddle:
         default:
-            textRect.origin.y = bounds.origin.y + (bounds.size.height - textRect.size.height) / 2.0;
+            textRect.origin.y = bounds.origin.y + (bounds.size.height - textRect.size.height) / 2.0 + verticalOffset;
 			break;
     }
     return textRect;

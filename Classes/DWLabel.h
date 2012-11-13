@@ -17,5 +17,6 @@ typedef enum {
 @interface DWLabel : UILabel
 
 @property (nonatomic, assign) DWLabelVerticalAlignment verticalAlignment;
+@property (nonatomic, assign) CGFloat verticalContentOffset;
 
 @end
