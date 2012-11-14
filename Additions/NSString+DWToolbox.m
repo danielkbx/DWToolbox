@@ -6,11 +6,11 @@
 //
 //
 
-#import "NSString+Additions.h"
+#import "NSString+DWToolbox.h"
 
 #import <CommonCrypto/CommonCrypto.h>
 
-@implementation NSString (Additions)
+@implementation NSString (DWToolbox)
 
 - (BOOL)isEmailAddress {
 	
@@ -34,6 +34,12 @@
 	}
 	
 	return [NSString stringWithString:MD5String];
+}
+
+#pragma mark - DWURLConnection
+
+- (NSString *)POSTValueRepresentation {
+	return self;
 }
 
 @end

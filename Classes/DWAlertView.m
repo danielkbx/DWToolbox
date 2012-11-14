@@ -111,6 +111,7 @@
 
 static NSMutableArray * DWAlertViewInstances;
 static UIView * coverView;
+static DWAlertView *currentAlertView;
 
 @interface DWAlertView() {
 	BOOL			didInvokeAction_;
@@ -552,21 +553,30 @@ static UIColor *screenBackgroundColor;
 				coverView.backgroundColor = [[self class] screenBackgroundColor];
 				coverView.userInteractionEnabled = YES;
 			}
-			[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:coverView];
 		}
 		
 		[[self instances] addObject:alertView];
-				
-		UIView *alertViewView = alertView.view;
+		[self showNextAlertView];
+	}
+}
+
++ (void)showNextAlertView {
+	
+	if (currentAlertView == nil && [self instances].count > 0) {
+		
+		currentAlertView = [[self instances] objectAtIndex:0];
+		
+		[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:coverView];
+		
+		UIView *alertViewView = currentAlertView.view;
 		alertViewView.layer.shouldRasterize = NO;
 		alertViewView.center = CGPointMake(roundf(coverView.bounds.size.width / 2.0f), roundf(coverView.bounds.size.height / 2.0f));
 		[coverView addSubview:alertViewView];
-	
+		
 		CATransform3D endTransform;
 		CAKeyframeAnimation *bumpInAnimation = [CAKeyframeAnimation bumpInAnimation:&endTransform];
 		[alertViewView.layer addAnimation:bumpInAnimation forKey:@"transform"];
 		alertViewView.layer.transform = endTransform;
-
 	}
 }
 
@@ -581,6 +591,7 @@ static UIColor *screenBackgroundColor;
 		
 		[alertView.view removeFromSuperview];
 		[[self instances] removeObject:alertView];
+		currentAlertView = nil;
 		
 		if ([self instances].count == 0) {
 			[UIView animateWithDuration:0.2f
@@ -591,6 +602,8 @@ static UIColor *screenBackgroundColor;
 								[coverView removeFromSuperview];
 								 coverView.alpha = 1.0f;
 							 }];
+		} else {
+			[self showNextAlertView];
 		}
 	}];		
 	

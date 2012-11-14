@@ -8,6 +8,9 @@
 
 #import "DWURLConnection.h"
 
+#import "NSObject+DWToolbox.h"
+#import "DWUploadField.h"
+
 @interface DWURLConnection() <NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong, readwrite) NSURL *URL;
@@ -20,6 +23,9 @@
 @property (nonatomic, assign) NSUInteger responseStatusCode;
 @property (nonatomic, strong) NSMutableData *receivedData;
 @property (nonatomic, strong) NSDictionary *receivedHeaders;
+
+@property (nonatomic, strong) NSMutableArray *uploadFields;
+@property (nonatomic, strong) NSMutableData *postData;
 
 @end
 
@@ -87,6 +93,69 @@
 	}
 }
 
+#pragma mark - Post Data
+
+- (void)addUploadField:(DWUploadField *)field {
+	if (field) {
+		
+		self.method = DWURLConnectionFormPOSTMethod;
+		self.postData = nil;
+		
+		if (self.uploadFields == nil) {
+			self.uploadFields = [[NSMutableArray alloc] init];
+		}
+		
+		[self.uploadFields addObject:field];
+		
+	}
+}
+
+- (void)removeUploadField:(DWUploadField *)field {
+	if (field) {
+		[self.uploadFields removeObject:field];
+		
+		if (self.uploadFields.count == 0) {
+			self.uploadFields = nil;
+		}
+	}
+}
+
+- (DWUploadField *)addUploadValue:(NSString *)value forKey:(NSString *)key {
+	assert(value);
+	assert(key);
+	
+	DWUploadField *field = [[DWUploadField alloc] initWithIdentifier:key stringValue:value];
+	if (field) {
+		[self addUploadField:field];
+	}
+	return field;
+}
+
+- (DWUploadField *)addUploadImage:(UIImage *)image forKey:(NSString *)key filename:(NSString *)filename {
+	assert(image);
+	assert(key);
+	
+	DWUploadField *field = [[DWUploadField alloc] initWithIdentifier:key image:image filename:filename];
+	if (field) {
+		[self addUploadField:field];
+	}
+	return field;
+}
+
+- (void)appendPostData:(NSData *)postData {
+	assert(postData);
+	
+	self.method = DWURLConnectionPOSTMethod;
+	
+	if (self.postData == nil) {
+		self.postData = [[NSMutableData alloc] init];
+	}
+	[self.postData appendData:postData];
+	
+	self.uploadFields = nil;
+	
+}
+
 #pragma mark - Action
 
 - (void)startWithCompletionHandler:(DWURLConnectionCompletionHandler)completion {
@@ -97,11 +166,64 @@
 			
 			if (self.URL) {
 				NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.URL];
-				
+								
 				[request addValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
 				
 				for (NSString *headerKey in self.requestHeaders) {
 					[request addValue:[self.requestHeaders valueForKey:headerKey] forHTTPHeaderField:headerKey];
+				}
+				
+				if (self.method == DWURLConnectionPOSTMethod) {
+					
+					[request setHTTPMethod:@"POST"];
+					[request setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+					[request setHTTPBody:self.postData];
+					
+				} else  if (self.method == DWURLConnectionFormPOSTMethod) {
+					
+					NSString *boundary = [NSString stringWithFormat:@"DWURLConnectionFormBoundary-%@", [[NSUUID UUID] UUIDString]];
+					NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@",boundary];
+					
+					[request setHTTPMethod:@"POST"];
+					[request setValue:contentType forHTTPHeaderField:@"Content-Type"];
+					if (self.postData.length > 0) {
+						[request setHTTPBody:self.postData];
+					} else {
+						
+						NSMutableData *postData = [NSMutableData data];
+						
+						for (NSUInteger i = 0; i < self.uploadFields.count; i++) {
+						
+							DWUploadField *field = [self.uploadFields objectAtIndex:i];
+							
+							if (i > 0) {
+								[postData appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
+							}
+							[postData appendData:[[NSString stringWithFormat:@"--%@\n",boundary] dataUsingEncoding:NSUTF8StringEncoding]];
+														
+							NSString *disposition = field.contentDisposition;
+							NSString *contentType = field.contentType;
+							if (disposition && contentType.length > 0) {
+								
+								disposition = [NSString stringWithFormat:@"Content-Disposition: %@\n", disposition];
+								[postData appendData:[disposition dataUsingEncoding:NSUTF8StringEncoding]];
+								
+								if (![contentType isEqualToString:@"text/plain"]) {
+									contentType = [NSString stringWithFormat:@"Content-Type: %@\n",contentType];
+									[postData appendData:[contentType dataUsingEncoding:NSUTF8StringEncoding]];
+									
+								}
+								[postData appendData:[@"\n" dataUsingEncoding:NSUTF8StringEncoding]];
+								[postData appendData:field.dataValue];
+							}
+						}
+						
+						NSString *footer = [NSString stringWithFormat:@"\n--%@--",boundary];
+						[postData appendData:[footer dataUsingEncoding:NSUTF8StringEncoding]];
+						
+						[request setHTTPBody:postData];
+					}
+					
 				}
 				
 				self.connection = [[NSURLConnection alloc] initWithRequest:request delegate:self];

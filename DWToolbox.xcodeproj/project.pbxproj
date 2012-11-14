@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		650978BF1625D129004A6A04 /* NSString+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 650978BD1625D129004A6A04 /* NSString+Additions.h */; };
-		650978C01625D129004A6A04 /* NSString+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 650978BE1625D129004A6A04 /* NSString+Additions.m */; };
+		650978BF1625D129004A6A04 /* NSString+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 650978BD1625D129004A6A04 /* NSString+DWToolbox.h */; };
+		650978C01625D129004A6A04 /* NSString+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 650978BE1625D129004A6A04 /* NSString+DWToolbox.m */; };
 		650978C81625D397004A6A04 /* DWActivityManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 650978C61625D397004A6A04 /* DWActivityManager.h */; };
 		650978C91625D397004A6A04 /* DWActivityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 650978C71625D397004A6A04 /* DWActivityManager.m */; };
 		650B799D163D4D2000EDC8CB /* DWURLDownload.h in Headers */ = {isa = PBXBuildFile; fileRef = 650B799B163D4D2000EDC8CB /* DWURLDownload.h */; };
@@ -22,6 +22,8 @@
 		6536BDDF164955D1001A005C /* DWCountdownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536BDDD164955D1001A005C /* DWCountdownLabel.m */; };
 		654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */; settings = {ATTRIBUTES = (); }; };
 		654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */; };
+		654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 654C6D971653A257009816C7 /* NSObject+DWToolbox.h */; };
+		654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 654C6D981653A257009816C7 /* NSObject+DWToolbox.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWCheckbox.h */; };
 		656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWCheckbox.m */; };
@@ -33,6 +35,8 @@
 		656FDB641651659F0073A6F8 /* checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB631651659F0073A6F8 /* checkbox_selected@2x.png */; };
 		656FDB6716516ACF0073A6F8 /* checkbox_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB6516516ACF0073A6F8 /* checkbox_selected.png */; };
 		656FDB6816516ACF0073A6F8 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB6616516ACF0073A6F8 /* checkbox.png */; };
+		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
+		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
 		65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */; };
 		65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */; };
 		65D4CF5E161F15110093076D /* NSAttributedString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF58161F15110093076D /* NSAttributedString+Attributes.h */; };
@@ -70,8 +74,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		650978BD1625D129004A6A04 /* NSString+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Additions.h"; sourceTree = "<group>"; };
-		650978BE1625D129004A6A04 /* NSString+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Additions.m"; sourceTree = "<group>"; };
+		650978BD1625D129004A6A04 /* NSString+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DWToolbox.h"; sourceTree = "<group>"; };
+		650978BE1625D129004A6A04 /* NSString+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DWToolbox.m"; sourceTree = "<group>"; };
 		650978C61625D397004A6A04 /* DWActivityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWActivityManager.h; path = Classes/DWActivityManager.h; sourceTree = SOURCE_ROOT; };
 		650978C71625D397004A6A04 /* DWActivityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWActivityManager.m; path = Classes/DWActivityManager.m; sourceTree = SOURCE_ROOT; };
 		650B799B163D4D2000EDC8CB /* DWURLDownload.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLDownload.h; path = Classes/DWURLDownload.h; sourceTree = SOURCE_ROOT; };
@@ -85,6 +89,8 @@
 		6536BDDD164955D1001A005C /* DWCountdownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCountdownLabel.m; path = Classes/DWCountdownLabel.m; sourceTree = SOURCE_ROOT; };
 		654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLConnection.h; path = Classes/DWURLConnection.h; sourceTree = SOURCE_ROOT; };
 		654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLConnection.m; path = Classes/DWURLConnection.m; sourceTree = SOURCE_ROOT; };
+		654C6D971653A257009816C7 /* NSObject+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DWToolbox.h"; sourceTree = "<group>"; };
+		654C6D981653A257009816C7 /* NSObject+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DWToolbox.m"; sourceTree = "<group>"; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		656FDB3F165159CF0073A6F8 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
@@ -100,6 +106,8 @@
 		656FDB631651659F0073A6F8 /* checkbox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_selected@2x.png"; sourceTree = "<group>"; };
 		656FDB6516516ACF0073A6F8 /* checkbox_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_selected.png; sourceTree = "<group>"; };
 		656FDB6616516ACF0073A6F8 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		657E61391653BF7F003411F7 /* DWUploadField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWUploadField.h; path = Classes/DWUploadField.h; sourceTree = SOURCE_ROOT; };
+		657E613A1653BF7F003411F7 /* DWUploadField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWUploadField.m; path = Classes/DWUploadField.m; sourceTree = SOURCE_ROOT; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		65D4CF58161F15110093076D /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Attributes.h"; path = "ThirdParty/OHAttributedLabel/OHAttributedLabel/Source/NSAttributedString+Attributes.h"; sourceTree = SOURCE_ROOT; };
@@ -169,13 +177,10 @@
 		654525DB161F1F2100EAAEE7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				657E61371653BBD7003411F7 /* Network */,
 				65DCF3D61652737200C18CEE /* InputController */,
 				650978C61625D397004A6A04 /* DWActivityManager.h */,
 				650978C71625D397004A6A04 /* DWActivityManager.m */,
-				654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */,
-				654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */,
-				650B799B163D4D2000EDC8CB /* DWURLDownload.h */,
-				650B799C163D4D2000EDC8CB /* DWURLDownload.m */,
 			);
 			name = Helper;
 			sourceTree = "<group>";
@@ -266,6 +271,19 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		657E61371653BBD7003411F7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */,
+				654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */,
+				650B799B163D4D2000EDC8CB /* DWURLDownload.h */,
+				650B799C163D4D2000EDC8CB /* DWURLDownload.m */,
+				657E61391653BF7F003411F7 /* DWUploadField.h */,
+				657E613A1653BF7F003411F7 /* DWUploadField.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
 		65CAE95B15AEF3A5000B2FE7 /* External */ = {
 			isa = PBXGroup;
 			children = (
@@ -302,10 +320,12 @@
 				65D4CF94161F18120093076D /* UIImage+Additions.m */,
 				65D4CF95161F18120093076D /* UIView+Additions.h */,
 				65D4CF96161F18120093076D /* UIView+Additions.m */,
-				650978BD1625D129004A6A04 /* NSString+Additions.h */,
-				650978BE1625D129004A6A04 /* NSString+Additions.m */,
+				650978BD1625D129004A6A04 /* NSString+DWToolbox.h */,
+				650978BE1625D129004A6A04 /* NSString+DWToolbox.m */,
 				656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */,
 				656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */,
+				654C6D971653A257009816C7 /* NSObject+DWToolbox.h */,
+				654C6D981653A257009816C7 /* NSObject+DWToolbox.m */,
 			);
 			path = Additions;
 			sourceTree = SOURCE_ROOT;
@@ -372,7 +392,7 @@
 				65D4CFA8161F18400093076D /* DWAlertViewBackgroundView.h in Headers */,
 				65D4CFAB161F18540093076D /* DWToolbox-Prefix.pch in Headers */,
 				654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */,
-				650978BF1625D129004A6A04 /* NSString+Additions.h in Headers */,
+				650978BF1625D129004A6A04 /* NSString+DWToolbox.h in Headers */,
 				650978C81625D397004A6A04 /* DWActivityManager.h in Headers */,
 				650B799D163D4D2000EDC8CB /* DWURLDownload.h in Headers */,
 				65D991DE1647BF1F00B7CBAC /* DWImageView.h in Headers */,
@@ -383,6 +403,8 @@
 				656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */,
 				656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */,
 				65DCF3DE165273C300C18CEE /* DWInputTableViewController.h in Headers */,
+				654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */,
+				657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -482,7 +504,7 @@
 				65D4CFA7161F18400093076D /* DWAlertView.m in Sources */,
 				65D4CFA9161F18400093076D /* DWAlertViewBackgroundView.m in Sources */,
 				654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */,
-				650978C01625D129004A6A04 /* NSString+Additions.m in Sources */,
+				650978C01625D129004A6A04 /* NSString+DWToolbox.m in Sources */,
 				650978C91625D397004A6A04 /* DWActivityManager.m in Sources */,
 				650B799E163D4D2000EDC8CB /* DWURLDownload.m in Sources */,
 				65D991DF1647BF1F00B7CBAC /* DWImageView.m in Sources */,
@@ -493,6 +515,8 @@
 				656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */,
 				656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */,
 				65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */,
+				654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */,
+				657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

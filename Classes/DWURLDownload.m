@@ -9,7 +9,7 @@
 #import "DWURLDownload.h"
 
 #import "DWURLConnection.h"
-#import "NSString+Additions.h"
+#import "NSString+DWToolbox.h"
 
 #define kDWURLDownloadDefaultCacheLifetime 60*60*24*7 // one week
 

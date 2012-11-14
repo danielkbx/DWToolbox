@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (Additions)
+@interface NSString (DWToolbox)
 
 - (BOOL)isEmailAddress;
 

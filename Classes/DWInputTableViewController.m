@@ -225,7 +225,6 @@
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
 	self->_inputText = [[textField.text stringByReplacingCharactersInRange:range withString:string] copy];
-	DWLog(@"Input is now: %@",self.inputText);
 	return YES;
 }
 
@@ -243,7 +242,6 @@
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
 	self->_inputText = [[textView.text stringByReplacingCharactersInRange:range withString:text] copy];
-	DWLog(@"Input is now: %@",self.inputText);
 	return YES;
 }
 

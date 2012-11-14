@@ -12,7 +12,7 @@
 #include <sys/sysctl.h>
 #include <net/if.h>
 #include <net/if_dl.h>
-#include "NSString+Additions.h"
+#include "NSString+DWToolbox.h"
 
 static NSUInteger staticNetworkActivity;
 
