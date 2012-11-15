@@ -10,6 +10,6 @@
 
 @interface NSBundle (DWToolbox)
 
-+ (NSBundle *)toolboxAssetsBundle;
++ (NSBundle *)bundleNamed:(NSString *)name;
 
 @end

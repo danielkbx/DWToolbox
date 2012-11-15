@@ -6,11 +6,11 @@
 //  Copyright 2010 danielkbx. All rights reserved.
 //
 
-#import "UIView+Additions.h"
+#import "UIView+DWToolbox.h"
 #import <QuartzCore/QuartzCore.h>
-#import "UIImage+Additions.h"
+#import "UIImage+DWToolbox.h"
 
-@implementation UIView (Additions)
+@implementation UIView (DWToolbox)
 
 CGPoint DWMakeCenter(CGPoint point, CGSize size) {
     // make sure that the corners are on integral points

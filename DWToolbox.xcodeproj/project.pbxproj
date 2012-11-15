@@ -25,16 +25,12 @@
 		654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 654C6D971653A257009816C7 /* NSObject+DWToolbox.h */; };
 		654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 654C6D981653A257009816C7 /* NSObject+DWToolbox.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
+		6567D2A8165503A20016C511 /* DWActionSheet.h in Headers */ = {isa = PBXBuildFile; fileRef = 6567D2A6165503A20016C511 /* DWActionSheet.h */; };
+		6567D2A9165503A20016C511 /* DWActionSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 6567D2A7165503A20016C511 /* DWActionSheet.m */; };
 		656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWCheckbox.h */; };
 		656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWCheckbox.m */; };
-		656FDB5416515F800073A6F8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB5216515F800073A6F8 /* InfoPlist.strings */; };
-		656FDB5916515FA90073A6F8 /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB4516515CB90073A6F8 /* checkbox@2x.png */; };
-		656FDB5A165160340073A6F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */; };
 		656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */; };
-		656FDB641651659F0073A6F8 /* checkbox_selected@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB631651659F0073A6F8 /* checkbox_selected@2x.png */; };
-		656FDB6716516ACF0073A6F8 /* checkbox_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB6516516ACF0073A6F8 /* checkbox_selected.png */; };
-		656FDB6816516ACF0073A6F8 /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 656FDB6616516ACF0073A6F8 /* checkbox.png */; };
 		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
 		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
 		65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */; };
@@ -50,16 +46,16 @@
 		65D4CF89161F17E40093076D /* DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF86161F17E30093076D /* DWToolbox.h */; };
 		65D4CF8A161F17E40093076D /* DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF87161F17E40093076D /* DWToolbox.m */; };
 		65D4CF8B161F17E40093076D /* Log.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF88161F17E40093076D /* Log.h */; };
-		65D4CF97161F18120093076D /* CAKeyframeAnimation+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF8D161F18120093076D /* CAKeyframeAnimation+Additions.h */; };
-		65D4CF98161F18120093076D /* CAKeyframeAnimation+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF8E161F18120093076D /* CAKeyframeAnimation+Additions.m */; };
-		65D4CF99161F18120093076D /* UIColor+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF8F161F18120093076D /* UIColor+Additions.h */; };
-		65D4CF9A161F18120093076D /* UIColor+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF90161F18120093076D /* UIColor+Additions.m */; };
-		65D4CF9B161F18120093076D /* UIDevice+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF91161F18120093076D /* UIDevice+Additions.h */; };
-		65D4CF9C161F18120093076D /* UIDevice+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF92161F18120093076D /* UIDevice+Additions.m */; };
-		65D4CF9D161F18120093076D /* UIImage+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF93161F18120093076D /* UIImage+Additions.h */; };
-		65D4CF9E161F18120093076D /* UIImage+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF94161F18120093076D /* UIImage+Additions.m */; };
-		65D4CF9F161F18120093076D /* UIView+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF95161F18120093076D /* UIView+Additions.h */; };
-		65D4CFA0161F18120093076D /* UIView+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF96161F18120093076D /* UIView+Additions.m */; };
+		65D4CF97161F18120093076D /* CAKeyframeAnimation+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF8D161F18120093076D /* CAKeyframeAnimation+DWToolbox.h */; };
+		65D4CF98161F18120093076D /* CAKeyframeAnimation+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF8E161F18120093076D /* CAKeyframeAnimation+DWToolbox.m */; };
+		65D4CF99161F18120093076D /* UIColor+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF8F161F18120093076D /* UIColor+DWToolbox.h */; };
+		65D4CF9A161F18120093076D /* UIColor+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF90161F18120093076D /* UIColor+DWToolbox.m */; };
+		65D4CF9B161F18120093076D /* UIDevice+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF91161F18120093076D /* UIDevice+DWToolbox.h */; };
+		65D4CF9C161F18120093076D /* UIDevice+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF92161F18120093076D /* UIDevice+DWToolbox.m */; };
+		65D4CF9D161F18120093076D /* UIImage+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF93161F18120093076D /* UIImage+DWToolbox.h */; };
+		65D4CF9E161F18120093076D /* UIImage+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF94161F18120093076D /* UIImage+DWToolbox.m */; };
+		65D4CF9F161F18120093076D /* UIView+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF95161F18120093076D /* UIView+DWToolbox.h */; };
+		65D4CFA0161F18120093076D /* UIView+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CF96161F18120093076D /* UIView+DWToolbox.m */; };
 		65D4CFA6161F18400093076D /* DWAlertView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CFA2161F18400093076D /* DWAlertView.h */; };
 		65D4CFA7161F18400093076D /* DWAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D4CFA3161F18400093076D /* DWAlertView.m */; };
 		65D4CFA8161F18400093076D /* DWAlertViewBackgroundView.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CFA4161F18400093076D /* DWAlertViewBackgroundView.h */; };
@@ -93,19 +89,16 @@
 		654C6D981653A257009816C7 /* NSObject+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DWToolbox.m"; sourceTree = "<group>"; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		6567D2A6165503A20016C511 /* DWActionSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWActionSheet.h; sourceTree = SOURCE_ROOT; };
+		6567D2A7165503A20016C511 /* DWActionSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWActionSheet.m; sourceTree = SOURCE_ROOT; };
 		656FDB3F165159CF0073A6F8 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
 		656FDB40165159CF0073A6F8 /* DWCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCheckbox.m; path = Classes/DWCheckbox.m; sourceTree = SOURCE_ROOT; };
-		656FDB4516515CB90073A6F8 /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
-		656FDB4C16515F800073A6F8 /* DWToolbox Assets.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "DWToolbox Assets.bundle"; sourceTree = BUILT_PRODUCTS_DIR; };
 		656FDB4D16515F800073A6F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		656FDB5116515F800073A6F8 /* DWToolbox Assets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWToolbox Assets-Info.plist"; sourceTree = "<group>"; };
 		656FDB5316515F800073A6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		656FDB5516515F800073A6F8 /* DWToolbox Assets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWToolbox Assets-Prefix.pch"; sourceTree = "<group>"; };
 		656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DWToolbox.h"; sourceTree = "<group>"; };
 		656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DWToolbox.m"; sourceTree = "<group>"; };
-		656FDB631651659F0073A6F8 /* checkbox_selected@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_selected@2x.png"; sourceTree = "<group>"; };
-		656FDB6516516ACF0073A6F8 /* checkbox_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_selected.png; sourceTree = "<group>"; };
-		656FDB6616516ACF0073A6F8 /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		657E61391653BF7F003411F7 /* DWUploadField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWUploadField.h; path = Classes/DWUploadField.h; sourceTree = SOURCE_ROOT; };
 		657E613A1653BF7F003411F7 /* DWUploadField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWUploadField.m; path = Classes/DWUploadField.m; sourceTree = SOURCE_ROOT; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -121,16 +114,16 @@
 		65D4CF86161F17E30093076D /* DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWToolbox.h; sourceTree = SOURCE_ROOT; };
 		65D4CF87161F17E40093076D /* DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWToolbox.m; sourceTree = SOURCE_ROOT; };
 		65D4CF88161F17E40093076D /* Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Log.h; sourceTree = SOURCE_ROOT; };
-		65D4CF8D161F18120093076D /* CAKeyframeAnimation+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+Additions.h"; sourceTree = "<group>"; };
-		65D4CF8E161F18120093076D /* CAKeyframeAnimation+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+Additions.m"; sourceTree = "<group>"; };
-		65D4CF8F161F18120093076D /* UIColor+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Additions.h"; sourceTree = "<group>"; };
-		65D4CF90161F18120093076D /* UIColor+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Additions.m"; sourceTree = "<group>"; };
-		65D4CF91161F18120093076D /* UIDevice+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+Additions.h"; sourceTree = "<group>"; };
-		65D4CF92161F18120093076D /* UIDevice+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+Additions.m"; sourceTree = "<group>"; };
-		65D4CF93161F18120093076D /* UIImage+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Additions.h"; sourceTree = "<group>"; };
-		65D4CF94161F18120093076D /* UIImage+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Additions.m"; sourceTree = "<group>"; };
-		65D4CF95161F18120093076D /* UIView+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Additions.h"; sourceTree = "<group>"; };
-		65D4CF96161F18120093076D /* UIView+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Additions.m"; sourceTree = "<group>"; };
+		65D4CF8D161F18120093076D /* CAKeyframeAnimation+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAKeyframeAnimation+DWToolbox.h"; sourceTree = "<group>"; };
+		65D4CF8E161F18120093076D /* CAKeyframeAnimation+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAKeyframeAnimation+DWToolbox.m"; sourceTree = "<group>"; };
+		65D4CF8F161F18120093076D /* UIColor+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+DWToolbox.h"; sourceTree = "<group>"; };
+		65D4CF90161F18120093076D /* UIColor+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+DWToolbox.m"; sourceTree = "<group>"; };
+		65D4CF91161F18120093076D /* UIDevice+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+DWToolbox.h"; sourceTree = "<group>"; };
+		65D4CF92161F18120093076D /* UIDevice+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+DWToolbox.m"; sourceTree = "<group>"; };
+		65D4CF93161F18120093076D /* UIImage+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+DWToolbox.h"; sourceTree = "<group>"; };
+		65D4CF94161F18120093076D /* UIImage+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+DWToolbox.m"; sourceTree = "<group>"; };
+		65D4CF95161F18120093076D /* UIView+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+DWToolbox.h"; sourceTree = "<group>"; };
+		65D4CF96161F18120093076D /* UIView+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+DWToolbox.m"; sourceTree = "<group>"; };
 		65D4CFA2161F18400093076D /* DWAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWAlertView.h; path = Classes/DWAlertView.h; sourceTree = SOURCE_ROOT; };
 		65D4CFA3161F18400093076D /* DWAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWAlertView.m; path = Classes/DWAlertView.m; sourceTree = SOURCE_ROOT; };
 		65D4CFA4161F18400093076D /* DWAlertViewBackgroundView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWAlertViewBackgroundView.h; path = Classes/DWAlertViewBackgroundView.h; sourceTree = SOURCE_ROOT; };
@@ -153,14 +146,6 @@
 				65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */,
 				65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */,
 				655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		656FDB4916515F800073A6F8 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				656FDB5A165160340073A6F8 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */,
-				656FDB4C16515F800073A6F8 /* DWToolbox Assets.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,7 +203,6 @@
 		655E6B3215A61A2D00F9E6C5 /* DWToolbox */ = {
 			isa = PBXGroup;
 			children = (
-				656FDB4416515CB90073A6F8 /* Assets */,
 				6514BDDC164D09B8007EBBFA /* Views */,
 				65D991E51647BF4400B7CBAC /* Controls */,
 				654525DB161F1F2100EAAEE7 /* Helper */,
@@ -241,17 +224,6 @@
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
-		};
-		656FDB4416515CB90073A6F8 /* Assets */ = {
-			isa = PBXGroup;
-			children = (
-				656FDB6616516ACF0073A6F8 /* checkbox.png */,
-				656FDB4516515CB90073A6F8 /* checkbox@2x.png */,
-				656FDB6516516ACF0073A6F8 /* checkbox_selected.png */,
-				656FDB631651659F0073A6F8 /* checkbox_selected@2x.png */,
-			);
-			path = Assets;
-			sourceTree = SOURCE_ROOT;
 		};
 		656FDB4F16515F800073A6F8 /* DWToolbox Assets */ = {
 			isa = PBXGroup;
@@ -310,16 +282,16 @@
 		65D4CF8C161F18120093076D /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				65D4CF8D161F18120093076D /* CAKeyframeAnimation+Additions.h */,
-				65D4CF8E161F18120093076D /* CAKeyframeAnimation+Additions.m */,
-				65D4CF8F161F18120093076D /* UIColor+Additions.h */,
-				65D4CF90161F18120093076D /* UIColor+Additions.m */,
-				65D4CF91161F18120093076D /* UIDevice+Additions.h */,
-				65D4CF92161F18120093076D /* UIDevice+Additions.m */,
-				65D4CF93161F18120093076D /* UIImage+Additions.h */,
-				65D4CF94161F18120093076D /* UIImage+Additions.m */,
-				65D4CF95161F18120093076D /* UIView+Additions.h */,
-				65D4CF96161F18120093076D /* UIView+Additions.m */,
+				65D4CF8D161F18120093076D /* CAKeyframeAnimation+DWToolbox.h */,
+				65D4CF8E161F18120093076D /* CAKeyframeAnimation+DWToolbox.m */,
+				65D4CF8F161F18120093076D /* UIColor+DWToolbox.h */,
+				65D4CF90161F18120093076D /* UIColor+DWToolbox.m */,
+				65D4CF91161F18120093076D /* UIDevice+DWToolbox.h */,
+				65D4CF92161F18120093076D /* UIDevice+DWToolbox.m */,
+				65D4CF93161F18120093076D /* UIImage+DWToolbox.h */,
+				65D4CF94161F18120093076D /* UIImage+DWToolbox.m */,
+				65D4CF95161F18120093076D /* UIView+DWToolbox.h */,
+				65D4CF96161F18120093076D /* UIView+DWToolbox.m */,
 				650978BD1625D129004A6A04 /* NSString+DWToolbox.h */,
 				650978BE1625D129004A6A04 /* NSString+DWToolbox.m */,
 				656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */,
@@ -357,6 +329,8 @@
 				6536BDDD164955D1001A005C /* DWCountdownLabel.m */,
 				656FDB3F165159CF0073A6F8 /* DWCheckbox.h */,
 				656FDB40165159CF0073A6F8 /* DWCheckbox.m */,
+				6567D2A6165503A20016C511 /* DWActionSheet.h */,
+				6567D2A7165503A20016C511 /* DWActionSheet.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -383,11 +357,11 @@
 				65D4CF66161F15330093076D /* CoreTextUtils.h in Headers */,
 				65D4CF89161F17E40093076D /* DWToolbox.h in Headers */,
 				65D4CF8B161F17E40093076D /* Log.h in Headers */,
-				65D4CF97161F18120093076D /* CAKeyframeAnimation+Additions.h in Headers */,
-				65D4CF99161F18120093076D /* UIColor+Additions.h in Headers */,
-				65D4CF9B161F18120093076D /* UIDevice+Additions.h in Headers */,
-				65D4CF9D161F18120093076D /* UIImage+Additions.h in Headers */,
-				65D4CF9F161F18120093076D /* UIView+Additions.h in Headers */,
+				65D4CF97161F18120093076D /* CAKeyframeAnimation+DWToolbox.h in Headers */,
+				65D4CF99161F18120093076D /* UIColor+DWToolbox.h in Headers */,
+				65D4CF9B161F18120093076D /* UIDevice+DWToolbox.h in Headers */,
+				65D4CF9D161F18120093076D /* UIImage+DWToolbox.h in Headers */,
+				65D4CF9F161F18120093076D /* UIView+DWToolbox.h in Headers */,
 				65D4CFA6161F18400093076D /* DWAlertView.h in Headers */,
 				65D4CFA8161F18400093076D /* DWAlertViewBackgroundView.h in Headers */,
 				65D4CFAB161F18540093076D /* DWToolbox-Prefix.pch in Headers */,
@@ -405,6 +379,7 @@
 				65DCF3DE165273C300C18CEE /* DWInputTableViewController.h in Headers */,
 				654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */,
 				657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */,
+				6567D2A8165503A20016C511 /* DWActionSheet.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,23 +403,6 @@
 			productReference = 655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		656FDB4B16515F800073A6F8 /* DWToolbox Assets */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 656FDB5616515F800073A6F8 /* Build configuration list for PBXNativeTarget "DWToolbox Assets" */;
-			buildPhases = (
-				656FDB4816515F800073A6F8 /* Sources */,
-				656FDB4916515F800073A6F8 /* Frameworks */,
-				656FDB4A16515F800073A6F8 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "DWToolbox Assets";
-			productName = "DWToolbox Assets";
-			productReference = 656FDB4C16515F800073A6F8 /* DWToolbox Assets.bundle */;
-			productType = "com.apple.product-type.bundle";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -466,25 +424,9 @@
 			projectRoot = "";
 			targets = (
 				655E6B2C15A61A2D00F9E6C5 /* DWToolbox */,
-				656FDB4B16515F800073A6F8 /* DWToolbox Assets */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXResourcesBuildPhase section */
-		656FDB4A16515F800073A6F8 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				656FDB5416515F800073A6F8 /* InfoPlist.strings in Resources */,
-				656FDB5916515FA90073A6F8 /* checkbox@2x.png in Resources */,
-				656FDB641651659F0073A6F8 /* checkbox_selected@2x.png in Resources */,
-				656FDB6716516ACF0073A6F8 /* checkbox_selected.png in Resources */,
-				656FDB6816516ACF0073A6F8 /* checkbox.png in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		655E6B2915A61A2D00F9E6C5 /* Sources */ = {
@@ -496,11 +438,11 @@
 				65D4CF63161F15110093076D /* OHAttributedLabel.m in Sources */,
 				65D4CF67161F15330093076D /* CoreTextUtils.m in Sources */,
 				65D4CF8A161F17E40093076D /* DWToolbox.m in Sources */,
-				65D4CF98161F18120093076D /* CAKeyframeAnimation+Additions.m in Sources */,
-				65D4CF9A161F18120093076D /* UIColor+Additions.m in Sources */,
-				65D4CF9C161F18120093076D /* UIDevice+Additions.m in Sources */,
-				65D4CF9E161F18120093076D /* UIImage+Additions.m in Sources */,
-				65D4CFA0161F18120093076D /* UIView+Additions.m in Sources */,
+				65D4CF98161F18120093076D /* CAKeyframeAnimation+DWToolbox.m in Sources */,
+				65D4CF9A161F18120093076D /* UIColor+DWToolbox.m in Sources */,
+				65D4CF9C161F18120093076D /* UIDevice+DWToolbox.m in Sources */,
+				65D4CF9E161F18120093076D /* UIImage+DWToolbox.m in Sources */,
+				65D4CFA0161F18120093076D /* UIView+DWToolbox.m in Sources */,
 				65D4CFA7161F18400093076D /* DWAlertView.m in Sources */,
 				65D4CFA9161F18400093076D /* DWAlertViewBackgroundView.m in Sources */,
 				654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */,
@@ -517,13 +459,7 @@
 				65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */,
 				654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */,
 				657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		656FDB4816515F800073A6F8 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				6567D2A9165503A20016C511 /* DWActionSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,52 +545,6 @@
 			};
 			name = Release;
 		};
-		656FDB5716515F800073A6F8 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DWToolbox Assets/DWToolbox Assets-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DWToolbox Assets/DWToolbox Assets-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		656FDB5816515F800073A6F8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "DWToolbox Assets/DWToolbox Assets-Prefix.pch";
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				INFOPLIST_FILE = "DWToolbox Assets/DWToolbox Assets-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
-				MACOSX_DEPLOYMENT_TARGET = 10.8;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -672,15 +562,6 @@
 			buildConfigurations = (
 				655E6B3B15A61A2D00F9E6C5 /* Debug */,
 				655E6B3C15A61A2D00F9E6C5 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		656FDB5616515F800073A6F8 /* Build configuration list for PBXNativeTarget "DWToolbox Assets" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				656FDB5716515F800073A6F8 /* Debug */,
-				656FDB5816515F800073A6F8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

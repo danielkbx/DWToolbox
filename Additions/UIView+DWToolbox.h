@@ -10,7 +10,7 @@
 
 CGPoint DWMakeCenter(CGPoint point, CGSize size);
 
-@interface UIView (Additions)
+@interface UIView (DWToolbox)
 
 - (UIImage *)image;
 

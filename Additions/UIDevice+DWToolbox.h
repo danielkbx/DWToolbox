@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIDevice (Additions)
+@interface UIDevice (DWToolbox)
 
 - (BOOL)isIPad;
 - (BOOL)hasRetinaDisplay;

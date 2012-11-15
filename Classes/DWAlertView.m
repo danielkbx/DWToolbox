@@ -7,12 +7,12 @@
 //
 
 #import "DWAlertView.h"
-#import "CAKeyframeAnimation+Additions.h"
+#import "CAKeyframeAnimation+DWToolbox.h"
 #import "OHAttributedLabel.h"
 #import <CoreText/CoreText.h>
 #import "NSAttributedString+Attributes.h"
 
-#import "UIView+Additions.h"
+#import "UIView+DWToolbox.h"
 #import "DWAlertViewBackgroundView.h"
 
 @interface DWAlertViewAction() {

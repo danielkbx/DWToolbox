@@ -6,9 +6,9 @@
 //  Copyright (c) 2012 danielkbx. All rights reserved.
 //
 
-#import "CAKeyframeAnimation+Additions.h"
+#import "CAKeyframeAnimation+DWToolbox.h"
 
-@implementation CAKeyframeAnimation (Additions)
+@implementation CAKeyframeAnimation (DWToolbox)
 
 + (CAKeyframeAnimation *)bumpInAnimation:(CATransform3D *)lastTransform
 {

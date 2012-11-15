@@ -7,9 +7,9 @@
 //
 
 #import "DWActivityManager.h"
-#import "UIView+Additions.h"
+#import "UIView+DWToolbox.h"
 #import <QuartzCore/QuartzCore.h>
-#import "CAKeyframeAnimation+Additions.h"
+#import "CAKeyframeAnimation+DWToolbox.h"
 
 static UIColor *backgroundColor;
 static UIColor *textColor;

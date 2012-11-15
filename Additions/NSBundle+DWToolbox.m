@@ -10,12 +10,29 @@
 
 @implementation NSBundle (DWToolbox)
 
-+ (NSBundle *)toolboxAssetsBundle {
-    static NSBundle *toolboxBundle = nil;
-	if (toolboxBundle == nil) {
-        toolboxBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:@"DWToolbox Assets" withExtension:@"bundle"]];
++ (NSBundle *)bundleNamed:(NSString *)name {
+	
+	static NSMutableDictionary *loadedBundles = nil;
+	if (loadedBundles == nil) {
+		loadedBundles = [[NSMutableDictionary alloc] init];
 	}
-    return toolboxBundle;
+	
+	id loadedBundle = [loadedBundles objectForKey:name];
+	
+	if (loadedBundle == nil) {
+		loadedBundle = [NSBundle bundleWithURL:[[NSBundle mainBundle] URLForResource:name withExtension:@"bundle"]];
+		if (loadedBundle) {
+			[loadedBundles setObject:loadedBundle forKey:name];
+		} else {
+			[loadedBundles setObject:[NSNull null] forKey:name];
+		}
+	}
+	
+	if ([loadedBundle isKindOfClass:[NSBundle class]]) {
+		return loadedBundle;
+	} else {
+		return nil;
+	}
 }
 
 @end

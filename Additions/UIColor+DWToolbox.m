@@ -6,9 +6,9 @@
 //
 //
 
-#import "UIColor+Additions.h"
+#import "UIColor+DWToolbox.h"
 
-@implementation UIColor (Additions)
+@implementation UIColor (DWToolbox)
 
 + (UIColor *)colorFromHexString:(NSString*)hexString {
 

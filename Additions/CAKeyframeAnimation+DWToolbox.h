@@ -8,7 +8,7 @@
 
 #import <QuartzCore/QuartzCore.h>
 
-@interface CAKeyframeAnimation (Additions)
+@interface CAKeyframeAnimation (DWToolbox)
 
 + (CAKeyframeAnimation *)bumpInAnimation:(CATransform3D *)lastTransform;
 + (CAKeyframeAnimation *)bumpOutAnimation:(CATransform3D *)lastTransform;

@@ -9,9 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface UIImage (UIImage_Additions)
-
-+ (UIImage *)imageNamed:(NSString *)name bundle:(NSBundle *)bundle;
+@interface UIImage (DWToolbox)
 
 - (BOOL)hasAlphaChannel;
 
@@ -23,7 +21,7 @@
 
 - (UIImage *)imageByCenteredScalingToSize:(CGSize)size;
 
-- (UIImage *)imageMatchingWidthOrHeightOfSize:(CGSize)size;
+- (UIImage *)imageByMatchingWidthOrHeightOfSize:(CGSize)size;
 
 - (UIImage *)imageByCropingWithFrame:(CGRect)cropFrame;
 

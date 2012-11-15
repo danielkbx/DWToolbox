@@ -8,7 +8,7 @@
 
 #import "DWWebView.h"
 
-#import "UIDevice+Additions.h"
+#import "UIDevice+DWToolbox.h"
 #import "Log.h"
 
 @interface DWWebView() {

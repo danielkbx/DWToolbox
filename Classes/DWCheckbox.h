@@ -10,9 +10,8 @@
 
 @interface DWCheckbox : UIControl
 
-- (id)initWithFrame:(CGRect)frame; // the size component of size is ignored
+@property (nonatomic, assign) BOOL checked;
 
-- (void)setImage:(UIImage *)image forState:(UIControlState)state;
-- (UIImage *)imageForState:(UIControlState)state;
+- (id)initWithFrame:(CGRect)frame; // the size component of size is ignored
 
 @end

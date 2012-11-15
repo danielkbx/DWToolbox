@@ -8,14 +8,18 @@
 
 #import "DWCheckbox.h"
 
-#import "UIImage+Additions.h"
+#import "UIImage+DWToolbox.h"
 #import "NSBundle+DWToolbox.h"
+#import "UIColor+DWToolbox.h"
 
-#define kDWCheckboxSize CGSizeMake(32.0f,40.0f)
+#define kDWCheckboxSize CGSizeMake(24.0f,24.0f)
 
 @interface DWCheckbox ()
 
-@property (nonatomic, strong) UIButton *button;
+@property (nonatomic, copy) UIColor *borderColor;
+@property (nonatomic, copy) UIColor *checkmarkColor;
+
+@property (nonatomic, strong) UITapGestureRecognizer *tapGesture;
 
 @end
 
@@ -32,63 +36,63 @@
 
 - (void)awakeFromNib {
 	[self prepareControl];
-}
-
-- (UIButton *)button {
-	if (self->_button == nil) {
-		self->_button = [UIButton buttonWithType:UIButtonTypeCustom];
-		self->_button.frame = self.bounds;
-		self->_button.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
-		self->_button.backgroundColor = [UIColor clearColor];
-		[self->_button addTarget:self action:@selector(buttonPressed) forControlEvents:UIControlEventTouchUpInside];
-		[self addSubview:self->_button];
-	}
-	return self->_button;
+	[self sizeToFit];
 }
 
 - (void)prepareControl {
 	self.backgroundColor = [UIColor clearColor];
-
-		
-	UIImage *image1 = [UIImage imageNamed:@"checkbox" bundle:[NSBundle toolboxAssetsBundle]];
-	[image1 writeAsPNGToFile:@"/Users/daniel/bild.png"];
-	if (image1) {
-		[self setImage:image1 forState:UIControlStateNormal];
-	}
-
-	UIImage *image2 = [UIImage imageNamed:@"checkbox_selected" bundle:[NSBundle toolboxAssetsBundle]];
-	[image2 writeAsPNGToFile:@"/Users/daniel/bild2.png"];
-	if (image2) {
-		[self setImage:image2 forState:UIControlStateSelected];
-	}
-
-}
-
-- (void)setImage:(UIImage *)image forState:(UIControlState)state {
-	[self.button setImage:image forState:state];
-
-}
-
-- (UIImage *)imageForState:(UIControlState)state {
-	return [self.button imageForState:state];
+	self.borderColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
+	self.checkmarkColor = [UIColor colorFromHexString:@"#3dba72"];
+	
+	self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonPressed)];
+	[self addGestureRecognizer:self.tapGesture];
 }
 
 - (void)buttonPressed {
-	self.selected = !self.selected;
+	self.checked = !self.checked;
 }
 
-- (void)setSelected:(BOOL)selected {
-	[super setSelected:selected];
-	self.button.selected = selected;
+- (void)setChecked:(BOOL)checked {
+	self->_checked = checked;
+	[self setNeedsDisplay];
 }
 
 - (void)setEnabled:(BOOL)enabled {
 	[super setEnabled:enabled];
-	self.button.enabled = enabled;
+	self.tapGesture.enabled = enabled;
 }
 
 - (CGSize)sizeThatFits:(CGSize)size {
 	return kDWCheckboxSize;
+}
+
+- (void)drawRect:(CGRect)rect {
+	
+	CGRect circleRect = CGRectInset(self.bounds, 6.0f, 6.0f);
+	
+	UIBezierPath *circlePath = [UIBezierPath bezierPathWithOvalInRect:circleRect];
+	
+	[self.borderColor setStroke];
+	circlePath.lineWidth = 2.0f;
+	[circlePath stroke];
+	
+	if (self.checked) {
+		
+		CGRect baseCircle = CGRectInset(self.bounds, 2.0f, 2.0f);
+		CGFloat offsetX = 0.0f;
+		CGFloat offsetY = -3.0f;
+		
+		UIBezierPath *checkmarkPath = [UIBezierPath bezierPath];
+		[checkmarkPath moveToPoint:CGPointMake(baseCircle.origin.x + 7.0f + offsetX, baseCircle.origin.y + 7.0f + offsetY)];
+		[checkmarkPath addLineToPoint:CGPointMake(CGRectGetMidX(baseCircle) + offsetX, CGRectGetMaxY(baseCircle) - 5.0f + offsetY)];
+		[checkmarkPath addLineToPoint:CGPointMake(CGRectGetMaxX(baseCircle) - 4.0f + offsetX, baseCircle.origin.y + 4.0f + offsetY)];
+
+		checkmarkPath.lineWidth = 2.0f;
+		[self.checkmarkColor setStroke];
+		[checkmarkPath stroke];
+	}
+	
+	
 }
 
 @end

@@ -6,7 +6,7 @@
 //
 //
 
-#import "UIDevice+Additions.h"
+#import "UIDevice+DWToolbox.h"
 
 #include <sys/socket.h>
 #include <sys/sysctl.h>
@@ -16,7 +16,7 @@
 
 static NSUInteger staticNetworkActivity;
 
-@implementation UIDevice (Additions)
+@implementation UIDevice (DWToolbox)
 
 - (BOOL)isIPad
 {

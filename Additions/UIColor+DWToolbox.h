@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIColor (Additions)
+@interface UIColor (DWToolbox)
 
 + (UIColor *)colorFromHexString:(NSString*)hexString;
 
