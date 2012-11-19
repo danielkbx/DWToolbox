@@ -1,3 +1,6 @@
 [submodule "ThirdParty/OHAttributedLabel"]
 	path = ThirdParty/OHAttributedLabel
 	url = https://github.com/danielkbx/OHAttributedLabel.git
+[submodule "ThirdParty/uicolor-utilities"]
+	path = ThirdParty/uicolor-utilities
+	url = git@github.com:danielkbx/uicolor-utilities.git

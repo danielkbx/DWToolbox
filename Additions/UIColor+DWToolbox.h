@@ -7,20 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "UIColor+Expanded.h"
 
 @interface UIColor (DWToolbox)
 
-+ (UIColor *)colorFromHexString:(NSString*)hexString;
-
-@property (nonatomic, readonly) CGFloat red;
-@property (nonatomic, readonly) CGFloat green;
-@property (nonatomic, readonly) CGFloat blue;
-@property (nonatomic, readonly) CGFloat alpha;
-
-@property (nonatomic, readonly) UIColor *lighterColor;
-@property (nonatomic, readonly) UIColor *darkerColor;
-
-- (UIColor *)colorByDarkenWithValue:(float)value;
-- (UIColor *)colorByLightenWithValue:(float)value;
++ (UIColor *)colorFromCustomizationKey:(NSString *)key;
 
 @end

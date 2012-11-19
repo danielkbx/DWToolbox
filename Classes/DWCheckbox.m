@@ -11,6 +11,7 @@
 #import "UIImage+DWToolbox.h"
 #import "NSBundle+DWToolbox.h"
 #import "UIColor+DWToolbox.h"
+#import "UIColor+Expanded.h"
 
 #define kDWCheckboxSize CGSizeMake(24.0f,24.0f)
 
@@ -42,7 +43,7 @@
 - (void)prepareControl {
 	self.backgroundColor = [UIColor clearColor];
 	self.borderColor = [UIColor colorWithWhite:0.7f alpha:1.0f];
-	self.checkmarkColor = [UIColor colorFromHexString:@"#3dba72"];
+	self.checkmarkColor = [UIColor colorWithHexString:@"#3dba72"];
 	
 	self.tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(buttonPressed)];
 	[self addGestureRecognizer:self.tapGesture];

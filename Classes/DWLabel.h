@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "DWTextStyle.h"
+
 typedef enum {
 	DWLabelVerticalAlignmentMiddle,
 	DWLabelVerticalAlignmentTop,
@@ -18,5 +20,8 @@ typedef enum {
 
 @property (nonatomic, assign) DWLabelVerticalAlignment verticalAlignment;
 @property (nonatomic, assign) CGFloat verticalContentOffset;
+
+@property (nonatomic, strong) DWTextStyle *textStyle;
+@property (nonatomic, copy) NSString *textStyleKey;
 
 @end
