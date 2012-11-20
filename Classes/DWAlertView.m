@@ -303,6 +303,11 @@ static UIColor *screenBackgroundColor;
 {
 	if (!self.isShown)
 	{
+		
+		if (self->actions_.count == 0) {
+			[self addActionWithTitle:@"OK"];
+		}
+		
 		self->isShown_ = YES;
 		
 		[[NSNotificationCenter defaultCenter] addObserver:self

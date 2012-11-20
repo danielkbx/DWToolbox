@@ -107,6 +107,8 @@ NSInteger textStyleObervanceContext;
 		self->_textStyleKey = [textStyleKey copy];
 		DWTextStyle *style = [DWTextStyle textStyleWithKey:textStyleKey];
 		self.textStyle = style;
+		self.font = self.textStyle.font;
+		self.textColor = self.textStyle.color;
 	}
 }
 
