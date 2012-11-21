@@ -15,6 +15,8 @@
 		650B799E163D4D2000EDC8CB /* DWURLDownload.m in Sources */ = {isa = PBXBuildFile; fileRef = 650B799C163D4D2000EDC8CB /* DWURLDownload.m */; };
 		6514BDE3164D09F6007EBBFA /* DWWebView.h in Headers */ = {isa = PBXBuildFile; fileRef = 6514BDE1164D09F6007EBBFA /* DWWebView.h */; };
 		6514BDE4164D09F6007EBBFA /* DWWebView.m in Sources */ = {isa = PBXBuildFile; fileRef = 6514BDE2164D09F6007EBBFA /* DWWebView.m */; };
+		651C094D165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 651C094B165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h */; };
+		651C094E165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 651C094C165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m */; };
 		6524524616565FD900657594 /* NSDateFormatter+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6524524416565FD900657594 /* NSDateFormatter+DWToolbox.h */; };
 		6524524716565FD900657594 /* NSDateFormatter+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6524524516565FD900657594 /* NSDateFormatter+DWToolbox.m */; };
 		652452511656960F00657594 /* DWConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = 6524524F1656960F00657594 /* DWConfiguration.h */; };
@@ -90,6 +92,8 @@
 		650B799C163D4D2000EDC8CB /* DWURLDownload.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLDownload.m; path = Classes/DWURLDownload.m; sourceTree = SOURCE_ROOT; };
 		6514BDE1164D09F6007EBBFA /* DWWebView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWWebView.h; path = Classes/DWWebView.h; sourceTree = SOURCE_ROOT; };
 		6514BDE2164D09F6007EBBFA /* DWWebView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWWebView.m; path = Classes/DWWebView.m; sourceTree = SOURCE_ROOT; };
+		651C094B165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSSortDescriptor+DWToolbox.h"; sourceTree = "<group>"; };
+		651C094C165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSSortDescriptor+DWToolbox.m"; sourceTree = "<group>"; };
 		6524524416565FD900657594 /* NSDateFormatter+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDateFormatter+DWToolbox.h"; sourceTree = "<group>"; };
 		6524524516565FD900657594 /* NSDateFormatter+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDateFormatter+DWToolbox.m"; sourceTree = "<group>"; };
 		6524524F1656960F00657594 /* DWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWConfiguration.h; path = Classes/DWConfiguration.h; sourceTree = SOURCE_ROOT; };
@@ -329,6 +333,8 @@
 				6524524516565FD900657594 /* NSDateFormatter+DWToolbox.m */,
 				65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */,
 				65FE5941165A29DA00B73BE4 /* UIFont+DWToolbox.m */,
+				651C094B165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h */,
+				651C094C165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m */,
 			);
 			path = Additions;
 			sourceTree = SOURCE_ROOT;
@@ -441,6 +447,7 @@
 				65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */,
 				65FE594C165A3EAF00B73BE4 /* UIColor+Expanded.h in Headers */,
 				65FE594E165A3EAF00B73BE4 /* UIColor+HSV.h in Headers */,
+				651C094D165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +534,7 @@
 				65FE5943165A29DA00B73BE4 /* UIFont+DWToolbox.m in Sources */,
 				65FE594D165A3EAF00B73BE4 /* UIColor+Expanded.m in Sources */,
 				65FE594F165A3EAF00B73BE4 /* UIColor+HSV.m in Sources */,
+				651C094E165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
