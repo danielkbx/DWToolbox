@@ -11,8 +11,13 @@
 #import <QuartzCore/QuartzCore.h>
 #import "CAKeyframeAnimation+DWToolbox.h"
 
+#import "DWWindow.h"
+
 static UIColor *backgroundColor;
 static UIColor *textColor;
+
+static DWWindow *containerWindow;
+
 
 @interface DWActivityItem()
 
@@ -31,7 +36,6 @@ static UIColor *textColor;
 @interface DWActivityManager()
 
 @property (nonatomic, strong) NSMutableArray *items;
-
 @property (nonatomic, strong, readwrite) DWActivityItem *visibleActivityItem;
 
 - (void)activityItemDidChangeProgress:(DWActivityItem *)item;
@@ -239,6 +243,13 @@ static UIColor *textColor;
 	
 	self.visibleActivityItem = item;
 	
+	if (containerWindow == nil) {
+		containerWindow = [[DWWindow alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
+		containerWindow.backgroundColor = [UIColor clearColor];
+		containerWindow.windowLevel = UIWindowLevelStatusBar;
+		[containerWindow makeKeyAndVisible];
+	}
+	
 	UIView *rootView = [UIApplication sharedApplication].keyWindow.rootViewController.view;
 	item.view.center = DWMakeCenter(CGPointMake(rootView.bounds.size.width / 2.0f, rootView.bounds.size.height / 2.0f), item.view.frame.size);
 	
@@ -248,7 +259,8 @@ static UIColor *textColor;
 	item.view.layer.transform = lastTransform;
 	
 	[item itemWillAppear];
-	[rootView addSubview:item.view];
+	item.view.center = DWMakeCenterInSize(containerWindow.bounds.size, item.view.frame.size);
+	[containerWindow addSubview:item.view];
 
 }
 
@@ -270,7 +282,14 @@ static UIColor *textColor;
 		dispatch_async(dispatch_get_main_queue(), ^{
 			[self.visibleActivityItem.view removeFromSuperview];
 			self.visibleActivityItem = nil;
-			[self showNextItem];
+			if (self.items.count > 0) {
+				[self showNextItem];
+			} else {
+				
+				[containerWindow resignKeyWindow];
+				containerWindow = nil;
+				
+			}
 		});
 	}
 }

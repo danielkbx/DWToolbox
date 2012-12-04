@@ -14,6 +14,7 @@
 
 #import "UIView+DWToolbox.h"
 #import "DWAlertViewBackgroundView.h"
+#import "DWWindow.h"
 
 @interface DWAlertViewAction() {
 	
@@ -110,7 +111,7 @@
 //
 
 static NSMutableArray * DWAlertViewInstances;
-static UIView * coverView;
+static DWWindow * coverWindow;
 static DWAlertView *currentAlertView;
 
 @interface DWAlertView() {
@@ -551,12 +552,12 @@ static UIColor *screenBackgroundColor;
 
 		if ([self instances].count == 0)
 		{
-			if (coverView == nil)
+			if (coverWindow == nil)
 			{
-				coverView = [[UIView alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
-				coverView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
-				coverView.backgroundColor = [[self class] screenBackgroundColor];
-				coverView.userInteractionEnabled = YES;
+				coverWindow = [[DWWindow alloc] initWithFrame:[UIApplication sharedApplication].keyWindow.frame];
+				coverWindow.backgroundColor = [[self class] screenBackgroundColor];
+				coverWindow.windowLevel = UIWindowLevelStatusBar;
+				[coverWindow makeKeyAndVisible];
 			}
 		}
 		
@@ -571,12 +572,10 @@ static UIColor *screenBackgroundColor;
 		
 		currentAlertView = [[self instances] objectAtIndex:0];
 		
-		[[UIApplication sharedApplication].keyWindow.rootViewController.view addSubview:coverView];
-		
 		UIView *alertViewView = currentAlertView.view;
 		alertViewView.layer.shouldRasterize = NO;
-		alertViewView.center = CGPointMake(roundf(coverView.bounds.size.width / 2.0f), roundf(coverView.bounds.size.height / 2.0f));
-		[coverView addSubview:alertViewView];
+		alertViewView.center = DWMakeCenterInSize(coverWindow.bounds.size, alertViewView.frame.size);
+		[coverWindow addSubview:alertViewView];
 		
 		CATransform3D endTransform;
 		CAKeyframeAnimation *bumpInAnimation = [CAKeyframeAnimation bumpInAnimation:&endTransform];
@@ -601,11 +600,11 @@ static UIColor *screenBackgroundColor;
 		if ([self instances].count == 0) {
 			[UIView animateWithDuration:0.2f
 							 animations:^{
-								 coverView.alpha = 0.0f;
+								 coverWindow.alpha = 0.0f;
 							 }
 							 completion:^(BOOL finished) {
-								[coverView removeFromSuperview];
-								 coverView.alpha = 1.0f;
+								 [coverWindow resignFirstResponder];
+								 coverWindow = nil;
 							 }];
 		} else {
 			[self showNextAlertView];

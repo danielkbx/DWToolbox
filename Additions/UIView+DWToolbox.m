@@ -17,6 +17,10 @@ CGPoint DWMakeCenter(CGPoint point, CGSize size) {
     return (CGPoint){round(point.x) + size.width/2.0 - ((int)(size.width/2)), round(point.y) + size.height/2.0 - ((int)(size.height/2))};
 }
 
+CGPoint DWMakeCenterInSize(CGSize containerSize, CGSize size) {
+	return DWMakeCenter(CGPointMake(containerSize.width / 2.0f, containerSize.height / 2.0f), size);
+}
+
 
 - (UIImage*)image
 {

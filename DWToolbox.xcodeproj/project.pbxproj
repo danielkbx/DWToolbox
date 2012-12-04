@@ -75,6 +75,8 @@
 		65D991E41647BF4000B7CBAC /* DWLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 65D991E21647BF4000B7CBAC /* DWLabel.m */; };
 		65DCF3DE165273C300C18CEE /* DWInputTableViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 65DCF3DC165273C300C18CEE /* DWInputTableViewController.h */; };
 		65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DCF3DD165273C300C18CEE /* DWInputTableViewController.m */; };
+		65E7E3EB166DF46800228834 /* DWWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E7E3E9166DF46800228834 /* DWWindow.h */; };
+		65E7E3EC166DF46800228834 /* DWWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E3EA166DF46800228834 /* DWWindow.m */; };
 		65FE593E165A248F00B73BE4 /* DWTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE593C165A248F00B73BE4 /* DWTextStyle.h */; };
 		65FE593F165A248F00B73BE4 /* DWTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE593D165A248F00B73BE4 /* DWTextStyle.m */; };
 		65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */; };
@@ -159,6 +161,8 @@
 		65D991E21647BF4000B7CBAC /* DWLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWLabel.m; path = Classes/DWLabel.m; sourceTree = SOURCE_ROOT; };
 		65DCF3DC165273C300C18CEE /* DWInputTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWInputTableViewController.h; path = Classes/DWInputTableViewController.h; sourceTree = SOURCE_ROOT; };
 		65DCF3DD165273C300C18CEE /* DWInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWInputTableViewController.m; path = Classes/DWInputTableViewController.m; sourceTree = SOURCE_ROOT; };
+		65E7E3E9166DF46800228834 /* DWWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWWindow.h; path = Classes/DWWindow.h; sourceTree = SOURCE_ROOT; };
+		65E7E3EA166DF46800228834 /* DWWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWWindow.m; path = Classes/DWWindow.m; sourceTree = SOURCE_ROOT; };
 		65FE593C165A248F00B73BE4 /* DWTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWTextStyle.h; path = Classes/DWTextStyle.h; sourceTree = SOURCE_ROOT; };
 		65FE593D165A248F00B73BE4 /* DWTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTextStyle.m; path = Classes/DWTextStyle.m; sourceTree = SOURCE_ROOT; };
 		65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+DWToolbox.h"; sourceTree = "<group>"; };
@@ -188,6 +192,8 @@
 		6514BDDC164D09B8007EBBFA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				65E7E3E9166DF46800228834 /* DWWindow.h */,
+				65E7E3EA166DF46800228834 /* DWWindow.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -463,6 +469,7 @@
 				651C094D165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.h in Headers */,
 				651C0953165E9B8800A4BDB0 /* DWConditionalInvocation.h in Headers */,
 				651C095A165E9BC700A4BDB0 /* DWActionSheet.h in Headers */,
+				65E7E3EB166DF46800228834 /* DWWindow.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -551,6 +558,7 @@
 				651C094E165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m in Sources */,
 				651C0954165E9B8800A4BDB0 /* DWConditionalInvocation.m in Sources */,
 				651C095B165E9BC700A4BDB0 /* DWActionSheet.m in Sources */,
+				65E7E3EC166DF46800228834 /* DWWindow.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

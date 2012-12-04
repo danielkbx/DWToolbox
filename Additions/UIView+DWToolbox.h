@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 
 CGPoint DWMakeCenter(CGPoint point, CGSize size);
+CGPoint DWMakeCenterInSize(CGSize containerSize, CGSize size);
 
 @interface UIView (DWToolbox)
 
