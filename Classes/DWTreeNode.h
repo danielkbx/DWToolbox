@@ -18,6 +18,8 @@
 @property (nonatomic, strong, readonly) NSDictionary *attributes;
 @property (nonatomic, strong, readonly) NSArray *nodes;
 
+@property (nonatomic, readonly) NSString *path;
+
 + (DWTreeNode *)nodeWithName:(NSString *)name;
 
 - (id)initWithFileWrapper:(NSFileWrapper *)fileWrapper;

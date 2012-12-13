@@ -15,11 +15,28 @@ typedef enum {
 	DWTreeNodeFormatJSON
 } DWTreeNodeFormat;
 
-typedef void (^DWTreeNodeCompletion)(BOOL success);
+@protocol DWTreeCoderObjectCreationDelegate;
+
+typedef void (^DWTreeCoderLoadCompletion)(BOOL success,id rootObject);
 
 @interface DWTreeCoder : DWTreeNode
 
-- (void)loadFromURL:(NSURL *)URL completion:(DWTreeNodeCompletion)completion;
+@property (nonatomic, weak) id <DWTreeCoderObjectCreationDelegate> objectCreationDelegate;
+
+- (void)loadFromURL:(NSURL *)URL completion:(DWTreeCoderLoadCompletion)completion;
 - (BOOL)writeToURL:(NSURL *)URL format:(DWTreeNodeFormat)format;
+
+#pragma mark - Object creation
+
+- (void)mapTreeNodePath:(NSString *)path toClass:(Class)class;
+
+@end
+
+@protocol DWTreeCoderObjectCreationDelegate <NSObject>
+
+@optional
+
+- (BOOL)treeCoder:(DWTreeCoder *)coder shouldCreateObjectForTreeNode:(DWTreeNode *)node;
+- (Class)treeCoder:(DWTreeCoder *)coder classForTreeNode:(DWTreeNode *)node proposedClass:(Class)proposedClass;
 
 @end

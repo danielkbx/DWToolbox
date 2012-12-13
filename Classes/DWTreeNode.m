@@ -122,6 +122,20 @@
 	return success;
 }
 
+- (NSString *)path {
+	
+	NSMutableArray *segments = [NSMutableArray array];
+	[segments addObject:self.name];
+	DWTreeNode *parent = self.parent;
+	
+	while(parent) {
+		[segments addObject:parent.name];
+		parent = parent.parent;
+	}
+	
+	return [segments componentsJoinedByString:@"."];
+}
+
 #pragma mark - XML
 
 - (BOOL)readXMLElement:(RXMLElement *)element {
