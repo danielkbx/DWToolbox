@@ -35,6 +35,13 @@
 		654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 654C6D971653A257009816C7 /* NSObject+DWToolbox.h */; };
 		654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 654C6D981653A257009816C7 /* NSObject+DWToolbox.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
+		656284BB1679DB1B00D5B7DC /* DWTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284B91679DB1B00D5B7DC /* DWTreeNode.h */; };
+		656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BA1679DB1B00D5B7DC /* DWTreeNode.m */; };
+		656284BF1679DC1200D5B7DC /* DWTreeCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284BD1679DC1200D5B7DC /* DWTreeCoder.h */; };
+		656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BE1679DC1200D5B7DC /* DWTreeCoder.m */; };
+		656284D41679E1F000D5B7DC /* RXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284D21679E1F000D5B7DC /* RXMLElement.h */; };
+		656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284D31679E1F000D5B7DC /* RXMLElement.m */; };
+		656284D71679E20200D5B7DC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 656284D61679E20200D5B7DC /* libxml2.dylib */; };
 		656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWCheckbox.h */; };
 		656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWCheckbox.m */; };
 		656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */; };
@@ -117,6 +124,14 @@
 		654C6D981653A257009816C7 /* NSObject+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+DWToolbox.m"; sourceTree = "<group>"; };
 		655E6B2D15A61A2D00F9E6C5 /* libDWToolbox.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDWToolbox.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		655E6B3015A61A2D00F9E6C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		656284B91679DB1B00D5B7DC /* DWTreeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWTreeNode.h; path = Classes/DWTreeNode.h; sourceTree = SOURCE_ROOT; };
+		656284BA1679DB1B00D5B7DC /* DWTreeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTreeNode.m; path = Classes/DWTreeNode.m; sourceTree = SOURCE_ROOT; };
+		656284BD1679DC1200D5B7DC /* DWTreeCoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWTreeCoder.h; path = Classes/DWTreeCoder.h; sourceTree = SOURCE_ROOT; };
+		656284BE1679DC1200D5B7DC /* DWTreeCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTreeCoder.m; path = Classes/DWTreeCoder.m; sourceTree = SOURCE_ROOT; };
+		656284C11679E01C00D5B7DC /* DWTreeNode_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DWTreeNode_Private.h; path = Classes/DWTreeNode_Private.h; sourceTree = SOURCE_ROOT; };
+		656284D21679E1F000D5B7DC /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXMLElement.h; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.h; sourceTree = SOURCE_ROOT; };
+		656284D31679E1F000D5B7DC /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXMLElement.m; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.m; sourceTree = SOURCE_ROOT; };
+		656284D61679E20200D5B7DC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		656FDB3F165159CF0073A6F8 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
 		656FDB40165159CF0073A6F8 /* DWCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCheckbox.m; path = Classes/DWCheckbox.m; sourceTree = SOURCE_ROOT; };
 		656FDB4D16515F800073A6F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -179,6 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				656284D71679E20200D5B7DC /* libxml2.dylib in Frameworks */,
 				6529B89F1625A53000A82EC4 /* CoreText.framework in Frameworks */,
 				65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */,
 				65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */,
@@ -210,6 +226,7 @@
 		654525DB161F1F2100EAAEE7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				656284B71679DB0700D5B7DC /* TreeNode */,
 				651C0950165E989000A4BDB0 /* Events */,
 				65FE593A165A247300B73BE4 /* Configuration */,
 				657E61371653BBD7003411F7 /* Network */,
@@ -241,6 +258,7 @@
 		655E6B2F15A61A2D00F9E6C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				656284D61679E20200D5B7DC /* libxml2.dylib */,
 				6529B89E1625A53000A82EC4 /* CoreText.framework */,
 				65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */,
 				65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */,
@@ -273,6 +291,27 @@
 				65D4CFAA161F18540093076D /* DWToolbox-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		656284B71679DB0700D5B7DC /* TreeNode */ = {
+			isa = PBXGroup;
+			children = (
+				656284B91679DB1B00D5B7DC /* DWTreeNode.h */,
+				656284C11679E01C00D5B7DC /* DWTreeNode_Private.h */,
+				656284BA1679DB1B00D5B7DC /* DWTreeNode.m */,
+				656284BD1679DC1200D5B7DC /* DWTreeCoder.h */,
+				656284BE1679DC1200D5B7DC /* DWTreeCoder.m */,
+			);
+			name = TreeNode;
+			sourceTree = "<group>";
+		};
+		656284D11679E1CC00D5B7DC /* RaptureXML */ = {
+			isa = PBXGroup;
+			children = (
+				656284D21679E1F000D5B7DC /* RXMLElement.h */,
+				656284D31679E1F000D5B7DC /* RXMLElement.m */,
+			);
+			name = RaptureXML;
 			sourceTree = "<group>";
 		};
 		656FDB4F16515F800073A6F8 /* DWToolbox Assets */ = {
@@ -309,6 +348,7 @@
 		65CAE95B15AEF3A5000B2FE7 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
+				656284D11679E1CC00D5B7DC /* RaptureXML */,
 				65FE5944165A3EAF00B73BE4 /* uicolor-utilities */,
 				65D4CF56161F15000093076D /* OHAttributedLabel */,
 			);
@@ -470,6 +510,9 @@
 				651C0953165E9B8800A4BDB0 /* DWConditionalInvocation.h in Headers */,
 				651C095A165E9BC700A4BDB0 /* DWActionSheet.h in Headers */,
 				65E7E3EB166DF46800228834 /* DWWindow.h in Headers */,
+				656284BB1679DB1B00D5B7DC /* DWTreeNode.h in Headers */,
+				656284BF1679DC1200D5B7DC /* DWTreeCoder.h in Headers */,
+				656284D41679E1F000D5B7DC /* RXMLElement.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +602,9 @@
 				651C0954165E9B8800A4BDB0 /* DWConditionalInvocation.m in Sources */,
 				651C095B165E9BC700A4BDB0 /* DWActionSheet.m in Sources */,
 				65E7E3EC166DF46800228834 /* DWWindow.m in Sources */,
+				656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */,
+				656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */,
+				656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -622,8 +668,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/dwToolbox.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWToolbox-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DWToolbox;
 				SKIP_INSTALL = YES;
@@ -635,8 +683,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				DSTROOT = /tmp/dwToolbox.dst;
+				FRAMEWORK_SEARCH_PATHS = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DWToolbox-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(SDKROOT)/usr/include/libxml2";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = DWToolbox;
 				SKIP_INSTALL = YES;
