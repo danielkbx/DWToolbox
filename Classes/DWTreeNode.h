@@ -8,10 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-	DWTreeNodeStorageTypeXML,
-} DWTreeNodeFormat;
-
 @interface DWTreeNode : NSObject
 
 @property (nonatomic, strong, readonly) NSFileWrapper *fileWrapper;
@@ -20,9 +16,7 @@ typedef enum {
 @property (nonatomic, strong) NSString *value;
 
 @property (nonatomic, strong, readonly) NSDictionary *attributes;
-@property (nonatomic, strong, readonly) NSDictionary *nodes;
-
-@property (nonatomic, readonly) DWTreeNodeFormat format;
+@property (nonatomic, strong, readonly) NSArray *nodes;
 
 + (DWTreeNode *)nodeWithName:(NSString *)name;
 

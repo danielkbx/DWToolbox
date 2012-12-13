@@ -10,13 +10,16 @@
 
 #import "DWTreeNode.h"
 
+typedef enum {
+	DWTreeNodeFormatXML,
+	DWTreeNodeFormatJSON
+} DWTreeNodeFormat;
+
 typedef void (^DWTreeNodeCompletion)(BOOL success);
 
 @interface DWTreeCoder : DWTreeNode
 
-@property (nonatomic, strong, readonly) NSFileWrapper *fileWrapper;
-
 - (void)loadFromURL:(NSURL *)URL completion:(DWTreeNodeCompletion)completion;
-- (void)writeToURL:(NSURL *)URL completion:(DWTreeNodeCompletion)completion;
+- (BOOL)writeToURL:(NSURL *)URL format:(DWTreeNodeFormat)format;
 
 @end

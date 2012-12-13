@@ -32,22 +32,30 @@
 	});
 }
 
-- (void)writeToURL:(NSURL *)URL completion:(DWTreeNodeCompletion)completion {
+- (BOOL)writeToURL:(NSURL *)URL format:(DWTreeNodeFormat)format {
 	
-	if (self.format == DWTreeNodeStorageTypeXML) {
-		
-		BOOL success = NO;
+	NSData *data = nil;
+	
+	if (format == DWTreeNodeFormatXML) {
 		
 		RXMLElement *element = [self XMLElement];
 		if (element) {
-			NSData *elementData = [element dataWithOptions:RXMLWritingOptionIndent];
-			if (elementData) {
-				success =[elementData writeToURL:URL atomically:YES];
-			}
+			data = [element dataWithOptions:RXMLWritingOptionIndent];
 		}
 		
-		completion(success);
+	} else if (format == DWTreeNodeFormatJSON) {
+		
+		NSDictionary *JSONDictionary = [NSDictionary dictionaryWithObject:[self JSONDictionary] forKey:self.name];
+		data = [NSJSONSerialization dataWithJSONObject:JSONDictionary
+											   options:NSJSONWritingPrettyPrinted
+												 error:NULL];
 	}
+	
+	if (data) {
+		return [data writeToURL:URL atomically:NO];
+	}
+	
+	return NO;
 }
 
 @end

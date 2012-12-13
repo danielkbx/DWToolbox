@@ -9,22 +9,24 @@
 #import "DWTreeNode.h"
 #import "DWTreeNode_Private.h"
 
+#import "DWTreeCoder.h"
+
 #import "RXMLElement.h"
 
 @interface DWTreeNode () {
 	
-	NSMutableDictionary *_nodes;
+	NSMutableArray *_nodes;
 	NSMutableDictionary *_attributes;
+	
+	BOOL _isReading;
 	
 }
 
 - (id)initWithXMLElement:(RXMLElement *)element;
 
-@property (nonatomic, assign) DWTreeNodeFormat format;
-
 @property (nonatomic, strong, readwrite) NSString *name;
 @property (nonatomic, strong, readwrite) NSDictionary *attributes;
-@property (nonatomic, strong, readwrite) NSDictionary *nodes;
+@property (nonatomic, strong, readwrite) NSArray *nodes;
 
 @end
 
@@ -34,7 +36,7 @@
 @synthesize attributes = _attributes;
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"%@ %@='%@', Attributes:%u",[super description], self.name, self.value, self.attributes.count];
+	return [NSString stringWithFormat:@"%@ %@='%@'%@, Attributes:%u",[super description], self.name, self.value, (self.changed) ? @" CHANGED" : @"", self.attributes.count];
 }
 
 + (DWTreeNode *)nodeWithName:(NSString *)name {
@@ -45,7 +47,7 @@
 
 - (id)init {
 	if ((self = [super init])) {
-		self->_nodes = [[NSMutableDictionary alloc] init];
+		self->_nodes = [[NSMutableArray alloc] init];
 		self->_attributes = [[NSMutableDictionary alloc] init];
 	}
 	return self;
@@ -53,7 +55,7 @@
 
 - (id)initWithFileWrapper:(NSFileWrapper *)fileWrapper {
 	if ((self = [self init])) {
-				
+		
 		if ([self readFileWrapper:fileWrapper] == NO) {
 			self = nil;
 		}
@@ -68,6 +70,19 @@
 		}
 	}
 	return self;
+}
+
+- (id)initWithJSONDictionary:(NSDictionary *)data {
+	if ((self = [self init])) {
+		if ([self readJSONDictionary:data] == NO) {
+			self = nil;
+		}
+	}
+	return self;
+}
+
+- (id)initWithJSONDictionary:(NSDictionary *)data name:(NSString *)name {
+	return [self initWithJSONDictionary:[NSDictionary dictionaryWithObject:data forKey:name]];
 }
 
 - (BOOL)readFileWrapper:(NSFileWrapper *)fileWrapper {
@@ -87,23 +102,31 @@
 		
 		NSData *content = fileWrapper.regularFileContents;
 		if ([self.fileWrapper.filename hasSuffix:@".xml"]) {
-
-			self.format = DWTreeNodeStorageTypeXML;
 			
 			RXMLElement *fileElement = [RXMLElement elementFromXMLData:content];
 			if (fileElement) {
 				success = [self readXMLElement:fileElement];
 			}
+		} else if ([self.fileWrapper.filename hasSuffix:@".json"]) {
+			
+			id JSONObject = [NSJSONSerialization JSONObjectWithData:content
+															options:NSJSONReadingAllowFragments
+															  error:NULL];
+			if (JSONObject) {
+				success = [self readJSONDictionary:JSONObject];
+			}
 		}
 		
 	}
-
+	
 	return success;
 }
 
 #pragma mark - XML
 
 - (BOOL)readXMLElement:(RXMLElement *)element {
+	_isReading = YES;
+	
 	BOOL success = NO;
 	
 	if (element) {
@@ -116,14 +139,19 @@
 			DWTreeNode *node = [[DWTreeNode alloc] initWithXMLElement:subelement];
 			if (node) {
 				node.parent = self;
-				if (node.value.length == 0) node.value = nil;
-				[self->_nodes setObject:node forKey:node.name];
+				[self->_nodes addObject:node];
 			}
 		}];
 		if (self->_nodes.count == 0) {
 			self.value = [element text];
 		}
+		
+		if (self.value.length == 0) {
+			self.value = nil;
+		}
 	}
+	
+	_isReading = NO;
 	
 	return success;
 }
@@ -139,7 +167,7 @@
 	}
 	
 	if (self.nodes.count > 0) {
-		for (DWTreeNode *node in self.nodes.allValues) {
+		for (DWTreeNode *node in self.nodes) {
 			RXMLElement *subElement = [node XMLElement];
 			if (subElement) {
 				[element appendChild:subElement];
@@ -152,10 +180,101 @@
 	return element;
 }
 
+- (BOOL)readJSONDictionary:(NSDictionary *)data {
+	
+	BOOL success = NO;
+	
+	if ([data isKindOfClass:[NSDictionary class]]) {
+		if ([data count] > 0) {
+			NSString *firstNodeName = [data.allKeys objectAtIndex:0];
+			if (firstNodeName.length > 0) {
+				
+				success = YES;
+				
+				id firstNodeData = [data objectForKey:firstNodeName];
+				
+				
+				self.name = firstNodeName;
+				for (NSString *key in firstNodeData) {
+					id value = [firstNodeData objectForKey:key];
+					if ([value isKindOfClass:[NSDictionary class]]) {
+						
+						DWTreeNode *node = [[DWTreeNode alloc] initWithJSONDictionary:value name:key];
+						if (node) {
+							node.parent = self;
+							[self->_nodes addObject:node];
+						}
+						
+					} else if ([value isKindOfClass:[NSString class]]) {
+						if ([key isEqualToString:@"value"]) {
+							self.value = value;
+						} else {
+							[self setAttribute:key value:value];
+						}
+					}
+				}
+			}
+			
+		}
+	}
+	
+	return success;
+}
+
+#pragma mark - JSON
+
+- (NSDictionary *)JSONDictionary {
+	
+	NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:self.attributes];
+	
+	if (self.nodes.count > 0) {
+		for (DWTreeNode *node in self.nodes) {
+			NSDictionary *nodeDictionary = [node JSONDictionary];
+			[data setObject:nodeDictionary forKey:node.name];
+		}
+	} else if (self.value != nil) {
+		[data setObject:self.value forKey:@"value"];
+	}
+	
+	return data;
+}
+
+#pragma mark - Relations
+
+- (DWTreeCoder *)treeCoder {
+	if ([self isKindOfClass:[DWTreeCoder class]]) {
+		return (DWTreeCoder *)self;
+	} else {
+		
+		id parent = self.parent;
+		while (parent) {
+			if ([parent isKindOfClass:[DWTreeCoder class]]) {
+				return (DWTreeCoder *)parent;
+			} else {
+				parent = ((DWTreeNode *)parent).parent;
+			}
+		}
+	}
+	
+	return nil;
+}
+
+#pragma mark - State
+
+- (void)markAsChanged {
+	if (!_isReading) {
+		self.changed = YES;
+		if (![self isKindOfClass:[DWTreeCoder class]]) {
+			[self.treeCoder markAsChanged];
+		}
+	}
+}
+
 #pragma mark - Value
 
 - (void)setValue:(NSString *)value {
 	if (![value isEqualToString:self.value]) {
+		[self markAsChanged];
 		self->_value = value;
 		if (self.value != nil) {
 			[self->_nodes removeAllObjects];
@@ -171,32 +290,52 @@
 
 - (void)setAttribute:(NSString *)name value:(NSString *)value {
 	if (name != nil && value != nil) {
-		[self->_attributes setObject:value forKey:name];
+		
+		NSString *existingAttribute = [self attribute:name];
+		if (existingAttribute == nil || ![existingAttribute isEqualToString:value]) {
+			[self markAsChanged];
+			[self->_attributes setObject:value forKey:name];
+		}
 	}
 }
 
 - (void)removeAttribute:(NSString *)name {
 	if (name != nil) {
-		[self->_attributes removeObjectForKey:name];
+		if ([self.attributes.allKeys containsObject:name]) {
+			[self markAsChanged];
+			[self->_attributes removeObjectForKey:name];
+		}
 	}
 }
 
 #pragma mark - Nodes
 
 - (DWTreeNode *)nodeWithName:(NSString *)name {
-	return [self.nodes objectForKey:name];
+	DWTreeNode *node = nil;
+	for (DWTreeNode *subNode in self.nodes) {
+		if ([subNode.name isEqualToString:name]) {
+			node = subNode;
+			break;
+		}
+	}
+	return node;
 }
 
 - (void)addNode:(DWTreeNode *)node {
 	if (node.name) {
-		[self->_nodes setObject:node forKey:node.name];
+		[self markAsChanged];
+		[self->_nodes addObject:node];
+		node.parent = self;
 		self.value = nil;
 	}
 }
 
 - (void)removeNode:(DWTreeNode *)node {
-	if (node.name) {
-		[self->_nodes removeObjectForKey:node.name];
+	if (node) {
+		if ([self.nodes containsObject:node]) {
+			[self markAsChanged];
+			[self->_nodes removeObject:node];
+		}
 	}
 }
 
