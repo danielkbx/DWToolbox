@@ -143,6 +143,16 @@
 	return [segments componentsJoinedByString:@"."];
 }
 
+#pragma mark - Delegation
+
+- (NSString *)nameToUseForWritingOfName:(NSString *)name {
+		
+	if ([self.treeCoder.objectCreationDelegate respondsToSelector:@selector(treeCoder:nodeNameForProposedNodeName:)]) {
+		name = [self.treeCoder.objectCreationDelegate treeCoder:self.treeCoder nodeNameForProposedNodeName:name];
+	}
+	return name;
+}
+
 #pragma mark - XML
 
 - (BOOL)readXMLElement:(RXMLElement *)element {
@@ -179,10 +189,7 @@
 
 - (RXMLElement *)XMLElementPreferAttributes:(BOOL)preferAttributes {
 	
-	NSString *name = self.name;
-	if ([self.treeCoder.objectCreationDelegate respondsToSelector:@selector(treeCoder:nodeNameForProposedNodeName:)]) {
-		name = [self.treeCoder.objectCreationDelegate treeCoder:self.treeCoder nodeNameForProposedNodeName:name];
-	}
+	NSString *name = [self nameToUseForWritingOfName:self.name];
 	
 	RXMLElement *element = [RXMLElement elementWithTag:name];
 	
@@ -276,7 +283,7 @@
 			if (keyValue) {
 				NSDictionary *subnodeDict = [subnode JSONDictionary];
 				if (subnodeDict) {
-					[data setObject:subnodeDict forKey:keyValue];
+					[data setObject:[NSDictionary dictionaryWithObjectsAndKeys:subnodeDict,[self nameToUseForWritingOfName:subnode.name], nil] forKey:keyValue];
 				}
 			}
 		}
@@ -286,7 +293,7 @@
 		for (DWTreeNode *subnode in self.nodes) {
 			NSDictionary *subnodeDict = [subnode JSONDictionary];
 			if (subnodeDict) {
-				[data addObject:subnodeDict];
+				[data addObject:[NSDictionary dictionaryWithObjectsAndKeys:subnodeDict,[self nameToUseForWritingOfName:subnode.name], nil]];
 			}
 		}
 		return data;
@@ -299,11 +306,7 @@
 
 			for (DWTreeNode *node in self.nodes) {
 				
-				NSString *name = node.name;
-				if ([self.treeCoder.objectCreationDelegate respondsToSelector:@selector(treeCoder:nodeNameForProposedNodeName:)]) {
-					name = [self.treeCoder.objectCreationDelegate treeCoder:self.treeCoder nodeNameForProposedNodeName:name];
-				}
-				
+				NSString *name = [self nameToUseForWritingOfName:node.name];
 				NSDictionary *nodeDictionary = [node JSONDictionary];
 				[data setObject:nodeDictionary forKey:name];
 			}
