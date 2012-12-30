@@ -36,10 +36,4 @@
 	return [NSString stringWithString:MD5String];
 }
 
-#pragma mark - DWURLConnection
-
-- (NSString *)POSTValueRepresentation {
-	return self;
-}
-
 @end

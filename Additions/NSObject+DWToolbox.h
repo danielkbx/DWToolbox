@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 #import "NSString+DWToolbox.h"
+#import "DWObjectPropertyDescription.h"
+#import "DWTreeNode.h"
 
 @interface NSObject (DWToolbox)
 
-- (NSString *)POSTValueRepresentation;
-- (NSString *)POSTValueType;
+- (NSArray *)properties;	// returns an array of strings
+- (DWObjectPropertyDescription *)propertyDescriptionForName:(NSString *)name;
 
 @end
