@@ -14,4 +14,6 @@
 
 - (NSString *)MD5;
 
++ (NSString *)stringByRepeatingString:(NSString *)repeatedString times:(NSUInteger)times;
+
 @end

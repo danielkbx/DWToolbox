@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DWTextStyle.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DWTextStyle</TokenIdentifier>
+			<Abstract type="html">DWTextStyle loads and holds attributes for texts which can be used e.g. with DWLabel.
+To load the settings from a DWConfiguration instance, this instance must be the applied configuration. Therefore, you must call
+applyUICustomizations on this DWConfiguration instance.</Abstract>
+			<DeclaredIn>DWTextStyle.h</DeclaredIn>
+			
+			<NodeRef refid="3"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

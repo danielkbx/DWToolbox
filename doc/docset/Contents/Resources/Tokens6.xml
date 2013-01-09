@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DWURLDownload.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DWURLDownload</TokenIdentifier>
+			<Abstract type="html"></Abstract>
+			<DeclaredIn>DWURLDownload.h</DeclaredIn>
+			
+			<NodeRef refid="6"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DWURLDownload/setCacheLifetime:</TokenIdentifier>
+			<Abstract type="html">Calling cleanup will erase all cached files which are older than the cache lifetime. The default value is a week, you can, however, set
+your own lifetime (as positiv value) in seconds.</Abstract>
+			<DeclaredIn>DWURLDownload.h</DeclaredIn>			
+			
+			<Declaration>+ (void)setCacheLifetime:(NSTimeInterval)lifetime</Declaration>
+			
+			
+			<Anchor>//api/name/setCacheLifetime:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DWURLDownload/downloadWithURL:</TokenIdentifier>
+			<Abstract type="html">You can create an instance by calling initWithURL: or downloadWithURL: (class method!). Both methods only create and setup the object.
+The download is not started automatically.</Abstract>
+			<DeclaredIn>DWURLDownload.h</DeclaredIn>			
+			
+			<Declaration>+ (DWURLDownload *)downloadWithURL:(NSURL *)URL</Declaration>
+			
+			
+			<Anchor>//api/name/downloadWithURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DWURLDownload/startDownloadWithURL:completion:</TokenIdentifier>
+			<Abstract type="html">Downloads need to be started manually (except for the class method) by passing a local file URL and a completion block.
+By specifying a local file you can set the file where the downloaded data is saved. If you pass nil as fileURL, DWURLDownload will create its own
+file URL within its cache directory.
+ATTENTION: by passing your own file URL you are responsible for any cleanup/removal action. Those files are not erase by calling cleanup.</Abstract>
+			<DeclaredIn>DWURLDownload.h</DeclaredIn>			
+			
+			<Declaration>+ (DWURLDownload *)startDownloadWithURL:(NSURL *)URL completion:(DWURLDownloadHandler)completion</Declaration>
+			
+			
+			<Anchor>//api/name/startDownloadWithURL:completion:</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

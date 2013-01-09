@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DWConditionalInvocation.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DWConditionalInvocation</TokenIdentifier>
+			<Abstract type="html">DWConditionInvocations performs the block (target/action) when ALL conditions are met.</Abstract>
+			<DeclaredIn>DWConditionalInvocation.h</DeclaredIn>
+			
+			<NodeRef refid="1"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWConditionalInvocation/addCondition:</TokenIdentifier>
+			<Abstract type="html">Adds a new condition identifier (and AND condition).</Abstract>
+			<DeclaredIn>DWConditionalInvocation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addCondition:(NSString *)identifier</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>identifier</Name>
+					<Abstract type="html">The identifier to add.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addCondition:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWConditionalInvocation/addConditions:</TokenIdentifier>
+			<Abstract type="html">Add a group of condition identifiers (OR conditions). This group is met if ONE of the group is ticked.</Abstract>
+			<DeclaredIn>DWConditionalInvocation.h</DeclaredIn>			
+			
+			<Declaration>- (void)addConditions:(NSString *)identifier, ...</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>identifier</Name>
+					<Abstract type="html">A comma-seprated list of OR condition identifiers.</Abstract>
+				</Parameter><Parameter>
+					<Name>...</Name>
+					<Abstract type="html">NIL-terminated</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addConditions:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWConditionalInvocation/tick:</TokenIdentifier>
+			<Abstract type="html">Ticks the condifiton with the identifier.</Abstract>
+			<DeclaredIn>DWConditionalInvocation.h</DeclaredIn>			
+			
+			<Declaration>- (void)tick:(NSString *)identifier</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>identifier</Name>
+					<Abstract type="html">The condition identifier to tick.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/tick:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWConditionalInvocation/invoke</TokenIdentifier>
+			<Abstract type="html">Invokes the action and resets all conditions.</Abstract>
+			<DeclaredIn>DWConditionalInvocation.h</DeclaredIn>			
+			
+			<Declaration>- (void)invoke</Declaration>
+			
+			
+			<Anchor>//api/name/invoke</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

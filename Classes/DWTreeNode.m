@@ -8,7 +8,6 @@
 
 #import "DWTreeNode.h"
 #import "DWTreeNode_Private.h"
-#import "DWObjectPropertyDescription_Private.h"
 
 #import "DWTreeCoder.h"
 
@@ -17,22 +16,32 @@
 #import "NSObject+DWToolbox.h"
 #import "ISO8601DateFormatter.h"
 #import "UIColor+Expanded.h"
+#import "NSString+DWToolbox.h"
+
+#import "DWObjectPropertyDescription_Private.h"
+#import <CoreLocation/CoreLocation.h>
 
 #define kDWTreeNodeDictionarySerializingKeyKey @"oi7uz8w97er9b843trcw9"
+
+#define kDWTreeNodeArrayKey @"NSArray"
+#define kDWTreeNodeSetKey @"NSSet"
+#define kDWTreeNodeOrderedSetKey @"NSOrderedSet"
+#define kDWTreeNodeBagKey @"NSCountableSet"
+#define kDWTreeNodeDictKey @"NSDictionary"
 
 @interface DWTreeNode () {
 	
 	NSMutableArray *_nodes;
-	NSMutableDictionary *_attributes;
 	
 	BOOL _isReading;
 	
+	Class _objectClass;
+	
 }
 
-- (id)initWithXMLElement:(RXMLElement *)element;
+- (id)initWithXMLElement:(RXMLElement *)element parent:(id)parent;
 
 @property (nonatomic, strong, readwrite) NSString *name;
-@property (nonatomic, strong, readwrite) NSDictionary *attributes;
 @property (nonatomic, strong, readwrite) NSArray *nodes;
 
 @end
@@ -40,10 +49,40 @@
 @implementation DWTreeNode
 
 @synthesize nodes = _nodes;
-@synthesize attributes = _attributes;
 
 - (NSString *)description {
-	return [NSString stringWithFormat:@"%@ %@='%@'%@, Attributes:%u",[super description], self.name, self.value, (self.changed) ? @" CHANGED" : @"", self.attributes.count];
+	return [self descriptionWithIndentionLevel:0];
+}
+
+- (NSString *)descriptionWithIndentionLevel:(uint)level {
+	
+	NSMutableString *desc = [NSMutableString string];
+	if (level == 0) {
+		[desc appendFormat:@"\n"];
+	}
+	
+	[desc appendFormat:@"%@ (%@) %@\n",self.name, self.type, [super description]];
+	
+	if (self.value != nil) {
+		[desc appendString:[NSString stringByRepeatingString:@"\t" times:level + 1]];
+		[desc appendFormat:@"└ Value: %@\n",self.value];
+	} else if (self.nodes.count > 0) {
+		[desc appendString:[NSString stringByRepeatingString:@"\t" times:level + 1]];
+		[desc appendFormat:@"└ Nodes: %i\n",self.nodes.count];
+		
+		for (int i = 0; i < self.nodes.count; i++) {
+			DWTreeNode *subnode = [self.nodes objectAtIndex:i];
+			[desc appendString:[NSString stringByRepeatingString:@"\t" times:level + 2]];
+			if (i == self.nodes.count - 1) {
+				[desc appendString:@"└ "];
+			} else {
+				[desc appendString:@"├ "];
+			}
+			[desc appendString:[subnode descriptionWithIndentionLevel:level + 2]];
+		}
+	}
+	
+	return desc;
 }
 
 + (DWTreeNode *)nodeWithName:(NSString *)name {
@@ -55,7 +94,6 @@
 - (id)init {
 	if ((self = [super init])) {
 		self->_nodes = [[NSMutableArray alloc] init];
-		self->_attributes = [[NSMutableDictionary alloc] init];
 	}
 	return self;
 }
@@ -70,8 +108,9 @@
 	return self;
 }
 
-- (id)initWithXMLElement:(RXMLElement *)element {
+- (id)initWithXMLElement:(RXMLElement *)element parent:(id)parent {
 	if ((self = [self init])) {
+		self.parent = parent;
 		if ([self readXMLElement:element] == NO) {
 			self = nil;
 		}
@@ -79,23 +118,9 @@
 	return self;
 }
 
-- (id)initWithJSONDictionary:(NSDictionary *)data {
-	if ((self = [self init])) {
-		if ([self readJSONDictionary:data] == NO) {
-			self = nil;
-		}
-	}
-	return self;
-}
-
-- (id)initWithJSONDictionary:(NSDictionary *)data name:(NSString *)name {
-	return [self initWithJSONDictionary:[NSDictionary dictionaryWithObject:data forKey:name]];
-}
-
 - (BOOL)readFileWrapper:(NSFileWrapper *)fileWrapper {
 	if (self.fileWrapper != nil) {
 		self.fileWrapper = nil;
-		self.attributes = nil;
 		self.nodes = nil;
 		self.name = nil;
 		self.value = nil;
@@ -114,16 +139,7 @@
 			if (fileElement) {
 				success = [self readXMLElement:fileElement];
 			}
-		} else if ([self.fileWrapper.filename hasSuffix:@".json"]) {
-			
-			id JSONObject = [NSJSONSerialization JSONObjectWithData:content
-															options:NSJSONReadingAllowFragments
-															  error:NULL];
-			if (JSONObject) {
-				success = [self readJSONDictionary:JSONObject];
-			}
 		}
-		
 	}
 	
 	return success;
@@ -143,16 +159,6 @@
 	return [segments componentsJoinedByString:@"."];
 }
 
-#pragma mark - Delegation
-
-- (NSString *)nameToUseForWritingOfName:(NSString *)name {
-		
-	if ([self.treeCoder.objectCreationDelegate respondsToSelector:@selector(treeCoder:nodeNameForProposedNodeName:)]) {
-		name = [self.treeCoder.objectCreationDelegate treeCoder:self.treeCoder nodeNameForProposedNodeName:name];
-	}
-	return name;
-}
-
 #pragma mark - XML
 
 - (BOOL)readXMLElement:(RXMLElement *)element {
@@ -164,22 +170,21 @@
 		success = YES;
 		self.name = element.tag;
 		
-		[self->_attributes addEntriesFromDictionary:element.attributes];
-		
 		[element iterate:@"*" usingBlock:^(RXMLElement *subelement) {
-			DWTreeNode *node = [[DWTreeNode alloc] initWithXMLElement:subelement];
+			DWTreeNode *node = [[DWTreeNode alloc] initWithXMLElement:subelement parent:self];
 			if (node) {
-				node.parent = self;
 				[self->_nodes addObject:node];
 			}
 		}];
-		if (self->_nodes.count == 0) {
-			self.value = [element text];
-		}
 		
-		if (self.value.length == 0) {
-			self.value = nil;
-		}
+		//
+		//		if (self->_nodes.count == 0 && self->_attributes.count == 0) {
+		//			self.value = [element text];
+		//		}
+		//
+		//		if (self.value.length == 0) {
+		//			self.value = nil;
+		//		}
 	}
 	
 	_isReading = NO;
@@ -187,136 +192,88 @@
 	return success;
 }
 
-- (RXMLElement *)XMLElementPreferAttributes:(BOOL)preferAttributes {
+- (RXMLElement *)XMLElement {
 	
-	NSString *name = [self nameToUseForWritingOfName:self.name];
+	NSString *name = nil;
+	
+	BOOL isList = ([self.type isEqualToString:kDWTreeNodeArrayKey] ||
+				   [self.type isEqualToString:kDWTreeNodeSetKey] ||
+				   [self.type isEqualToString:kDWTreeNodeOrderedSetKey] ||
+				   [self.type isEqualToString:kDWTreeNodeBagKey] ||
+				   [self.type isEqualToString:kDWTreeNodeDictKey]);
+	
+	BOOL parentIsList = ([self.parent.type isEqualToString:kDWTreeNodeArrayKey] ||
+						 [self.parent.type isEqualToString:kDWTreeNodeSetKey] ||
+						 [self.parent.type isEqualToString:kDWTreeNodeOrderedSetKey] ||
+						 [self.parent.type isEqualToString:kDWTreeNodeBagKey] ||
+						 [self.parent.type isEqualToString:kDWTreeNodeDictKey]);
+	
+	if (parentIsList) {
+		name = [self typeStringOfEncoding:self.type];
+	} else {
+		name = self.name;
+	}
+	
+	RXMLElement *appendingElement = nil;
 	
 	RXMLElement *element = [RXMLElement elementWithTag:name];
 	
-	for (NSString *attributeName in self.attributes) {
-		NSString *attributeValue = [self.attributes objectForKey:attributeName];
-		if (preferAttributes ||
-			[attributeName isEqualToString:kDWTreeNodeDictionarySerializingKeyKey] ||
-			[attributeName.lowercaseString isEqualToString:@"identifier"]) {
-			NSString *usedAttributeName = nil;
-			if ([attributeName isEqualToString:kDWTreeNodeDictionarySerializingKeyKey]) {
-				usedAttributeName = self.treeCoder.dictionaryKeyString;
-			} else if ([attributeName.lowercaseString isEqualToString:@"identifier"]) {
-				usedAttributeName = @"id";
+	if (!parentIsList && self.treeCoder != self && ![self.type isEqualToString:@"B"]) {
+		NSString *subname = [self typeStringOfEncoding:self.type];
+		if (isList) {
+			if ([self.type isEqualToString:kDWTreeNodeDictKey]) {
+				subname = @"map";
 			} else {
-				usedAttributeName = attributeName;
+				subname = @"list";
 			}
-			[element setAttribute:usedAttributeName value:attributeValue];
-		} else {
-			RXMLElement *attributeSubnode = [RXMLElement elementWithTag:attributeName];
-			if (attributeSubnode) {
-				[attributeSubnode setText:attributeValue];
-				[element appendChild:attributeSubnode];
+		}
+		RXMLElement *typeElement = [RXMLElement elementWithTag:subname];
+		[element appendChild:typeElement];
+		
+		if (isList) {
+			if ([self.type isEqualToString:kDWTreeNodeSetKey]) {
+				[typeElement setAttribute:@"unique" value:@"true"];
+			} else if ([self.type isEqualToString:kDWTreeNodeOrderedSetKey]) {
+				[typeElement setAttribute:@"unique" value:@"true"];
+				[typeElement setAttribute:@"ordered" value:@"true"];
+			} else if ([self.type isEqualToString:kDWTreeNodeBagKey]) {
+				[typeElement setAttribute:@"unique" value:@"true"];
+				[typeElement setAttribute:@"countable" value:@"true"];
 			}
+		}
+		
+		appendingElement = typeElement;
+	} else {
+		appendingElement = element;
+		if ([self.parent.type isEqualToString:kDWTreeNodeDictKey]) {
+			[appendingElement setAttribute:self.treeCoder.dictionaryKeyString value:self.name];
 		}
 	}
 	
 	if (self.nodes.count > 0) {
-		for (DWTreeNode *node in self.nodes) {
-			RXMLElement *subElement = [node XMLElementPreferAttributes:preferAttributes];
+		for (DWTreeNode *subnode in self.nodes) {
+			RXMLElement *subElement = subnode.XMLElement;
 			if (subElement) {
-				[element appendChild:subElement];
+				[appendingElement appendChild:subElement];
 			}
 		}
-	} else if (self.value.length > 0) {
-		[element setText:self.value];
+	} else {
+		NSString *encoding = [self.type copy];
+		if ([encoding isEqualToString:@"B"]) {
+			NSNumber *boolNumber = (NSNumber *)self.value;
+			RXMLElement *boolElement = nil;
+			if ([boolNumber boolValue]) {
+				boolElement = [RXMLElement elementWithTag:@"true"];
+			} else {
+				boolElement = [RXMLElement elementWithTag:@"false"];
+			}
+			[appendingElement appendChild:boolElement];
+		} else {
+			[appendingElement setText:[self.class stringValueFromObject:self.value encoding:&encoding]];
+		}
 	}
 	
 	return element;
-}
-
-- (BOOL)readJSONDictionary:(NSDictionary *)data {
-	
-	BOOL success = NO;
-	
-	if ([data isKindOfClass:[NSDictionary class]]) {
-		if ([data count] > 0) {
-			NSString *firstNodeName = [data.allKeys objectAtIndex:0];
-			if (firstNodeName.length > 0) {
-				
-				success = YES;
-				
-				id firstNodeData = [data objectForKey:firstNodeName];
-				
-				
-				self.name = firstNodeName;
-				for (NSString *key in firstNodeData) {
-					id value = [firstNodeData objectForKey:key];
-					if ([value isKindOfClass:[NSDictionary class]]) {
-						
-						DWTreeNode *node = [[DWTreeNode alloc] initWithJSONDictionary:value name:key];
-						if (node) {
-							node.parent = self;
-							[self->_nodes addObject:node];
-						}
-						
-					} else if ([value isKindOfClass:[NSString class]]) {
-						if ([key isEqualToString:@"value"]) {
-							self.value = value;
-						} else {
-							[self setAttribute:key value:value];
-						}
-					}
-				}
-			}
-			
-		}
-	}
-	
-	return success;
-}
-
-#pragma mark - JSON
-
-- (id)JSONDictionary {
-	
-	if (self.type == DWTreeNodeTypeDictionary) {
-		
-		NSMutableDictionary *data = [NSMutableDictionary dictionary];
-		for (DWTreeNode *subnode in self.nodes) {
-			NSString *keyValue = [subnode attribute:kDWTreeNodeDictionarySerializingKeyKey];
-			if (keyValue) {
-				NSDictionary *subnodeDict = [subnode JSONDictionary];
-				if (subnodeDict) {
-					[data setObject:[NSDictionary dictionaryWithObjectsAndKeys:subnodeDict,[self nameToUseForWritingOfName:subnode.name], nil] forKey:keyValue];
-				}
-			}
-		}
-		return data;
-	} else if (self.type == DWTreeNodeTypeArray) {
-		NSMutableArray *data = [NSMutableArray array];
-		for (DWTreeNode *subnode in self.nodes) {
-			NSDictionary *subnodeDict = [subnode JSONDictionary];
-			if (subnodeDict) {
-				[data addObject:[NSDictionary dictionaryWithObjectsAndKeys:subnodeDict,[self nameToUseForWritingOfName:subnode.name], nil]];
-			}
-		}
-		return data;
-	} else {
-		
-		NSMutableDictionary *data = [NSMutableDictionary dictionaryWithDictionary:self.attributes];
-		[data removeObjectForKey:kDWTreeNodeDictionarySerializingKeyKey];
-		
-		if (self.nodes.count > 0) {
-
-			for (DWTreeNode *node in self.nodes) {
-				
-				NSString *name = [self nameToUseForWritingOfName:node.name];
-				NSDictionary *nodeDictionary = [node JSONDictionary];
-				[data setObject:nodeDictionary forKey:name];
-			}
-			
-		} else if (self.value != nil) {
-			[data setObject:self.value forKey:@"value"];
-		}
-		return data;
-	}
-	return nil;
 }
 
 #pragma mark - Relations
@@ -352,38 +309,12 @@
 
 #pragma mark - Value
 
-- (void)setValue:(NSString *)value {
-	if (![value isEqualToString:self.value]) {
+- (void)setValue:(id)value {
+	if (![value isEqual:self.value]) {
 		[self markAsChanged];
 		self->_value = value;
 		if (self.value != nil) {
 			[self->_nodes removeAllObjects];
-		}
-	}
-}
-
-#pragma mark - Attributes
-
-- (NSString *)attribute:(NSString *)name {
-	return [self.attributes objectForKey:name];
-}
-
-- (void)setAttribute:(NSString *)name value:(NSString *)value {
-	if (name != nil && value != nil) {
-		
-		NSString *existingAttribute = [self attribute:name];
-		if (existingAttribute == nil || ![existingAttribute isEqualToString:value]) {
-			[self markAsChanged];
-			[self->_attributes setObject:value forKey:name];
-		}
-	}
-}
-
-- (void)removeAttribute:(NSString *)name {
-	if (name != nil) {
-		if ([self.attributes.allKeys containsObject:name]) {
-			[self markAsChanged];
-			[self->_attributes removeObjectForKey:name];
 		}
 	}
 }
@@ -419,48 +350,75 @@
 	}
 }
 
+#pragma mark - Types/Encodings
+
+- (NSString *)typeStringOfEncoding:(NSString *)encoding {
+	NSString *string = [self.class internalTypeStringForEncoding:encoding];
+	
+	if (string == nil) {
+		string = [encoding copy];
+	}
+	
+	return string;
+}
+
++ (NSDictionary *)internalTypes {
+	static NSDictionary *internalTypes = nil;
+	if (internalTypes == nil) {
+		internalTypes = [[NSDictionary alloc] initWithObjectsAndKeys:
+						 @"string",		@"NSString",
+						 @"string",		@"NSMutableString",
+						 @"url",		@"NSURL",
+						 @"date",		@"NSDate",
+						 @"color",		@"UIColor",
+						 @"binary",		@"NSData",
+						 @"binary",		@"NSMutableData",
+						 @"number",		@"i",
+						 @"number",		@"s",
+						 @"number",		@"l",
+						 @"number",		@"q",
+						 @"number",		@"I",
+						 @"number",		@"S",
+						 @"number",		@"L",
+						 @"number",		@"Q",
+						 @"number",		@"f",
+						 @"number",		@"d",
+						 @"char",		@"c",
+						 @"rect",		@"CGRect",
+						 @"point",		@"CGPoint",
+						 @"size",		@"CGSize",
+						 @"bool",		@"B",
+						 @"location",	@"CLLocation",
+						 nil];
+	}
+	return internalTypes;
+}
+
++ (NSString *)internalTypeStringForEncoding:(NSString *)encoding {
+	return [[self internalTypes] objectForKey:encoding];
+}
+
++ (BOOL)isInternalType:(NSString *)encoding {
+	return ([self internalTypeStringForEncoding:encoding] != nil);
+}
+
 #pragma mark - Importing Objects
 
-+ (NSDictionary *)attributeClasses {
-	static NSDictionary *attributeClasses = nil;
-	if (attributeClasses == nil) {
-		attributeClasses = [[NSDictionary alloc] initWithObjectsAndKeys:
-							@"NSString", [NSString class],
-							@"NSNumber", [NSNumber class],
-							@"NSURL", [NSURL class],
-							@"NSDate", [NSDate class],
-							@"UIColor", [UIColor class],
-							@"NSData", [NSData class],
-							nil];
-	}
-	return attributeClasses;
-}
 
-+ (Class)attributeClassForClass:(Class)class {
-	for (Class attributeClass in [[self attributeClasses] allKeys]) {
-		if ([class isSubclassOfClass:attributeClass]) {
-			return attributeClass;
-		}
-	}
-	return nil;
-}
-
-+ (BOOL)isAttributeClass:(Class)class {
-	return ([self attributeClassForClass:class] != nil);
-}
-
-+ (BOOL)isAttributeObject:(id)object {
-	return [self isAttributeClass:[object class]];
-}
 
 - (BOOL)importObject:(id)object {
 	
 	Class rootClass = [object class];
 	if (rootClass) {
 		if (self.name == nil) {
-			self.name  = [self nodeNameForClass:rootClass];
+			self.name  = NSStringFromClass([object class]);
 		}
-		self.type = DWTreeNodeTypeCustomClass;
+	}
+	
+	NSString *objectEncoding = NSStringFromClass([object class]);
+	
+	if (self.type == nil) {
+		self.type = [self typeStringOfEncoding:objectEncoding];
 	}
 	
 	NSArray *propertyNames = [self propertiesOfObject:object];
@@ -473,7 +431,26 @@
 				DWLog(@"Treecoder skips property \"%@\". It is READONLY or WEAK. Consider defining a list of properties by implementing DWTreeCoding for %@!",propertyName,rootClass);
 			} else if ([description.typeString isEqualToString:@"id"]) {
 				DWLog(@"Treecoder skips property \"%@\" of class %@. Since its type is \"id\" it can be writen but not read.",propertyName,rootClass);
-			} else {
+			} else if ([description.typeString isEqualToString:@"v"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'void'.",propertyName,rootClass);
+			} else if ([description.typeString isEqualToString:@"#"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'Class'.",propertyName,rootClass);
+			} else if ([description.typeString isEqualToString:@":"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'SEL'.",propertyName,rootClass);
+			} else if ([description.typeString hasPrefix:@"{"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'struct'.",propertyName,rootClass);
+			}  else if ([description.typeString hasPrefix:@"["]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'C array'.",propertyName,rootClass);
+			}  else if ([description.typeString hasPrefix:@"("]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'union'.",propertyName,rootClass);
+			}  else if ([description.typeString hasPrefix:@"^"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'pointer'.",propertyName,rootClass);
+			}  else if ([description.typeString hasPrefix:@"?"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unknown type.",propertyName,rootClass);
+			}  else if ([description.typeString hasPrefix:@"b"]) {
+				DWLog(@"Treecoder skips property \"%@\" of class %@. Unsupported type 'bitfield'.",propertyName,rootClass);
+			}			
+			else {
 				[processingProperties addObject:description];
 			}
 		} else {
@@ -488,95 +465,93 @@
 			
 			NSString *propertyName = propertyDescription.name;
 			
-			if ([[self class] isAttributeObject:nativeValue]) {
-				[self setAttribute:propertyName value:[self stringFromObject:nativeValue]];
+			if ([propertyName isEqualToString:@"CGSize"]) {
+				NSLog(@"Size");
+			}
+			
+			if ([self.class isInternalType:propertyDescription.typeString]) {
+				
+				DWTreeNode *subnode = [DWTreeNode nodeWithName:propertyName];
+				subnode.type = propertyDescription.typeString;
+				subnode.value = nativeValue;
+				[self addNode:subnode];
+				
+			} else if ([nativeValue isKindOfClass:[NSArray class]]) {
+				
+				DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
+				arrayNode.type = kDWTreeNodeArrayKey;
+				for (id arrayElement in (NSArray *)nativeValue) {
+					DWTreeNode *subnode = [[DWTreeNode alloc] init];
+					if ([subnode importObject:arrayElement]) {
+						[arrayNode addNode:subnode];
+					}
+				}
+				[self addNode:arrayNode];
+			} else if ([nativeValue isKindOfClass:[NSSet class]]) {
+				DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
+				arrayNode.type = kDWTreeNodeSetKey;
+				for (id arrayElement in (NSSet *)nativeValue) {
+					DWTreeNode *subnode = [[DWTreeNode alloc] init];
+					if ([subnode importObject:arrayElement]) {
+						[arrayNode addNode:subnode];
+					}
+				}
+				[self addNode:arrayNode];
+			}  else if ([nativeValue isKindOfClass:[NSOrderedSet class]]) {
+				DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
+				arrayNode.type = kDWTreeNodeOrderedSetKey;
+				for (id arrayElement in (NSOrderedSet *)nativeValue) {
+					DWTreeNode *subnode = [[DWTreeNode alloc] init];
+					if ([subnode importObject:arrayElement]) {
+						[arrayNode addNode:subnode];
+					}
+				}
+				[self addNode:arrayNode];
+			}  else if ([nativeValue isKindOfClass:[NSCountedSet class]]) {
+				DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
+				arrayNode.type = kDWTreeNodeBagKey;
+				for (id arrayElement in (NSCountedSet *)nativeValue) {
+					DWTreeNode *subnode = [[DWTreeNode alloc] init];
+					if ([subnode importObject:arrayElement]) {
+						[arrayNode addNode:subnode];
+					}
+				}
+				[self addNode:arrayNode];
+			}  else if ([nativeValue isKindOfClass:[NSDictionary class]]) {
+				DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
+				arrayNode.type = kDWTreeNodeDictKey;
+				for (NSString *nodeKey in (NSDictionary *)nativeValue) {
+					id dictElement = [((NSDictionary *)nativeValue) objectForKey:nodeKey];
+					DWTreeNode *subnode = [DWTreeNode nodeWithName:nodeKey];
+					if ([subnode importObject:dictElement]) {
+						[arrayNode addNode:subnode];
+					}
+				}
+				[self addNode:arrayNode];
 			} else {
-				if ([nativeValue isKindOfClass:[NSArray class]]) {
-					DWTreeNode *arrayNode = [DWTreeNode nodeWithName:propertyName];
-					arrayNode.type = DWTreeNodeTypeArray;
-					for (id arrayElement in (NSArray *)nativeValue) {
-						DWTreeNode *subnode = [[DWTreeNode alloc] init];
-						if ([subnode importObject:arrayElement]) {
-							[arrayNode addNode:subnode];
-						}
-					}
-					[self addNode:arrayNode];
-				} else if ([nativeValue isKindOfClass:[NSDictionary class]]) {
-					DWTreeNode *dictNode = [DWTreeNode nodeWithName:propertyName];
-					dictNode.type = DWTreeNodeTypeDictionary;
-					for (NSString *elementKey in (NSDictionary *)nativeValue) {
-						id dictElement = [((NSDictionary *)nativeValue) objectForKey:elementKey];
-						DWTreeNode *subnode = [[DWTreeNode alloc] init];
-						if ([subnode importObject:dictElement]) {
-							[dictNode addNode:subnode];
-							[subnode setAttribute:kDWTreeNodeDictionarySerializingKeyKey value:elementKey];
-						}
-					}
-					[self addNode:dictNode];
-				} else {
-					DWTreeNode *subnode = [DWTreeNode nodeWithName:propertyName];
-					subnode.type = DWTreeNodeTypeCustomClass;
-					if ([subnode importObject:nativeValue]) {
-						[self addNode:subnode];
-					}
+				DWTreeNode *subnode = [DWTreeNode nodeWithName:propertyName];
+				if ([subnode importObject:nativeValue]) {
+					[self addNode:subnode];
 				}
 			}
 		}
 	}
 	
-	if (self.attributes.count + self.nodes.count == 0) {
+	if (self.nodes.count == 0) {
 		NSString *objectsValue = nil;
 		
-		objectsValue = [self stringFromObject:object];
+		NSString *encoding = [self.type copy];
+		objectsValue = [self.class stringValueFromObject:object encoding:&encoding];
 		
-		if (objectsValue) {
+		if (objectsValue && encoding) {
+			self.type = encoding;
 			[self setValue:objectsValue];
-			self.type = DWTreeNodeTypeNativeClass;
 		}
 	}
 	
 	return (self.name != nil);
 }
 
-- (NSString *)nodeNameForClass:(Class)class {
-	NSString *name = nil;
-	
-	Class attributeClass = [[self class] attributeClassForClass:class];
-	if (attributeClass) {
-		name = [[[self class] attributeClasses] objectForKey:attributeClass];
-	}
-	
-	if (name == nil) {
-		name = NSStringFromClass(class);
-	}
-	
-	return name;
-}
-
-- (NSString *)stringFromObject:(id)object {
-	
-	NSString *value = nil;
-	
-	if ([object isKindOfClass:[NSString class]]) {
-		value = (NSString *)object;
-	} else if ([object isKindOfClass:[NSDate class]]) {
-		
-		static ISO8601DateFormatter *isoDateFormatter = nil;
-		if (isoDateFormatter == nil) {
-			isoDateFormatter = [[ISO8601DateFormatter alloc] init];
-			isoDateFormatter.includeTime = YES;
-		}
-		value = [isoDateFormatter stringFromDate:object];
-	} else if ([object isKindOfClass:[NSNumber class]]) {
-		value = [((NSNumber *)object) stringValue];
-	} else if ([object isKindOfClass:[UIColor class]]) {
-		value = [NSString stringWithFormat:@"#%@",[((UIColor *)object) hexStringFromColorAndAlpha]];
-	} else if ([object isKindOfClass:[NSURL class]]) {
-		value = [((NSURL *)object) absoluteString];
-	}
-	
-	return value;
-}
 
 - (NSArray *)propertiesOfObject:(id)object {
 	
@@ -598,6 +573,181 @@
 	}
 	
 	return properties;
+}
+
+#pragma mark - Creating objects
+
+- (id)object {
+	
+	id object = nil;
+	
+	// create an instance
+	Class rootClass = [self classForTreeNode:self];
+	if (rootClass) {
+		
+		// allocating
+		object = [rootClass alloc];
+		BOOL didInitializeObject = NO;
+		
+		// initialising
+		if ([rootClass conformsToProtocol:@protocol(DWTreeCoding)]) {
+			if ([object respondsToSelector:@selector(initWithTreeNode:)]) {
+				object = [((id <DWTreeCoding>)object) initWithTreeNode:self];
+				didInitializeObject = YES;
+			}
+		}
+		if (didInitializeObject == NO) {
+			object = [[rootClass alloc] init];
+			// apply properties
+			
+			NSArray *objectsProperties = [((NSObject *)object) properties];
+			
+			NSMutableArray *failedPropertyNames = [NSMutableArray array];
+			
+		}
+	}
+	
+	return object;
+}
+
+
+- (Class)classForTreeNode:(DWTreeNode *)node {
+	
+	Class class = nil;
+	
+	if ([self.treeCoder.delegate respondsToSelector:@selector(treeCoder:classForTypeString:)]) {
+		class = [self.treeCoder.delegate treeCoder:self.treeCoder classForTypeString:node.type];
+	}
+	
+	if (class == nil) {
+		class = NSClassFromString(node.type);
+	}
+	
+	return class;
+}
+
+#pragma mark - String/Object/Value conversion
+
++ (ISO8601DateFormatter *)iso8601DateFormatter {
+	static ISO8601DateFormatter *isoDateFormatter = nil;
+	if (isoDateFormatter == nil) {
+		isoDateFormatter = [[ISO8601DateFormatter alloc] init];
+		isoDateFormatter.includeTime = YES;
+	}
+	return isoDateFormatter;
+}
+
++ (NSString *)stringValueFromObject:(NSObject *)object encoding:(NSString **)encoding {
+	
+	NSString *stringValue = nil;
+	
+	if ([object isKindOfClass:[NSString class]]) {
+		// String
+		stringValue = [object copy];
+		if (encoding != NULL) {
+			*encoding = @"NSString";
+		}
+	}
+	else if ([object isKindOfClass:[NSURL class]]) {
+		// URL
+		stringValue = [((NSURL *)object) absoluteString];
+		if (encoding != NULL) {
+			*encoding = @"NSURL";
+		}
+	}
+	else if ([object isKindOfClass:[UIColor class]]) {
+		// Color
+		stringValue = [NSString stringWithFormat:@"#%@",[((UIColor *)object) hexStringFromColorAndAlpha]];
+		if (encoding != NULL) {
+			*encoding = @"UIColor";
+		}
+	}
+	else if ([object isKindOfClass:[NSNumber class]]) {
+		// Number
+		stringValue = [((NSNumber *)object) stringValue];
+		if (encoding != NULL) {
+			*encoding = @"NSNumber";
+		}
+	}
+	else if ([object isKindOfClass:[NSDate class]]) {
+		// Date
+		stringValue = [[self iso8601DateFormatter] stringFromDate:(NSDate *)object];
+		if (encoding != NULL) {
+			*encoding = @"NSDate";
+		}
+	} else if ([object isKindOfClass:[NSValue class]]) {
+		// NSValue
+		NSValue *value = (NSValue *)object;
+		NSMutableArray *components = [NSMutableArray array];
+		if ([*encoding isEqualToString:@"CGSize"]) {
+			CGSize size = [value CGSizeValue];
+			[components addObject:[NSNumber numberWithFloat:size.width]];
+			[components addObject:[NSNumber numberWithFloat:size.height]];
+		} else if ([*encoding isEqualToString:@"CGRect"]) {
+			CGRect rect = [value CGRectValue];
+			[components addObject:[NSNumber numberWithFloat:rect.origin.x]];
+			[components addObject:[NSNumber numberWithFloat:rect.origin.y]];
+			[components addObject:[NSNumber numberWithFloat:rect.size.width]];
+			[components addObject:[NSNumber numberWithFloat:rect.size.height]];
+		}  else if ([*encoding isEqualToString:@"CGPoint"]) {
+			CGPoint point = [value CGPointValue];
+			[components addObject:[NSNumber numberWithFloat:point.x]];
+			[components addObject:[NSNumber numberWithFloat:point.y]];
+		}
+		
+		if (stringValue == nil) {
+			stringValue = [components componentsJoinedByString:@" "];
+		}
+		
+	} else if ([object isKindOfClass:[CLLocation class]]) {
+		// CLLocation
+		CLLocation *location = (CLLocation *)object;
+		NSArray *components = [NSArray arrayWithObjects:
+							   [NSNumber numberWithDouble:location.coordinate.latitude],
+							   [NSNumber numberWithDouble:location.coordinate.longitude],
+							   [NSNumber numberWithDouble:location.altitude],
+							   [NSNumber numberWithDouble:[location.timestamp timeIntervalSince1970]],
+							   nil];
+		
+		stringValue = [components componentsJoinedByString:@" "];
+		if (*encoding != NULL) {
+			*encoding = @"CLLocation";
+		}
+		
+	}
+	
+	return stringValue;
+}
+
++ (id)objectWithClass:(Class)class fromString:(NSString *)string {
+	id packedValue = nil;
+	
+	if ([class isSubclassOfClass:[NSString class]]) {
+		//String
+		packedValue = [string copy];
+		
+	} else if ([class isSubclassOfClass:[NSURL class]]) {
+		// URL
+		packedValue = [NSURL URLWithString:string];
+		
+	} else if ([class isSubclassOfClass:[UIColor class]]) {
+		// Color
+		if ([string hasPrefix:@"#"]) {
+			string = [string substringFromIndex:1];
+		}
+		packedValue = [UIColor colorAndAlphaWithHexString:string];
+		
+	} else if ([class isSubclassOfClass:[NSNumber class]]) {
+		// Number
+		packedValue = [NSNumber numberWithLongLong:[string longLongValue]];
+		
+	} else if ([class isSubclassOfClass:[NSDate class]]) {
+		// Date
+		packedValue = [[self iso8601DateFormatter] dateFromString:string];
+		
+	}
+	
+	return packedValue;
 }
 
 @end

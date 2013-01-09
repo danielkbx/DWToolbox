@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DocSetNodes version="1.0">
+    <TOC>
+        <Node type="folder">
+            <Name>DWToolbox</Name>
+            <Path>index.html</Path>
+			<Subnodes>
+                
+				
+				<Node type="folder">
+					<Name>Classes</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="1"/>
+						<NodeRef refid="2"/>
+						<NodeRef refid="3"/>
+						<NodeRef refid="4"/>
+						<NodeRef refid="5"/>
+						<NodeRef refid="6"/>
+						
+					</Subnodes>
+				</Node>
+				
+				
+				
+				<Node type="folder">
+					<Name>Protocols</Name>
+					<Path>index.html</Path>
+					<Subnodes>
+						<NodeRef refid="7"/>
+						
+					</Subnodes>
+				</Node>
+				
+			</Subnodes>
+        </Node>
+    </TOC>
+	<Library>
+		
+		<Node id="1">
+			<Name>DWConditionalInvocation</Name>
+			<Path>Classes/DWConditionalInvocation.html</Path>
+		</Node>
+		<Node id="2">
+			<Name>DWConfiguration</Name>
+			<Path>Classes/DWConfiguration.html</Path>
+		</Node>
+		<Node id="3">
+			<Name>DWTextStyle</Name>
+			<Path>Classes/DWTextStyle.html</Path>
+		</Node>
+		<Node id="4">
+			<Name>DWTreeCoder</Name>
+			<Path>Classes/DWTreeCoder.html</Path>
+		</Node>
+		<Node id="5">
+			<Name>DWURLConnection</Name>
+			<Path>Classes/DWURLConnection.html</Path>
+		</Node>
+		<Node id="6">
+			<Name>DWURLDownload</Name>
+			<Path>Classes/DWURLDownload.html</Path>
+		</Node>
+		
+		
+		<Node id="7">
+			<Name>DWTreeCoding</Name>
+			<Path>Protocols/DWTreeCoding.html</Path>
+		</Node>
+		
+	</Library>
+</DocSetNodes>

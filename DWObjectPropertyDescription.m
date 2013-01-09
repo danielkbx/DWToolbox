@@ -1,4 +1,4 @@
-//
+ //
 //  DWObjectPropertyDescription.m
 //  DWToolbox
 //
@@ -9,15 +9,18 @@
 #import "DWObjectPropertyDescription.h"
 #import "DWObjectPropertyDescription_Private.h"
 
+#import "NSObject+DWToolbox.h"
+#import <CoreLocation/CoreLocation.h>
+
 @interface DWObjectPropertyDescription ()
 
 @property (nonatomic, strong, readwrite) NSString *name;
 @property (nonatomic, assign, readwrite) NSString *typeString;
+@property (nonatomic, assign, readwrite) DWPropertyTypeType typeType;
 @property (nonatomic, assign, readwrite) DWPropertyAccessMode accessMode;
 @property (nonatomic, strong, readwrite) NSString *backingVariableName;
 @property (nonatomic, assign, readwrite) BOOL atomic;
 @property (nonatomic, assign, readwrite) BOOL dynamic;
-@property (nonatomic, assign) BOOL isObjectProperty;
 
 @end
 
@@ -40,15 +43,26 @@
 				typeString = [typeString substringFromIndex:1];
 			}
 			
-			NSCharacterSet *typeTrimCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"@\""];
-			typeString = [typeString stringByTrimmingCharactersInSet:typeTrimCharacterSet];
-			
-			if (typeString.length == 0) {
-				typeString = @"id";
+			if ([typeString hasPrefix:@"@"]) {
+				
+				self.typeType = DWPropertyTypeObject;
+				NSCharacterSet *typeTrimCharacterSet = [NSCharacterSet characterSetWithCharactersInString:@"@\""];
+				typeString = [typeString stringByTrimmingCharactersInSet:typeTrimCharacterSet];
+				if (typeString.length == 0) {
+					typeString = @"id";
+				}
+				
+			} else if ([typeString hasPrefix:@"{"]) {
+				typeString = [typeString substringFromIndex:1];
+				typeString = [typeString substringToIndex:[typeString rangeOfString:@"="].location];
+				self.typeType = DWPropertyTypeValueBacked;
+			} else if (typeString.length == 1) {
+				self.typeType = DWPropertyTypeNumberBacked;
 			}
 			
+						
 			self.typeString = typeString;
-			self.isObjectProperty = (self.typeString.length > 1);
+
 			
 			NSString *backingVariableString = [attributes lastObject];
 			if ([backingVariableString hasPrefix:@"V"]) {
@@ -58,7 +72,7 @@
 				self.backingVariableName = backingVariableString;
 			}
 			
-			self.accessMode = (self.isObjectProperty) ? DWPropertyAccessModeRetain : DWPropertyAccessModeAssign;
+			self.accessMode = (self.typeType == DWPropertyTypeObject) ? DWPropertyAccessModeRetain : DWPropertyAccessModeAssign;
 			self.atomic = YES;
 			self.dynamic = NO;
 			if (attributes.count > 2) {
@@ -83,7 +97,7 @@
 		} else {
 			self = nil;
 		}
-			
+		
 		
 	}
 	return self;
@@ -92,29 +106,27 @@
 - (BOOL)assignValue:(id)value {
 	BOOL success = NO;
 	if (self.object) {
-		if (self.isObjectProperty) {
+		if (self.typeType == DWPropertyTypeObject) {
 			Class targetClass = NSClassFromString(self.typeString);
 			if ([value isKindOfClass:targetClass]) {
-				
 				[self.object setValue:value forKey:self.name];
 				success = YES;
-				
+			}
+		} else {
+			if ([value isKindOfClass:[NSNumber class]]) {
+				NSCharacterSet *numberEncodings = [NSCharacterSet characterSetWithCharactersInString:@"islqCISLQfdB"];
+				if ([self.typeString rangeOfCharacterFromSet:numberEncodings].location != NSNotFound) {
+					[self.object setValue:value forKey:self.name];
+					success = YES;
+				}
 			}
 		}
-	}
-	return success;
+}
+return success;
 }
 
 - (id)value {
-	id value = nil;
-	if (self.object) {
-		//if (self.isObjectProperty) {
-		value = [self.object valueForKey:self.name];
-		//}
-	}
-	
-	return value;
+	return [self.object valueForKey:self.name];
 }
-
 
 @end

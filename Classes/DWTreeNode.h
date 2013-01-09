@@ -8,24 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
-typedef enum {
-	DWTreeNodeTypeOrigin,
-	DWTreeNodeTypeCustomClass,
-	DWTreeNodeTypeNativeClass,
-	DWTreeNodeTypeArray,
-	DWTreeNodeTypeDictionary
-} DWTreeNodeType;
-
 @interface DWTreeNode : NSObject
 
 @property (nonatomic, strong, readonly) NSFileWrapper *fileWrapper;
 
 @property (nonatomic, strong, readonly) NSString *name;
-@property (nonatomic, strong) NSString *value;
+@property (nonatomic, strong) id value;
 
-@property (nonatomic, readonly) DWTreeNodeType type;
+@property (nonatomic, strong, readonly) NSString *type;
 
-@property (nonatomic, strong, readonly) NSDictionary *attributes;
 @property (nonatomic, strong, readonly) NSArray *nodes;
 
 @property (nonatomic, readonly) NSString *path;
@@ -34,13 +25,7 @@ typedef enum {
 
 - (id)initWithFileWrapper:(NSFileWrapper *)fileWrapper;
 
-- (NSString *)attribute:(NSString *)name;
-
 - (DWTreeNode *)nodeWithName:(NSString *)name;
-
-#pragma mark - Mutation
-- (void)setAttribute:(NSString *)name value:(NSString *)value;
-- (void)removeAttribute:(NSString *)name;
 
 - (void)addNode:(DWTreeNode *)node;
 - (void)removeNode:(DWTreeNode *)node;

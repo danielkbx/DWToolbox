@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DWConfiguration.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DWConfiguration</TokenIdentifier>
+			<Abstract type="html">DWConfiguration provides an easy way to custimize the look of you app by defining a set of fonts, sizes and colors in a file called configuration.plist (you can set another).
+This file can contain any other setting which can be read by calling customStringForKey:.</Abstract>
+			<DeclaredIn>DWConfiguration.h</DeclaredIn>
+			
+			<NodeRef refid="2"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

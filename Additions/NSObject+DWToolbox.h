@@ -8,13 +8,12 @@
 
 #import <Foundation/Foundation.h>
 
-#import "NSString+DWToolbox.h"
 #import "DWObjectPropertyDescription.h"
-#import "DWTreeNode.h"
 
 @interface NSObject (DWToolbox)
 
-- (NSArray *)properties;	// returns an array of strings
+- (NSArray *)properties;				// returns an array of strings (the names of the properties)
+- (NSDictionary *)propertyDescriptions;	// returns the names as keys, DWObjectPropertyDescription objects as values
 - (DWObjectPropertyDescription *)propertyDescriptionForName:(NSString *)name;
 
 @end

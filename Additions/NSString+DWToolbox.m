@@ -36,4 +36,8 @@
 	return [NSString stringWithString:MD5String];
 }
 
++ (NSString *)stringByRepeatingString:(NSString *)repeatedString times:(NSUInteger)times {
+	return [@"" stringByPaddingToLength:times * [repeatedString length] withString:repeatedString startingAtIndex:0];
+}
+
 @end

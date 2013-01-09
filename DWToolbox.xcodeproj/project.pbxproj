@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		65F2326F169D7B9100C8FD87 /* Documentation */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 65F23270169D7B9100C8FD87 /* Build configuration list for PBXAggregateTarget "Documentation" */;
+			buildPhases = (
+				65F23275169D7BAE00C8FD87 /* Appledoc */,
+			);
+			dependencies = (
+			);
+			name = Documentation;
+			productName = Documentation;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		650978BF1625D129004A6A04 /* NSString+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 650978BD1625D129004A6A04 /* NSString+DWToolbox.h */; };
 		650978C01625D129004A6A04 /* NSString+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 650978BE1625D129004A6A04 /* NSString+DWToolbox.m */; };
@@ -28,10 +42,9 @@
 		6529B89F1625A53000A82EC4 /* CoreText.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6529B89E1625A53000A82EC4 /* CoreText.framework */; };
 		65359202164826A70002FB40 /* DWBadge.h in Headers */ = {isa = PBXBuildFile; fileRef = 65359200164826A70002FB40 /* DWBadge.h */; };
 		65359203164826A70002FB40 /* DWBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 65359201164826A70002FB40 /* DWBadge.m */; };
+		6536600D169D6F2B003F15B0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6536600C169D6F2B003F15B0 /* CoreLocation.framework */; };
 		6536BDDE164955D1001A005C /* DWCountdownLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 6536BDDC164955D1001A005C /* DWCountdownLabel.h */; };
 		6536BDDF164955D1001A005C /* DWCountdownLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 6536BDDD164955D1001A005C /* DWCountdownLabel.m */; };
-		653F7EB4167A4C1400391C6F /* DWObjectDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 653F7EB2167A4C1400391C6F /* DWObjectDescription.h */; };
-		653F7EB5167A4C1400391C6F /* DWObjectDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 653F7EB3167A4C1400391C6F /* DWObjectDescription.m */; };
 		654525DF161F1F3E00EAAEE7 /* DWURLConnection.h in Headers */ = {isa = PBXBuildFile; fileRef = 654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */; settings = {ATTRIBUTES = (); }; };
 		654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */; };
 		654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 654C6D971653A257009816C7 /* NSObject+DWToolbox.h */; };
@@ -88,8 +101,6 @@
 		65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DCF3DD165273C300C18CEE /* DWInputTableViewController.m */; };
 		65E7E3EB166DF46800228834 /* DWWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E7E3E9166DF46800228834 /* DWWindow.h */; };
 		65E7E3EC166DF46800228834 /* DWWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E3EA166DF46800228834 /* DWWindow.m */; };
-		65FD26CC167B771600F43367 /* DWObjectPropertyDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FD26CA167B771500F43367 /* DWObjectPropertyDescription.h */; };
-		65FD26CD167B771600F43367 /* DWObjectPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FD26CB167B771600F43367 /* DWObjectPropertyDescription.m */; };
 		65FE593E165A248F00B73BE4 /* DWTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE593C165A248F00B73BE4 /* DWTextStyle.h */; };
 		65FE593F165A248F00B73BE4 /* DWTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE593D165A248F00B73BE4 /* DWTextStyle.m */; };
 		65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */; };
@@ -98,7 +109,20 @@
 		65FE594D165A3EAF00B73BE4 /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE5949165A3EAF00B73BE4 /* UIColor+Expanded.m */; };
 		65FE594E165A3EAF00B73BE4 /* UIColor+HSV.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE594A165A3EAF00B73BE4 /* UIColor+HSV.h */; };
 		65FE594F165A3EAF00B73BE4 /* UIColor+HSV.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE594B165A3EAF00B73BE4 /* UIColor+HSV.m */; };
+		65FF051D169C46ED0081290E /* DWObjectPropertyDescription_Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FF051A169C46ED0081290E /* DWObjectPropertyDescription_Private.h */; };
+		65FF051E169C46ED0081290E /* DWObjectPropertyDescription.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FF051B169C46ED0081290E /* DWObjectPropertyDescription.h */; };
+		65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FF051C169C46ED0081290E /* DWObjectPropertyDescription.m */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		65F23273169D7B9A00C8FD87 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 655E6B2415A61A2D00F9E6C5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 65F2326F169D7B9100C8FD87;
+			remoteInfo = Documentation;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		650978BD1625D129004A6A04 /* NSString+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DWToolbox.h"; sourceTree = "<group>"; };
@@ -122,10 +146,9 @@
 		6529B89E1625A53000A82EC4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
 		65359200164826A70002FB40 /* DWBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWBadge.h; path = Classes/DWBadge.h; sourceTree = SOURCE_ROOT; };
 		65359201164826A70002FB40 /* DWBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWBadge.m; path = Classes/DWBadge.m; sourceTree = SOURCE_ROOT; };
+		6536600C169D6F2B003F15B0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		6536BDDC164955D1001A005C /* DWCountdownLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCountdownLabel.h; path = Classes/DWCountdownLabel.h; sourceTree = SOURCE_ROOT; };
 		6536BDDD164955D1001A005C /* DWCountdownLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCountdownLabel.m; path = Classes/DWCountdownLabel.m; sourceTree = SOURCE_ROOT; };
-		653F7EB2167A4C1400391C6F /* DWObjectDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWObjectDescription.h; path = Classes/DWObjectDescription.h; sourceTree = SOURCE_ROOT; };
-		653F7EB3167A4C1400391C6F /* DWObjectDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWObjectDescription.m; path = Classes/DWObjectDescription.m; sourceTree = SOURCE_ROOT; };
 		654525DD161F1F3E00EAAEE7 /* DWURLConnection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWURLConnection.h; path = Classes/DWURLConnection.h; sourceTree = SOURCE_ROOT; };
 		654525DE161F1F3E00EAAEE7 /* DWURLConnection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWURLConnection.m; path = Classes/DWURLConnection.m; sourceTree = SOURCE_ROOT; };
 		654C6D971653A257009816C7 /* NSObject+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+DWToolbox.h"; sourceTree = "<group>"; };
@@ -143,14 +166,10 @@
 		656FDB3F165159CF0073A6F8 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
 		656FDB40165159CF0073A6F8 /* DWCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCheckbox.m; path = Classes/DWCheckbox.m; sourceTree = SOURCE_ROOT; };
 		656FDB4D16515F800073A6F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		656FDB5116515F800073A6F8 /* DWToolbox Assets-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DWToolbox Assets-Info.plist"; sourceTree = "<group>"; };
-		656FDB5316515F800073A6F8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		656FDB5516515F800073A6F8 /* DWToolbox Assets-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DWToolbox Assets-Prefix.pch"; sourceTree = "<group>"; };
 		656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DWToolbox.h"; sourceTree = "<group>"; };
 		656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DWToolbox.m"; sourceTree = "<group>"; };
 		657E61391653BF7F003411F7 /* DWUploadField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWUploadField.h; path = Classes/DWUploadField.h; sourceTree = SOURCE_ROOT; };
 		657E613A1653BF7F003411F7 /* DWUploadField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWUploadField.m; path = Classes/DWUploadField.m; sourceTree = SOURCE_ROOT; };
-		6588FCF6167DF9D0009C7F8F /* DWObjectPropertyDescription_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DWObjectPropertyDescription_Private.h; path = Classes/DWObjectPropertyDescription_Private.h; sourceTree = SOURCE_ROOT; };
 		65A277D61684885B00E12523 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "ThirdParty/iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = SOURCE_ROOT; };
 		65A277D71684885B00E12523 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = "ThirdParty/iso-8601-date-formatter/ISO8601DateFormatter.m"; sourceTree = SOURCE_ROOT; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -189,8 +208,7 @@
 		65DCF3DD165273C300C18CEE /* DWInputTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWInputTableViewController.m; path = Classes/DWInputTableViewController.m; sourceTree = SOURCE_ROOT; };
 		65E7E3E9166DF46800228834 /* DWWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWWindow.h; path = Classes/DWWindow.h; sourceTree = SOURCE_ROOT; };
 		65E7E3EA166DF46800228834 /* DWWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWWindow.m; path = Classes/DWWindow.m; sourceTree = SOURCE_ROOT; };
-		65FD26CA167B771500F43367 /* DWObjectPropertyDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWObjectPropertyDescription.h; path = Classes/DWObjectPropertyDescription.h; sourceTree = SOURCE_ROOT; };
-		65FD26CB167B771600F43367 /* DWObjectPropertyDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWObjectPropertyDescription.m; path = Classes/DWObjectPropertyDescription.m; sourceTree = SOURCE_ROOT; };
+		65F2326C169D7A4C00C8FD87 /* AppledocSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppledocSettings.plist; sourceTree = SOURCE_ROOT; };
 		65FE593C165A248F00B73BE4 /* DWTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWTextStyle.h; path = Classes/DWTextStyle.h; sourceTree = SOURCE_ROOT; };
 		65FE593D165A248F00B73BE4 /* DWTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTextStyle.m; path = Classes/DWTextStyle.m; sourceTree = SOURCE_ROOT; };
 		65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+DWToolbox.h"; sourceTree = "<group>"; };
@@ -200,6 +218,9 @@
 		65FE594A165A3EAF00B73BE4 /* UIColor+HSV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+HSV.h"; sourceTree = "<group>"; };
 		65FE594B165A3EAF00B73BE4 /* UIColor+HSV.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+HSV.m"; sourceTree = "<group>"; };
 		65FE5950165A43CF00B73BE4 /* DWTextStyle_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DWTextStyle_Private.h; path = Classes/DWTextStyle_Private.h; sourceTree = SOURCE_ROOT; };
+		65FF051A169C46ED0081290E /* DWObjectPropertyDescription_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWObjectPropertyDescription_Private.h; sourceTree = SOURCE_ROOT; };
+		65FF051B169C46ED0081290E /* DWObjectPropertyDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWObjectPropertyDescription.h; sourceTree = SOURCE_ROOT; };
+		65FF051C169C46ED0081290E /* DWObjectPropertyDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWObjectPropertyDescription.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6536600D169D6F2B003F15B0 /* CoreLocation.framework in Frameworks */,
 				656284D71679E20200D5B7DC /* libxml2.dylib in Frameworks */,
 				6529B89F1625A53000A82EC4 /* CoreText.framework in Frameworks */,
 				65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */,
@@ -254,7 +276,6 @@
 			isa = PBXGroup;
 			children = (
 				655E6B3215A61A2D00F9E6C5 /* DWToolbox */,
-				656FDB4F16515F800073A6F8 /* DWToolbox Assets */,
 				655E6B2F15A61A2D00F9E6C5 /* Frameworks */,
 				655E6B2E15A61A2D00F9E6C5 /* Products */,
 			);
@@ -271,6 +292,7 @@
 		655E6B2F15A61A2D00F9E6C5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				6536600C169D6F2B003F15B0 /* CoreLocation.framework */,
 				656284D61679E20200D5B7DC /* libxml2.dylib */,
 				6529B89E1625A53000A82EC4 /* CoreText.framework */,
 				65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */,
@@ -301,6 +323,7 @@
 		655E6B3315A61A2D00F9E6C5 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				65F2326C169D7A4C00C8FD87 /* AppledocSettings.plist */,
 				65D4CFAA161F18540093076D /* DWToolbox-Prefix.pch */,
 			);
 			name = "Supporting Files";
@@ -309,16 +332,14 @@
 		656284B71679DB0700D5B7DC /* TreeNode */ = {
 			isa = PBXGroup;
 			children = (
+				65FF051A169C46ED0081290E /* DWObjectPropertyDescription_Private.h */,
+				65FF051B169C46ED0081290E /* DWObjectPropertyDescription.h */,
+				65FF051C169C46ED0081290E /* DWObjectPropertyDescription.m */,
 				656284B91679DB1B00D5B7DC /* DWTreeNode.h */,
 				656284C11679E01C00D5B7DC /* DWTreeNode_Private.h */,
 				656284BA1679DB1B00D5B7DC /* DWTreeNode.m */,
 				656284BD1679DC1200D5B7DC /* DWTreeCoder.h */,
 				656284BE1679DC1200D5B7DC /* DWTreeCoder.m */,
-				653F7EB2167A4C1400391C6F /* DWObjectDescription.h */,
-				653F7EB3167A4C1400391C6F /* DWObjectDescription.m */,
-				65FD26CA167B771500F43367 /* DWObjectPropertyDescription.h */,
-				6588FCF6167DF9D0009C7F8F /* DWObjectPropertyDescription_Private.h */,
-				65FD26CB167B771600F43367 /* DWObjectPropertyDescription.m */,
 			);
 			name = TreeNode;
 			sourceTree = "<group>";
@@ -330,24 +351,6 @@
 				656284D31679E1F000D5B7DC /* RXMLElement.m */,
 			);
 			name = RaptureXML;
-			sourceTree = "<group>";
-		};
-		656FDB4F16515F800073A6F8 /* DWToolbox Assets */ = {
-			isa = PBXGroup;
-			children = (
-				656FDB5016515F800073A6F8 /* Supporting Files */,
-			);
-			path = "DWToolbox Assets";
-			sourceTree = "<group>";
-		};
-		656FDB5016515F800073A6F8 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				656FDB5116515F800073A6F8 /* DWToolbox Assets-Info.plist */,
-				656FDB5216515F800073A6F8 /* InfoPlist.strings */,
-				656FDB5516515F800073A6F8 /* DWToolbox Assets-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		657E61371653BBD7003411F7 /* Network */ = {
@@ -541,9 +544,9 @@
 				656284BB1679DB1B00D5B7DC /* DWTreeNode.h in Headers */,
 				656284BF1679DC1200D5B7DC /* DWTreeCoder.h in Headers */,
 				656284D41679E1F000D5B7DC /* RXMLElement.h in Headers */,
-				653F7EB4167A4C1400391C6F /* DWObjectDescription.h in Headers */,
-				65FD26CC167B771600F43367 /* DWObjectPropertyDescription.h in Headers */,
 				65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */,
+				65FF051D169C46ED0081290E /* DWObjectPropertyDescription_Private.h in Headers */,
+				65FF051E169C46ED0081290E /* DWObjectPropertyDescription.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -561,6 +564,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				65F23274169D7B9A00C8FD87 /* PBXTargetDependency */,
 			);
 			name = DWToolbox;
 			productName = dwToolbox;
@@ -588,9 +592,27 @@
 			projectRoot = "";
 			targets = (
 				655E6B2C15A61A2D00F9E6C5 /* DWToolbox */,
+				65F2326F169D7B9100C8FD87 /* Documentation */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		65F23275169D7BAE00C8FD87 /* Appledoc */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = Appledoc;
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/opt/local/bin/appledoc \"$SOURCE_ROOT\"\nrm \"$SOURCE_ROOT/doc/docset-installed.txt\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		655E6B2915A61A2D00F9E6C5 /* Sources */ = {
@@ -636,24 +658,20 @@
 				656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */,
 				656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */,
 				656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */,
-				653F7EB5167A4C1400391C6F /* DWObjectDescription.m in Sources */,
-				65FD26CD167B771600F43367 /* DWObjectPropertyDescription.m in Sources */,
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
+				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		656FDB5216515F800073A6F8 /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				656FDB5316515F800073A6F8 /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		65F23274169D7B9A00C8FD87 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 65F2326F169D7B9100C8FD87 /* Documentation */;
+			targetProxy = 65F23273169D7B9A00C8FD87 /* PBXContainerItemProxy */;
 		};
-/* End PBXVariantGroup section */
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		655E6B3815A61A2D00F9E6C5 /* Debug */ = {
@@ -728,6 +746,20 @@
 			};
 			name = Release;
 		};
+		65F23271169D7B9100C8FD87 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		65F23272169D7B9100C8FD87 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -745,6 +777,15 @@
 			buildConfigurations = (
 				655E6B3B15A61A2D00F9E6C5 /* Debug */,
 				655E6B3C15A61A2D00F9E6C5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		65F23270169D7B9100C8FD87 /* Build configuration list for PBXAggregateTarget "Documentation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				65F23271169D7B9100C8FD87 /* Debug */,
+				65F23272169D7B9100C8FD87 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

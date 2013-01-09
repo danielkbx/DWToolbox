@@ -24,17 +24,24 @@
 - (id)initWithTarget:(id)target action:(SEL)sel;
 - (id)initWithBlock:(void(^)())block;
 
-/* Adds a new condition identifier (and AND condition). */
+/** Adds a new condition identifier (and AND condition).
+ @param identifier The identifier to add.
+ */
 - (void)addCondition:(NSString *)identifier;
-/* Add a group of condition identifiers (OR conditions). This group is met if ONE of the group is ticked. */
+
+/** Add a group of condition identifiers (OR conditions). This group is met if ONE of the group is ticked. 
+ @param identifier A comma-seprated list of OR condition identifiers.
+ @param ... NIL-terminated
+ */
 - (void)addConditions:(NSString *)identifier, ... NS_REQUIRES_NIL_TERMINATION;
 
-/* Ticks the condifiton with the identifier.
+/** Ticks the condifiton with the identifier.
  
  If all (AND) conditions are met, the target/action is invoked and all conditions are unticked.
+ @param identifier The condition identifier to tick.
  */
 - (void)tick:(NSString *)identifier;
 
-/* Invokes the action and resets all conditions. */
+/** Invokes the action and resets all conditions. */
 - (void)invoke;
 @end

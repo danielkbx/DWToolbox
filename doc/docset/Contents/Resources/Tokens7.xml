@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Protocols/DWTreeCoding.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/intf/DWTreeCoding</TokenIdentifier>
+			<Abstract type="html">DWTreeCoding helps DWTreeCoder to transform an object into a treenode. Though it works without, it is recommended to implement this protocol on all classes which are intended to be serialized.</Abstract>
+			<DeclaredIn>DWTreeCoder.h</DeclaredIn>
+			
+			<NodeRef refid="7"/>
+		</Token>
+		
+		
+	</File>
+</Tokens>

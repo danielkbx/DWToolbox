@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tokens version="1.0">
+	<File path="Classes/DWURLConnection.html">
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/cl/DWURLConnection</TokenIdentifier>
+			<Abstract type="html">DWURLConnection is a replacement for NSURLConnection with upload and block support.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>
+			
+			<NodeRef refid="5"/>
+		</Token>
+		
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DWURLConnection/connectionWithURL:</TokenIdentifier>
+			<Abstract type="html">Creates a new connection object with the provided URL.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>+ (DWURLConnection *)connectionWithURL:(NSURL *)URL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URL</Name>
+					<Abstract type="html">The URL to connect to.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/connectionWithURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/clm/DWURLConnection/startConnectionWithURL:completion:</TokenIdentifier>
+			<Abstract type="html">Creates a new connection and starts downloading.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>+ (DWURLConnection *)startConnectionWithURL:(NSURL *)URL completion:(DWURLConnectionCompletionHandler)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URL</Name>
+					<Abstract type="html">The URL to connecto to.</Abstract>
+				</Parameter><Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">The block to invoke when the connection finishes or fails.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/startConnectionWithURL:completion:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/initWithURL:</TokenIdentifier>
+			<Abstract type="html">Initializes a new connection object with the provied URL.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (id)initWithURL:(NSURL *)URL</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>URL</Name>
+					<Abstract type="html">The URL to connect to.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/initWithURL:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/setURL:</TokenIdentifier>
+			<Abstract type="html">The URL of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSURL *URL</Declaration>
+			
+			
+			<Anchor>//api/name/URL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DWURLConnection/URL</TokenIdentifier>
+			<Abstract type="html">The URL of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong, readonly) NSURL *URL</Declaration>
+			
+			
+			<Anchor>//api/name/URL</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/setUserAgent:</TokenIdentifier>
+			<Abstract type="html">The User Agent of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *userAgent</Declaration>
+			
+			
+			<Anchor>//api/name/userAgent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DWURLConnection/userAgent</TokenIdentifier>
+			<Abstract type="html">The User Agent of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, strong) NSString *userAgent</Declaration>
+			
+			
+			<Anchor>//api/name/userAgent</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addHeaderValue:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds a HTTP header to the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)addHeaderValue:(NSString *)header forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>header</Name>
+					<Abstract type="html">The value of the header.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The key (or name) of the header.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addHeaderValue:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/removeHeaderValueForKey:</TokenIdentifier>
+			<Abstract type="html">Removes an HTTP header.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeHeaderValueForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The key (or name) of the header to remove.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeHeaderValueForKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/headerValueForKey:</TokenIdentifier>
+			<Abstract type="html">Returns the value of an HTTP header.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (NSString *)headerValueForKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The key (or name) of the header to return.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/headerValueForKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/setMethod:</TokenIdentifier>
+			<Abstract type="html">The HTTP method used for connecting.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadField:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadValue:forKey:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) DWURLConnectionMethod method</Declaration>
+			
+			
+			<Anchor>//api/name/method</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DWURLConnection/method</TokenIdentifier>
+			<Abstract type="html">The HTTP method used for connecting.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadField:</TokenIdentifier>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadValue:forKey:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>@property (nonatomic, assign) DWURLConnectionMethod method</Declaration>
+			
+			
+			<Anchor>//api/name/method</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadField:</TokenIdentifier>
+			<Abstract type="html">Adds an upload field to the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)addUploadField:(DWUploadField *)field</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>field</Name>
+					<Abstract type="html">The upload field to add.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addUploadField:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/removeUploadField:</TokenIdentifier>
+			<Abstract type="html">Removes an upload field.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)removeUploadField:(DWUploadField *)field</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>field</Name>
+					<Abstract type="html">The field to remove.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/removeUploadField:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadValue:forKey:</TokenIdentifier>
+			<Abstract type="html">Adds an upload field created from the provided string.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadField:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (DWUploadField *)addUploadValue:(NSString *)value forKey:(NSString *)key</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>value</Name>
+					<Abstract type="html">The string to add as upload.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The name of the upload field.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addUploadValue:forKey:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadImage:forKey:filename:</TokenIdentifier>
+			<Abstract type="html">Adds an upload field created from the provided image.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+	<RelatedTokens>
+		<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/addUploadField:</TokenIdentifier>
+		
+	</RelatedTokens>
+	
+			<Declaration>- (DWUploadField *)addUploadImage:(UIImage *)image forKey:(NSString *)key filename:(NSString *)filename</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>image</Name>
+					<Abstract type="html">The image to add as upload.</Abstract>
+				</Parameter><Parameter>
+					<Name>key</Name>
+					<Abstract type="html">The name of the upload field.</Abstract>
+				</Parameter><Parameter>
+					<Name>filename</Name>
+					<Abstract type="html">The filename to send to the server.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/addUploadImage:forKey:filename:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/appendPostData:</TokenIdentifier>
+			<Abstract type="html">Appends any data to an upload connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)appendPostData:(NSData *)postData</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>postData</Name>
+					<Abstract type="html">The data to upload.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/appendPostData:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/startWithCompletionHandler:</TokenIdentifier>
+			<Abstract type="html">Starts the connection (if not yet)</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)startWithCompletionHandler:(DWURLConnectionCompletionHandler)completion</Declaration>
+			<Parameters>
+				<Parameter>
+					<Name>completion</Name>
+					<Abstract type="html">The block to invoke when finishing or failing.</Abstract>
+				</Parameter>
+			</Parameters>
+			
+			<Anchor>//api/name/startWithCompletionHandler:</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/cancel</TokenIdentifier>
+			<Abstract type="html">Cancels the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>- (void)cancel</Declaration>
+			
+			
+			<Anchor>//api/name/cancel</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instm/DWURLConnection/setState:</TokenIdentifier>
+			<Abstract type="html">The current state of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) DWURLConnectionState state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+		</Token>
+		
+		<Token>
+			<TokenIdentifier>//apple_ref/occ/instp/DWURLConnection/state</TokenIdentifier>
+			<Abstract type="html">The current state of the connection.</Abstract>
+			<DeclaredIn>DWURLConnection.h</DeclaredIn>			
+			
+			<Declaration>@property (nonatomic, readonly) DWURLConnectionState state</Declaration>
+			
+			
+			<Anchor>//api/name/state</Anchor>
+		</Token>
+		
+	</File>
+</Tokens>

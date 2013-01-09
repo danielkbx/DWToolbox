@@ -12,5 +12,4 @@
 @interface UIColor (DWToolbox)
 
 + (UIColor *)colorFromCustomizationKey:(NSString *)key;
-
 @end

@@ -15,7 +15,8 @@
 
 @property (nonatomic, strong, readwrite) NSFileWrapper *fileWrapper;
 
-@property (nonatomic, assign) DWTreeNodeType type;
+@property (nonatomic, readwrite, strong) NSString *type;
+
 @property (nonatomic, weak) DWTreeNode *parent;
 @property (nonatomic, readonly) DWTreeCoder *treeCoder;
 
@@ -24,12 +25,11 @@
 - (BOOL)readFileWrapper:(NSFileWrapper *)fileWrapper;
 
 - (BOOL)readXMLElement:(RXMLElement *)element;
+- (RXMLElement *)XMLElement;
 
 - (void)markAsChanged;
 
-- (RXMLElement *)XMLElementPreferAttributes:(BOOL)preferAttributes;
-- (NSDictionary *)JSONDictionary;
-
 - (BOOL)importObject:(id)obejct;
+- (id)object;
 
 @end
