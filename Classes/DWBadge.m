@@ -65,13 +65,12 @@
 	return (CGSize){textSize.width + self.insets.left + self.insets.right, textSize.height + self.insets.top + self.insets.bottom};
 }
 
-//- (void)setBadgeText:(NSString *)badgeText {
-//	if (![badgeText isEqualToString:self->_badgeText]) {
-//		self->_badgeText = [badgeText copy];
-//		CGSize size = [self sizeThatFits:CGSizeZero];
-//		
-//	}
-//}
+- (void)setBadgeText:(NSString *)badgeText {
+	if (![badgeText isEqualToString:self->_badgeText]) {
+		self->_badgeText = [badgeText copy];
+		[self setNeedsDisplay];
+	}
+}
 
 - (void)drawRect:(CGRect)rect
 {
