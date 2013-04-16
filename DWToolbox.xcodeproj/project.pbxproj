@@ -116,16 +116,6 @@
 		65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FF051C169C46ED0081290E /* DWObjectPropertyDescription.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		65F23273169D7B9A00C8FD87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 655E6B2415A61A2D00F9E6C5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 65F2326F169D7B9100C8FD87;
-			remoteInfo = Documentation;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		650978BD1625D129004A6A04 /* NSString+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DWToolbox.h"; sourceTree = "<group>"; };
 		650978BE1625D129004A6A04 /* NSString+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DWToolbox.m"; sourceTree = "<group>"; };
@@ -571,7 +561,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				65F23274169D7B9A00C8FD87 /* PBXTargetDependency */,
 			);
 			name = DWToolbox;
 			productName = dwToolbox;
@@ -672,14 +661,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		65F23274169D7B9A00C8FD87 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 65F2326F169D7B9100C8FD87 /* Documentation */;
-			targetProxy = 65F23273169D7B9A00C8FD87 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		655E6B3815A61A2D00F9E6C5 /* Debug */ = {
