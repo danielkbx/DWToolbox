@@ -10,6 +10,9 @@
 
 #import "DWURLDownload.h"
 
+#import "NSURL+DWToolbox.h"
+#import "UIDevice+DWToolbox.h"
+
 static UIImage *staticDefaultImage;
 
 @interface DWImageView ()
@@ -58,14 +61,32 @@ static UIImage *staticDefaultImage;
 
 - (void)setURL:(NSURL *)URL {
 
-	if (![self.URL.absoluteString isEqualToString:URL.absoluteString]) {
-		self->_URL = [URL copy];
+	NSURL *URLWithSize = nil;
+	
+	if (URL != nil) {
+		
+		CGSize mySize = self.bounds.size;
+		unsigned int width = (int)round(mySize.width);
+		unsigned int height = (int)round(mySize.height);
+		
+		if ([UIDevice currentDevice].hasRetinaDisplay) {
+			width *= 2;
+			height *= 2;
+		}
+		
+		
+		URLWithSize = [URL URLByAppendingQueryString:[NSString stringWithFormat:@"width=%u&height=%u", width, height]];
+						
+	}
+	
+	if (![self.URL.absoluteString isEqualToString:URLWithSize.absoluteString]) {
+		self->_URL = [URLWithSize copy];
 		
 		if (self.URLChangeBehavior == DWImageViewURLChangeBehaviorClearImmediately) {
 			self.image = nil;
 		}
 		
-		if (URL != nil) {
+		if (URLWithSize != nil) {
 			
 			self.download = [DWURLDownload downloadWithURL:self.URL];
 			[self.download downloadToFileURL:nil completion:^(NSData *receivedData, NSURL *fileURL, NSError *error) {

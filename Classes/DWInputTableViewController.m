@@ -8,9 +8,10 @@
 
 #import "DWInputTableViewController.h"
 
+#import "UIDevice+DWToolbox.h"
+
 #define kDWInputTableViewControllerTextfieldVerticalPadding 10.0f
 #define kDWInputTableViewControllerHorizontalPadding 5.0f
-#define kDWInputTableViewControllerTextViewNumberOfLines 7.0f
 
 @interface DWInputTableViewController () <UITextFieldDelegate, UITextViewDelegate>
 
@@ -22,6 +23,8 @@
 
 @property (nonatomic, assign) UIKeyboardType keyboardType;
 @property (nonatomic, assign) UITextFieldViewMode clearButtonMode;
+
+@property (nonatomic, readonly) NSUInteger numberOfTextFieldLines;
 
 @end
 
@@ -110,6 +113,7 @@
 	
 	UIBarButtonItem *returnButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemDone target:self action:@selector(returnButtonPressed)];
 	self.navigationItem.rightBarButtonItem = returnButton;
+	self.tableView.scrollEnabled = NO;
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -185,6 +189,12 @@
 	self.textView.autocorrectionType = autocorrection;
 }
 
+#pragma mark - Helpers
+
+- (NSUInteger)numberOfTextFieldLines {
+	return ([UIDevice currentDevice].hasRetina4Display) ? 9 : 5;
+}
+
 
 #pragma mark - Table view data source
 
@@ -217,7 +227,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
 	CGFloat lineHeight = [self.font lineHeight];
-	CGFloat factor = (self.type == DWInputTableViewControllerTypeTextField) ? kDWInputTableViewControllerTextViewNumberOfLines : 1;
+	CGFloat factor = (self.type == DWInputTableViewControllerTypeTextField) ? self.numberOfTextFieldLines : 1;
 	return (factor * lineHeight) + (2*kDWInputTableViewControllerTextfieldVerticalPadding);
 }
 
