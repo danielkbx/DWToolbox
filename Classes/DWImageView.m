@@ -61,37 +61,14 @@ static UIImage *staticDefaultImage;
 
 - (void)setURL:(NSURL *)URL {
 
-	NSURL *URLWithSize = nil;
-	
-	if (URL != nil) {
-				
-		CGSize mySize = self.bounds.size;
-		
-		if (!CGSizeEqualToSize(self.imageSize, CGSizeZero)) {
-			mySize = self.imageSize;
-		}
-		
-		unsigned int width = (int)round(mySize.width);
-		unsigned int height = (int)round(mySize.height);
-		
-		if ([UIDevice currentDevice].hasRetinaDisplay) {
-			width *= 2;
-			height *= 2;
-		}
-		
-		
-		URLWithSize = [URL URLByAppendingQueryString:[NSString stringWithFormat:@"width=%u&height=%u", width, height]];
-						
-	}
-	
-	if (![self.URL.absoluteString isEqualToString:URLWithSize.absoluteString]) {
-		self->_URL = [URLWithSize copy];
+	if (![self.URL.absoluteString isEqualToString:URL.absoluteString]) {
+		self->_URL = [URL copy];
 		
 		if (self.URLChangeBehavior == DWImageViewURLChangeBehaviorClearImmediately) {
 			self.image = nil;
 		}
 		
-		if (URLWithSize != nil) {
+		if (URL != nil) {
 			
 			self.download = [DWURLDownload downloadWithURL:self.URL];
 			[self.download downloadToFileURL:nil completion:^(NSData *receivedData, NSURL *fileURL, NSError *error) {
