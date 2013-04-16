@@ -39,7 +39,12 @@ NSInteger textStyleObervanceContext;
 - (CGRect)textRectForBounds:(CGRect)bounds limitedToNumberOfLines:(NSInteger)numberOfLines {
     CGRect textRect = [super textRectForBounds:bounds limitedToNumberOfLines:numberOfLines];
 
-	CGFloat verticalOffset = (textRect.size.height < (self.bounds.size.height + self.verticalContentOffset)) ? self.verticalContentOffset : 0.0f;
+	CGFloat verticalOffset = self.verticalContentOffset;
+	
+	CGFloat heightWithOffset = textRect.size.height - self.verticalContentOffset;
+	if (heightWithOffset > self.bounds.size.height) {
+		verticalOffset = 0.0f;
+	}
 	
     switch (self.verticalAlignment) {
         case DWLabelVerticalAlignmentTop:

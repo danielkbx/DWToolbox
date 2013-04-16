@@ -64,8 +64,13 @@ static UIImage *staticDefaultImage;
 	NSURL *URLWithSize = nil;
 	
 	if (URL != nil) {
-		
+				
 		CGSize mySize = self.bounds.size;
+		
+		if (!CGSizeEqualToSize(self.imageSize, CGSizeZero)) {
+			mySize = self.imageSize;
+		}
+		
 		unsigned int width = (int)round(mySize.width);
 		unsigned int height = (int)round(mySize.height);
 		
@@ -107,6 +112,7 @@ static UIImage *staticDefaultImage;
 }
 
 - (void)setImage:(UIImage *)image {
+	self.contentMode = UIViewContentModeScaleAspectFit;
 	UIImage *effectiveImage = image;
 	if (effectiveImage == nil) {
 		effectiveImage = [self effectiveDefaultImage];

@@ -18,6 +18,7 @@ typedef enum {
 } DWImageViewURLChangeBehaviorType;
 
 @property (nonatomic, copy) NSURL *URL;
+@property (nonatomic, assign) CGSize imageSize;
 
 @property (nonatomic, assign) DWImageViewURLChangeBehaviorType URLChangeBehavior;
 @property (nonatomic, strong) UIImage *defaultImage;		// is displayed when no image or URL is assigned
