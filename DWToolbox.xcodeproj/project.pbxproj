@@ -57,12 +57,14 @@
 		656284D41679E1F000D5B7DC /* RXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284D21679E1F000D5B7DC /* RXMLElement.h */; };
 		656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284D31679E1F000D5B7DC /* RXMLElement.m */; };
 		656284D71679E20200D5B7DC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 656284D61679E20200D5B7DC /* libxml2.dylib */; };
-		656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWCheckbox.h */; };
-		656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWCheckbox.m */; };
+		656FDB41165159CF0073A6F8 /* DWStatusLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWStatusLight.h */; };
+		656FDB42165159CF0073A6F8 /* DWStatusLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWStatusLight.m */; };
 		656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */; };
 		656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */; };
 		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
 		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
+		6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6582A2EA171E7EC4005694F0 /* DWCheckbox.h */; };
+		6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6582A2EB171E7EC4005694F0 /* DWCheckbox.m */; };
 		6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */; };
 		6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */; };
 		65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A277D61684885B00E12523 /* ISO8601DateFormatter.h */; };
@@ -155,13 +157,15 @@
 		656284D21679E1F000D5B7DC /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXMLElement.h; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.h; sourceTree = SOURCE_ROOT; };
 		656284D31679E1F000D5B7DC /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXMLElement.m; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.m; sourceTree = SOURCE_ROOT; };
 		656284D61679E20200D5B7DC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		656FDB3F165159CF0073A6F8 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
-		656FDB40165159CF0073A6F8 /* DWCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCheckbox.m; path = Classes/DWCheckbox.m; sourceTree = SOURCE_ROOT; };
+		656FDB3F165159CF0073A6F8 /* DWStatusLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWStatusLight.h; path = Classes/DWStatusLight.h; sourceTree = SOURCE_ROOT; };
+		656FDB40165159CF0073A6F8 /* DWStatusLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWStatusLight.m; path = Classes/DWStatusLight.m; sourceTree = SOURCE_ROOT; };
 		656FDB4D16515F800073A6F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSBundle+DWToolbox.h"; sourceTree = "<group>"; };
 		656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSBundle+DWToolbox.m"; sourceTree = "<group>"; };
 		657E61391653BF7F003411F7 /* DWUploadField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWUploadField.h; path = Classes/DWUploadField.h; sourceTree = SOURCE_ROOT; };
 		657E613A1653BF7F003411F7 /* DWUploadField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWUploadField.m; path = Classes/DWUploadField.m; sourceTree = SOURCE_ROOT; };
+		6582A2EA171E7EC4005694F0 /* DWCheckbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWCheckbox.h; path = Classes/DWCheckbox.h; sourceTree = SOURCE_ROOT; };
+		6582A2EB171E7EC4005694F0 /* DWCheckbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWCheckbox.m; path = Classes/DWCheckbox.m; sourceTree = SOURCE_ROOT; };
 		6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+DWToolbox.h"; sourceTree = "<group>"; };
 		6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+DWToolbox.m"; sourceTree = "<group>"; };
 		65A277D61684885B00E12523 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "ThirdParty/iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = SOURCE_ROOT; };
@@ -440,6 +444,8 @@
 		65D991E51647BF4400B7CBAC /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				6582A2EA171E7EC4005694F0 /* DWCheckbox.h */,
+				6582A2EB171E7EC4005694F0 /* DWCheckbox.m */,
 				651C0958165E9BC700A4BDB0 /* DWActionSheet.h */,
 				651C0959165E9BC700A4BDB0 /* DWActionSheet.m */,
 				6514BDE1164D09F6007EBBFA /* DWWebView.h */,
@@ -453,8 +459,8 @@
 				65359201164826A70002FB40 /* DWBadge.m */,
 				6536BDDC164955D1001A005C /* DWCountdownLabel.h */,
 				6536BDDD164955D1001A005C /* DWCountdownLabel.m */,
-				656FDB3F165159CF0073A6F8 /* DWCheckbox.h */,
-				656FDB40165159CF0073A6F8 /* DWCheckbox.m */,
+				656FDB3F165159CF0073A6F8 /* DWStatusLight.h */,
+				656FDB40165159CF0073A6F8 /* DWStatusLight.m */,
 			);
 			name = Controls;
 			sourceTree = "<group>";
@@ -522,7 +528,7 @@
 				65359202164826A70002FB40 /* DWBadge.h in Headers */,
 				6536BDDE164955D1001A005C /* DWCountdownLabel.h in Headers */,
 				6514BDE3164D09F6007EBBFA /* DWWebView.h in Headers */,
-				656FDB41165159CF0073A6F8 /* DWCheckbox.h in Headers */,
+				656FDB41165159CF0073A6F8 /* DWStatusLight.h in Headers */,
 				656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */,
 				65DCF3DE165273C300C18CEE /* DWInputTableViewController.h in Headers */,
 				654C6D991653A257009816C7 /* NSObject+DWToolbox.h in Headers */,
@@ -544,6 +550,7 @@
 				65FF051D169C46ED0081290E /* DWObjectPropertyDescription_Private.h in Headers */,
 				65FF051E169C46ED0081290E /* DWObjectPropertyDescription.h in Headers */,
 				6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */,
+				6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,7 +643,7 @@
 				65359203164826A70002FB40 /* DWBadge.m in Sources */,
 				6536BDDF164955D1001A005C /* DWCountdownLabel.m in Sources */,
 				6514BDE4164D09F6007EBBFA /* DWWebView.m in Sources */,
-				656FDB42165159CF0073A6F8 /* DWCheckbox.m in Sources */,
+				656FDB42165159CF0073A6F8 /* DWStatusLight.m in Sources */,
 				656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */,
 				65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */,
 				654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */,
@@ -657,6 +664,7 @@
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
 				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 				6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */,
+				6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
