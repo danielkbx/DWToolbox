@@ -17,6 +17,8 @@
 - (BOOL)isIOS5OrLater;
 - (BOOL)supportsViewContainer;
 
+- (BOOL)canMakeCalls;
+
 - (void)addNetworkActivity;
 - (void)removeNetworkActivity;
 
