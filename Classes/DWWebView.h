@@ -16,6 +16,9 @@
 
 @property (nonatomic, readonly) NSUInteger numberOfRunningRequest;
 
+@property (nonatomic, readonly) BOOL isLoading;
+
+
 @property(nonatomic) BOOL scalesPageToFit;
 
 + (BOOL)enableRemoteDebugging;
@@ -24,8 +27,8 @@
 - (void)loadRequest:(NSURLRequest *)request;
 - (void)loadHTML:(NSString *)html baseURL:(NSURL *)baseURL;
 
-- (void)injectJavascript:(NSString *)javscript;
-- (void)injectJavascriptFromFile:(NSString *)javscriptFile;
+- (NSString *)injectJavascript:(NSString *)javscript;
+- (NSString *)injectJavascriptFromFile:(NSString *)javscriptFile;
 
 @end
 

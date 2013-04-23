@@ -12,7 +12,7 @@
 #import "Log.h"
 
 @interface DWWebView() {
-	
+
 }
 
 @property (nonatomic, readwrite, copy) NSURL *URL;
@@ -76,12 +76,12 @@
 
 #pragma mark - JS Injection
 
-- (void)injectJavascript:(NSString *)javscript
+- (NSString *)injectJavascript:(NSString *)javscript
 {
-	[self.webView stringByEvaluatingJavaScriptFromString:javscript];
+	return [self.webView stringByEvaluatingJavaScriptFromString:javscript];
 }
 
-- (void)injectJavascriptFromFile:(NSString *)javscriptFile
+- (NSString *)injectJavascriptFromFile:(NSString *)javscriptFile
 {
 	if (javscriptFile)
 	{
@@ -91,9 +91,10 @@
 															error:&error];
 		if (error == nil && [javascript length] > 0)
 		{
-			[self injectJavascript:javascript];
+			return [self injectJavascript:javascript];
 		}
 	}
+	return nil;
 }
 
 #pragma mark - WebView Delegate
@@ -159,6 +160,11 @@
 	[[UIDevice currentDevice] removeNetworkActivity];
 	DWLog(@"Webview did fail to load a resource: %@",error.description);
 }
+
+- (BOOL)isLoading {
+	return (self.numberOfRunningRequest > 0);
+}
+
 
 #pragma mark - Property relaying
 
