@@ -11,6 +11,8 @@
 #import "UIColor+DWToolbox.h"
 #import "NSString+DWToolbox.h"
 
+#import "UIDevice+DWToolbox.h"
+
 #define kSSConfigurationDefaultName @"configuration"		// this means we look for a file called configuration.plist in the main bundle
 
 NSString * const DWConfigurationUICustomizationAppliedNotification = @"DWConfigurationUICustomizationAppliedNotification";
@@ -74,7 +76,7 @@ static DWConfiguration *UIConfiguration;
 	DWLog(@"Applying UI costumizations");
 	
 	UIConfiguration = self;
-
+	
 	BOOL applyToNavigationbar = ((options | DWConfigurationTintColorNavigationbarElement) == options);
 	BOOL applyToTabbar = ((options | DWConfigurationTintColorTabbarElement) == options);
 	BOOL applyToButtons = ((options | DWConfigurationTintColorButtonElement) == options);
@@ -82,13 +84,19 @@ static DWConfiguration *UIConfiguration;
 	UIColor *generalTintColor = [UIColor colorFromCustomizationKey:@"general.tintColor"];
 	if (generalTintColor) {
 		if (applyToNavigationbar) {
-			[[UINavigationBar appearance] setTintColor:generalTintColor];
+			if (![UIDevice currentDevice].isIOS7OrLater) {
+				[[UINavigationBar appearance] setTintColor:generalTintColor];
+			}
 		}
 		if (applyToTabbar) {
-			[[UITabBar appearance] setTintColor:generalTintColor];
+			if (![UIDevice currentDevice].isIOS7OrLater) {
+				[[UITabBar appearance] setTintColor:generalTintColor];
+			}
 		}
 		if (applyToButtons) {
-			[[UIButton appearance] setTintColor:generalTintColor];
+			if (![UIDevice currentDevice].isIOS7OrLater) {
+				[[UIButton appearance] setTintColor:generalTintColor];
+			}
 		}
 	}
 	

@@ -43,6 +43,11 @@ static NSUInteger staticNetworkActivity;
 	return [self isIOS5OrLater];
 }
 
+- (BOOL)isIOS7OrLater
+{
+	return ([self.systemVersion floatValue] >= 7.0) ? YES : NO;
+}
+
 - (BOOL)canMakeCalls {
 	return [[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"tel://+11111"]];
 }
