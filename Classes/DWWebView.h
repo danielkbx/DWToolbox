@@ -13,11 +13,10 @@
 
 @property (nonatomic, assign) id <DWWebViewDelegate> delegate;
 @property (nonatomic, readonly, copy) NSURL *URL;
-
 @property (nonatomic, readonly) NSUInteger numberOfRunningRequest;
-
 @property (nonatomic, readonly) BOOL isLoading;
 
+@property (nonatomic, strong) UIView *headerView;
 
 @property(nonatomic) BOOL scalesPageToFit;
 

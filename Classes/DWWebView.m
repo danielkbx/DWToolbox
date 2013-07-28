@@ -55,6 +55,20 @@
     return self;
 }
 
+- (void)setHeaderView:(UIView *)headerView {
+	
+	[self.headerView removeFromSuperview];
+	self.webView.scrollView.contentOffset = CGPointZero;
+	
+	self->_headerView = headerView;
+	
+	[self.webView.scrollView addSubview:headerView];
+	
+	CGFloat headerHeight = headerView.frame.size.height;
+	self.headerView.frame = (CGRect){{0.0f,0 - headerHeight,},self.headerView.frame.size};
+	self.webView.scrollView.contentInset =  UIEdgeInsetsMake(headerHeight, 0.0f, 0.0f, 0.0f);
+}
+
 #pragma mark - Loading
 
 - (void)loadURL:(NSURL *)url {
