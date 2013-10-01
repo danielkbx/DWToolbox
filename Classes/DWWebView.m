@@ -190,4 +190,8 @@
 	return self.webView.scalesPageToFit;
 }
 
+- (UIScrollView *)scrollview {
+	return self->_webView.scrollView;
+}
+
 @end

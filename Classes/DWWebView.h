@@ -18,6 +18,8 @@
 
 @property (nonatomic, strong) UIView *headerView;
 
+@property (nonatomic, strong, readonly) UIScrollView *scrollview;
+
 @property(nonatomic) BOOL scalesPageToFit;
 
 + (BOOL)enableRemoteDebugging;

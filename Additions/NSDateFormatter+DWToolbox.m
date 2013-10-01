@@ -36,4 +36,15 @@
 	return dateFormatter;
 }
 
++ (NSDateFormatter *)relativeDateFormatter {
+	static NSDateFormatter *relativeDateFormatter = nil;
+	if (relativeDateFormatter == nil) {
+		relativeDateFormatter = [[NSDateFormatter alloc] init];
+		[relativeDateFormatter setTimeStyle:NSDateFormatterNoStyle];
+		[relativeDateFormatter setDateStyle:NSDateFormatterMediumStyle];
+		[relativeDateFormatter setDoesRelativeDateFormatting:YES];
+	}
+	return relativeDateFormatter;
+}
+
 @end

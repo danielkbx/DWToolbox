@@ -17,4 +17,6 @@
 + (NSDateFormatter *)dateFormatterWithStyle:(NSDateFormatterStyle)style;
 + (NSDateFormatter *)dateFormatterWithDateStyle:(NSDateFormatterStyle)dateStyle timeStyle:(NSDateFormatterStyle)timeStyle;
 
++ (NSDateFormatter *)relativeDateFormatter;
+
 @end
