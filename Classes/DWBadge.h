@@ -16,6 +16,8 @@
 @property (nonatomic, copy) UIColor *textColor;
 @property (nonatomic, copy) UIFont *font;
 
+@property (nonatomic, copy) UIColor *borderColor;
+
 @property (nonatomic, copy) NSString *badgeText;
 
 @end

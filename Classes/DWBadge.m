@@ -8,6 +8,8 @@
 
 #import "DWBadge.h"
 
+#import <UIDevice+DWToolbox.h>
+
 @interface DWBadge() {
 	
 	UIColor *_badgeBackgroundColor;
@@ -35,11 +37,25 @@
 
 - (void)prepareUI {
 	[super setBackgroundColor:[UIColor clearColor]];
-	self.cornerRadius = 5.0f;
-	self.insets = UIEdgeInsetsMake(2.0f, 7.0f, 2.0f, 7.0f);
-	self.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
-	self.textColor = [UIColor whiteColor];
-	self.font = [UIFont boldSystemFontOfSize:13.0f];
+			
+	if ([UIDevice currentDevice].isIOS7OrLater) {
+		self.cornerRadius = 3.0f;
+		self.insets = UIEdgeInsetsMake(2.0f, 5.0f, 2.0f, 5.0f);
+		self.backgroundColor = [UIColor clearColor];
+		self.font = [UIFont boldSystemFontOfSize:12.0f];
+		
+	} else {
+		self.cornerRadius = 5.0f;
+		self.insets = UIEdgeInsetsMake(2.0f, 7.0f, 2.0f, 7.0f);
+		self.backgroundColor = [UIColor colorWithWhite:0.5f alpha:1.0f];
+		self.textColor = [UIColor whiteColor];
+		self.font = [UIFont boldSystemFontOfSize:13.0f];
+	}
+}
+
+- (void)tintColorDidChange {
+	self.textColor = self.tintColor;
+	self.borderColor = self.tintColor;
 }
 
 - (void)setBackgroundColor:(UIColor *)backgroundColor {
@@ -80,6 +96,13 @@
 	
 	UIBezierPath *path = [UIBezierPath bezierPathWithRoundedRect:self.bounds cornerRadius:self.cornerRadius];
 	[path fill];
+	
+	if (self.borderColor) {
+		UIBezierPath *borderPath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(self.bounds, 1.0f, 1.0f) cornerRadius:self.cornerRadius];
+		[self.borderColor setStroke];
+		borderPath.lineWidth = 1.0f;
+		[borderPath stroke];
+	}
 	
 	[self.textColor setFill];
 	[self.badgeText drawAtPoint:CGPointMake(self.insets.left, self.insets.top) withFont:self.font];

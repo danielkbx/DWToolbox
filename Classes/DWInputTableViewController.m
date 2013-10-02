@@ -83,6 +83,12 @@
     [super viewDidLoad];
 	
 	if (self.type == DWInputTableViewControllerTypeTextField) {
+		
+		UIEdgeInsets insets = UIEdgeInsetsMake(-10.0f, -7.0f, 0.0f, 0.0f);
+		if ([UIDevice currentDevice].isIOS7OrLater) {
+			insets = UIEdgeInsetsMake(-10.0f, 0.0f, 0.0f, 0.0f);
+		}
+		
 		self.textView = [[UITextView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 30.0f)];
 		self.textView.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth;
 		self.textView.backgroundColor = [UIColor clearColor];
@@ -90,7 +96,7 @@
 		self.textView.textColor = self.textColor;
 		self.textView.text = self.inputText;
 		self.textView.delegate = self;
-		self.textView.contentInset = UIEdgeInsetsMake(-10.0f, -7.0f, 0.0f, 0.0f);
+		self.textView.contentInset = insets;
 		self.textView.autocapitalizationType = self.autocapitalization;
 		self.textView.autocorrectionType = self.autocorrection;
 		self.textView.keyboardType = self.keyboardType;
