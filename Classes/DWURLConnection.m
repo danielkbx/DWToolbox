@@ -11,6 +11,8 @@
 #import "NSObject+DWToolbox.h"
 #import "DWUploadField.h"
 
+#import <UIApplication+DWToolbox.h>
+
 @interface DWURLConnection() <NSURLConnectionDataDelegate>
 
 @property (nonatomic, strong, readwrite) NSURL *URL;
@@ -165,6 +167,9 @@
 			self.completionHandler = completion;
 			
 			if (self.URL) {
+				
+				[[UIApplication sharedApplication] increaseActivityCounter];
+				
 				NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:self.URL];
 								
 				[request addValue:self.userAgent forHTTPHeaderField:@"User-Agent"];
@@ -281,6 +286,7 @@
 		self.receivedData = nil;
 		self.receivedHeaders = nil;
 	}
+	[[UIApplication sharedApplication] decreaseActivityCounter];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
@@ -296,6 +302,7 @@
 		self.receivedData = nil;
 		self.receivedHeaders = nil;
 	}
+	[[UIApplication sharedApplication] decreaseActivityCounter];
 }
 
 @end

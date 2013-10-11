@@ -71,6 +71,8 @@
 		6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */; };
 		65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A277D61684885B00E12523 /* ISO8601DateFormatter.h */; };
 		65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = 65A277D71684885B00E12523 /* ISO8601DateFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		65B1396318080F0900F03AAB /* UIApplication+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65B1396118080F0900F03AAB /* UIApplication+DWToolbox.h */; };
+		65B1396418080F0900F03AAB /* UIApplication+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65B1396218080F0900F03AAB /* UIApplication+DWToolbox.m */; };
 		65CAE99515AEF4F7000B2FE7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */; };
 		65CAE99715AEF50C000B2FE7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */; };
 		65D4CF5E161F15110093076D /* NSAttributedString+Attributes.h in Headers */ = {isa = PBXBuildFile; fileRef = 65D4CF58161F15110093076D /* NSAttributedString+Attributes.h */; };
@@ -174,6 +176,8 @@
 		6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+DWToolbox.m"; sourceTree = "<group>"; };
 		65A277D61684885B00E12523 /* ISO8601DateFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ISO8601DateFormatter.h; path = "ThirdParty/iso-8601-date-formatter/ISO8601DateFormatter.h"; sourceTree = SOURCE_ROOT; };
 		65A277D71684885B00E12523 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ISO8601DateFormatter.m; path = "ThirdParty/iso-8601-date-formatter/ISO8601DateFormatter.m"; sourceTree = SOURCE_ROOT; };
+		65B1396118080F0900F03AAB /* UIApplication+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIApplication+DWToolbox.h"; sourceTree = "<group>"; };
+		65B1396218080F0900F03AAB /* UIApplication+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+DWToolbox.m"; sourceTree = "<group>"; };
 		65CAE99415AEF4F7000B2FE7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		65CAE99615AEF50C000B2FE7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		65D4CF58161F15110093076D /* NSAttributedString+Attributes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSAttributedString+Attributes.h"; path = "ThirdParty/OHAttributedLabel/OHAttributedLabel/Source/NSAttributedString+Attributes.h"; sourceTree = SOURCE_ROOT; };
@@ -432,6 +436,8 @@
 				651C094C165D726D00A4BDB0 /* NSSortDescriptor+DWToolbox.m */,
 				6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */,
 				6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */,
+				65B1396118080F0900F03AAB /* UIApplication+DWToolbox.h */,
+				65B1396218080F0900F03AAB /* UIApplication+DWToolbox.m */,
 			);
 			path = Additions;
 			sourceTree = SOURCE_ROOT;
@@ -541,6 +547,7 @@
 				657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */,
 				6524524616565FD900657594 /* NSDateFormatter+DWToolbox.h in Headers */,
 				652452511656960F00657594 /* DWConfiguration.h in Headers */,
+				65B1396318080F0900F03AAB /* UIApplication+DWToolbox.h in Headers */,
 				65FE593E165A248F00B73BE4 /* DWTextStyle.h in Headers */,
 				65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */,
 				65FE594C165A3EAF00B73BE4 /* UIColor+Expanded.h in Headers */,
@@ -668,6 +675,7 @@
 				656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */,
 				656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */,
 				656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */,
+				65B1396418080F0900F03AAB /* UIApplication+DWToolbox.m in Sources */,
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
 				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 				6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */,
