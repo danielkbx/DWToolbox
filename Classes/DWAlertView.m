@@ -16,6 +16,8 @@
 #import "DWAlertViewBackgroundView.h"
 #import "DWWindow.h"
 
+#import "UIDevice+DWToolbox.h"
+
 @interface DWAlertViewAction() {
 	
 }
@@ -208,7 +210,7 @@ static UIColor *screenBackgroundColor;
 		if ([newMessage isKindOfClass:[NSString class]])
 		{
 			self->attributedMessage = [[NSMutableAttributedString alloc] initWithString:newMessage];
-			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:UILineBreakModeWordWrap];
+			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:kCTLineBreakByWordWrapping];
 			[self.attributedMessage setTextColor:[UIColor grayColor]];
 			[self.attributedMessage setFont:[UIFont systemFontOfSize:15.0f]];
 			self->message = [newMessage copy];
@@ -370,10 +372,17 @@ static UIColor *screenBackgroundColor;
 		{
 			UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			[actionButton setTitle:action.title forState:UIControlStateNormal];
-			
 			[actionButton sizeToFit];
-			actionButton.frame = CGRectMake(positionX, 0.0f, actionButton.frame.size.width + 10.0f, buttonsCoverView.bounds.size.height);
-			positionX = CGRectGetMaxX(actionButton.frame) + 10.0f;
+									
+			CGFloat buttonsPadding = 10.0f;
+			CGFloat buttonsMargin = 10.0f;
+			if ([UIDevice currentDevice].isIOS7OrLater) {
+				buttonsPadding = 25.0f;
+				buttonsMargin = 20.0f;
+			}
+			
+			actionButton.frame = CGRectMake(positionX, 0.0f, actionButton.frame.size.width + buttonsPadding, buttonsCoverView.bounds.size.height);
+			positionX = CGRectGetMaxX(actionButton.frame) + buttonsMargin;
 			
 			[buttonsCoverView addSubview:actionButton];
 			buttonsCoverView.frame = CGRectMake(buttonsCoverView.frame.origin.x,
@@ -476,11 +485,13 @@ static UIColor *screenBackgroundColor;
 			buttonsCoverView.center = CGPointMake(roundf(contentView.bounds.size.width / 2.0f), buttonsCoverView.center.y);
 		}
 		
-		UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(self->view_.bounds, -1.0f, -1.0f) cornerRadius:10.0f];
-		self->view_.layer.shadowPath = shadowPath.CGPath;
-		self->view_.layer.shadowColor = [UIColor blackColor].CGColor;
-		self->view_.layer.shadowOpacity = 0.7;
-		self->view_.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+		if (![UIDevice currentDevice].isIOS7OrLater) {
+			UIBezierPath *shadowPath = [UIBezierPath bezierPathWithRoundedRect:CGRectInset(self->view_.bounds, -1.0f, -1.0f) cornerRadius:10.0f];
+			self->view_.layer.shadowPath = shadowPath.CGPath;
+			self->view_.layer.shadowColor = [UIColor blackColor].CGColor;
+			self->view_.layer.shadowOpacity = 0.7;
+			self->view_.layer.shadowOffset = CGSizeMake(0.0f, 0.0f);
+		}
 		
 		if (self.cancelAction != nil && self.cancelAction.title == nil) {
 			
@@ -579,6 +590,7 @@ static UIColor *screenBackgroundColor;
 		
 		CATransform3D endTransform;
 		CAKeyframeAnimation *bumpInAnimation = [CAKeyframeAnimation bumpInAnimation:&endTransform];
+		bumpInAnimation.duration = 0.3;
 		[alertViewView.layer addAnimation:bumpInAnimation forKey:@"transform"];
 		alertViewView.layer.transform = endTransform;
 	}
