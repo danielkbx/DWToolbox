@@ -41,7 +41,7 @@
 	if (relativeDateFormatter == nil) {
 		relativeDateFormatter = [[NSDateFormatter alloc] init];
 		[relativeDateFormatter setTimeStyle:NSDateFormatterNoStyle];
-		[relativeDateFormatter setDateStyle:NSDateFormatterMediumStyle];
+		[relativeDateFormatter setDateStyle:NSDateFormatterShortStyle];
 		[relativeDateFormatter setDoesRelativeDateFormatting:YES];
 	}
 	return relativeDateFormatter;
