@@ -345,6 +345,8 @@ static DWWindow *containerWindow;
 		[containerWindow makeKeyAndVisible];
 	}
 		
+	[item itemWillAppear];
+	
 	if ([UIDevice currentDevice].isIOS7OrLater) {
 		
 		item.view.center = DWMakeCenter(CGPointMake(containerWindow.bounds.size.width / 2.0f, item.view.frame.size.height / -2.0f), item.view.frame.size);
@@ -363,8 +365,7 @@ static DWWindow *containerWindow;
 		CAAnimation *bumpInAnimation = [CAKeyframeAnimation bumpInAnimation:&lastTransform];
 		[item.view.layer addAnimation:bumpInAnimation forKey:@"intro"];
 		item.view.layer.transform = lastTransform;
-		
-		[item itemWillAppear];
+				
 		item.view.center = DWMakeCenterInSize(containerWindow.bounds.size, item.view.frame.size);
 		[containerWindow addSubview:item.view];
 	}
