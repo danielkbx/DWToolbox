@@ -62,7 +62,6 @@
 		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
 		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
 		6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6582A2EA171E7EC4005694F0 /* DWCheckbox.h */; };
-		6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6582A2EB171E7EC4005694F0 /* DWCheckbox.m */; };
 		6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */; };
 		6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */; };
 		65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A277D61684885B00E12523 /* ISO8601DateFormatter.h */; };
@@ -105,10 +104,7 @@
 		65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 65DCF3DD165273C300C18CEE /* DWInputTableViewController.m */; };
 		65E7E3EB166DF46800228834 /* DWWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E7E3E9166DF46800228834 /* DWWindow.h */; };
 		65E7E3EC166DF46800228834 /* DWWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E3EA166DF46800228834 /* DWWindow.m */; };
-		65F2861718CD022F00D6173F /* DWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BA1679DB1B00D5B7DC /* DWTreeNode.m */; };
-		65F2861818CD023600D6173F /* DWTreeCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BE1679DC1200D5B7DC /* DWTreeCoder.m */; };
 		65F2861C18CD027F00D6173F /* RXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F2861A18CD027F00D6173F /* RXMLElement.h */; };
-		65F2861D18CD027F00D6173F /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F2861B18CD027F00D6173F /* RXMLElement.m */; };
 		65FE593E165A248F00B73BE4 /* DWTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE593C165A248F00B73BE4 /* DWTextStyle.h */; };
 		65FE593F165A248F00B73BE4 /* DWTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE593D165A248F00B73BE4 /* DWTextStyle.m */; };
 		65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */; };
@@ -650,7 +646,6 @@
 				65D4CFA7161F18400093076D /* DWAlertView.m in Sources */,
 				65D4CFA9161F18400093076D /* DWAlertViewBackgroundView.m in Sources */,
 				654525E0161F1F3E00EAAEE7 /* DWURLConnection.m in Sources */,
-				65F2861D18CD027F00D6173F /* RXMLElement.m in Sources */,
 				650978C01625D129004A6A04 /* NSString+DWToolbox.m in Sources */,
 				650978C91625D397004A6A04 /* DWActivityManager.m in Sources */,
 				650B799E163D4D2000EDC8CB /* DWURLDownload.m in Sources */,
@@ -662,9 +657,7 @@
 				656FDB42165159CF0073A6F8 /* DWStatusLight.m in Sources */,
 				656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */,
 				65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */,
-				65F2861718CD022F00D6173F /* DWTreeNode.m in Sources */,
 				654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */,
-				65F2861818CD023600D6173F /* DWTreeCoder.m in Sources */,
 				657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */,
 				6524524716565FD900657594 /* NSDateFormatter+DWToolbox.m in Sources */,
 				652452521656960F00657594 /* DWConfiguration.m in Sources */,
@@ -680,7 +673,6 @@
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
 				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 				6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */,
-				6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */,
 				65675FCF17A4F65400A1FFDC /* NSDate+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

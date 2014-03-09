@@ -4,9 +4,6 @@
 [submodule "ThirdParty/uicolor-utilities"]
 	path = ThirdParty/uicolor-utilities
 	url = git@github.com:danielkbx/uicolor-utilities.git
-[submodule "ThirdParty/RaptureXML"]
-	path = ThirdParty/RaptureXML
-	url = git@github.com:danielkbx/RaptureXML.git
 [submodule "ThirdParty/iso-8601-date-formatter"]
 	path = ThirdParty/iso-8601-date-formatter
 	url = git://github.com/boredzo/iso-8601-date-formatter.git
