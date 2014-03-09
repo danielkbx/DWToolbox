@@ -105,6 +105,7 @@
 		65E7E3EB166DF46800228834 /* DWWindow.h in Headers */ = {isa = PBXBuildFile; fileRef = 65E7E3E9166DF46800228834 /* DWWindow.h */; };
 		65E7E3EC166DF46800228834 /* DWWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 65E7E3EA166DF46800228834 /* DWWindow.m */; };
 		65F2861C18CD027F00D6173F /* RXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 65F2861A18CD027F00D6173F /* RXMLElement.h */; };
+		65F2862218CD0BC000D6173F /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 65F2861B18CD027F00D6173F /* RXMLElement.m */; };
 		65FE593E165A248F00B73BE4 /* DWTextStyle.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE593C165A248F00B73BE4 /* DWTextStyle.h */; };
 		65FE593F165A248F00B73BE4 /* DWTextStyle.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FE593D165A248F00B73BE4 /* DWTextStyle.m */; };
 		65FE5942165A29DA00B73BE4 /* UIFont+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */; };
@@ -209,8 +210,8 @@
 		65E7E3E9166DF46800228834 /* DWWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWWindow.h; path = Classes/DWWindow.h; sourceTree = SOURCE_ROOT; };
 		65E7E3EA166DF46800228834 /* DWWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWWindow.m; path = Classes/DWWindow.m; sourceTree = SOURCE_ROOT; };
 		65F2326C169D7A4C00C8FD87 /* AppledocSettings.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = AppledocSettings.plist; sourceTree = SOURCE_ROOT; };
-		65F2861A18CD027F00D6173F /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RXMLElement.h; sourceTree = "<group>"; };
-		65F2861B18CD027F00D6173F /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RXMLElement.m; sourceTree = "<group>"; };
+		65F2861A18CD027F00D6173F /* RXMLElement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RXMLElement.h; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.h; sourceTree = SOURCE_ROOT; };
+		65F2861B18CD027F00D6173F /* RXMLElement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RXMLElement.m; path = ThirdParty/RaptureXML/RaptureXML/RXMLElement.m; sourceTree = SOURCE_ROOT; };
 		65FE593C165A248F00B73BE4 /* DWTextStyle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWTextStyle.h; path = Classes/DWTextStyle.h; sourceTree = SOURCE_ROOT; };
 		65FE593D165A248F00B73BE4 /* DWTextStyle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTextStyle.m; path = Classes/DWTextStyle.m; sourceTree = SOURCE_ROOT; };
 		65FE5940165A29DA00B73BE4 /* UIFont+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+DWToolbox.h"; sourceTree = "<group>"; };
@@ -658,6 +659,7 @@
 				656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */,
 				65DCF3DF165273C300C18CEE /* DWInputTableViewController.m in Sources */,
 				654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */,
+				65F2862218CD0BC000D6173F /* RXMLElement.m in Sources */,
 				657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */,
 				6524524716565FD900657594 /* NSDateFormatter+DWToolbox.m in Sources */,
 				652452521656960F00657594 /* DWConfiguration.m in Sources */,
