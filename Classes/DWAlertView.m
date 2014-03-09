@@ -208,7 +208,7 @@ static UIColor *screenBackgroundColor;
 		if ([newMessage isKindOfClass:[NSString class]])
 		{
 			self->attributedMessage = [[NSMutableAttributedString alloc] initWithString:newMessage];
-			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:UILineBreakModeWordWrap];
+			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:kCTLineBreakByWordWrapping];
 			[self.attributedMessage setTextColor:[UIColor grayColor]];
 			[self.attributedMessage setFont:[UIFont systemFontOfSize:15.0f]];
 			self->message = [newMessage copy];

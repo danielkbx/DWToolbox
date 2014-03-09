@@ -51,9 +51,7 @@
 		654C6D9A1653A257009816C7 /* NSObject+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 654C6D981653A257009816C7 /* NSObject+DWToolbox.m */; };
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		656284BB1679DB1B00D5B7DC /* DWTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284B91679DB1B00D5B7DC /* DWTreeNode.h */; };
-		656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BA1679DB1B00D5B7DC /* DWTreeNode.m */; };
 		656284BF1679DC1200D5B7DC /* DWTreeCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284BD1679DC1200D5B7DC /* DWTreeCoder.h */; };
-		656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284BE1679DC1200D5B7DC /* DWTreeCoder.m */; };
 		656284D41679E1F000D5B7DC /* RXMLElement.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284D21679E1F000D5B7DC /* RXMLElement.h */; };
 		656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */ = {isa = PBXBuildFile; fileRef = 656284D31679E1F000D5B7DC /* RXMLElement.m */; };
 		656284D71679E20200D5B7DC /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 656284D61679E20200D5B7DC /* libxml2.dylib */; };
@@ -66,7 +64,6 @@
 		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
 		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
 		6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6582A2EA171E7EC4005694F0 /* DWCheckbox.h */; };
-		6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6582A2EB171E7EC4005694F0 /* DWCheckbox.m */; };
 		6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */; };
 		6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */; };
 		65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A277D61684885B00E12523 /* ISO8601DateFormatter.h */; };
@@ -665,13 +662,10 @@
 				651C0954165E9B8800A4BDB0 /* DWConditionalInvocation.m in Sources */,
 				651C095B165E9BC700A4BDB0 /* DWActionSheet.m in Sources */,
 				65E7E3EC166DF46800228834 /* DWWindow.m in Sources */,
-				656284BC1679DB1B00D5B7DC /* DWTreeNode.m in Sources */,
-				656284C01679DC1200D5B7DC /* DWTreeCoder.m in Sources */,
 				656284D51679E1F000D5B7DC /* RXMLElement.m in Sources */,
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
 				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 				6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */,
-				6582A2ED171E7EC4005694F0 /* DWCheckbox.m in Sources */,
 				65675FCF17A4F65400A1FFDC /* NSDate+Additions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
