@@ -7,3 +7,6 @@
 [submodule "ThirdParty/iso-8601-date-formatter"]
 	path = ThirdParty/iso-8601-date-formatter
 	url = git://github.com/boredzo/iso-8601-date-formatter.git
+[submodule "ThirdParty/RaptureXML"]
+	path = ThirdParty/RaptureXML
+	url = https://github.com/ZaBlanc/RaptureXML.git
