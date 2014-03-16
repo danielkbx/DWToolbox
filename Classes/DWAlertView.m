@@ -37,7 +37,7 @@
 + (DWAlertViewAction *)YESAlertViewActionWithBlock:(DWAlertViewBlock)tappedBlock
 {
 	return [[DWAlertViewAction alloc] initWithTitle:NSLocalizedString(@"Ja", @"General")
-																   block:tappedBlock];
+											  block:tappedBlock];
 }
 
 + (DWAlertViewAction *)NOAlertViewActionWithBlock:(DWAlertViewBlock)tappedBlock
@@ -51,14 +51,14 @@
 {
 	return [[DWAlertViewAction alloc] initWithTitle:NSLocalizedString(@"Abbrechen", @"General")
 											  block:tappedBlock];
-
+	
 }
 
 + (DWAlertViewAction *)ConfirmAlertViewActionWithBlock:(DWAlertViewBlock)tappedBlock
 {
 	return [[DWAlertViewAction alloc] initWithTitle:NSLocalizedString(@"Bestätigen", @"General")
 											  block:tappedBlock];
-
+	
 }
 
 - (id)init
@@ -261,8 +261,8 @@ static UIColor *screenBackgroundColor;
 - (DWAlertViewAction *)addActionWithTitle:(NSString *)theTitle target:(id)target action:(SEL)action
 {
 	DWAlertViewAction *newAction = [[DWAlertViewAction alloc] initWithTitle:theTitle
-																	   target:target
-																	   action:action];
+																	 target:target
+																	 action:action];
 	[self addAction:newAction];
 	return newAction;
 }
@@ -270,7 +270,7 @@ static UIColor *screenBackgroundColor;
 - (DWAlertViewAction *)addActionWithTitle:(NSString *)theTitle block:(DWAlertViewBlock)tappedBlock
 {
 	DWAlertViewAction *newAction = [[DWAlertViewAction alloc] initWithTitle:theTitle
-																		block:tappedBlock];
+																	  block:tappedBlock];
 	[self addAction:newAction];
 	return newAction;
 }
@@ -350,7 +350,7 @@ static UIColor *screenBackgroundColor;
 		}
 		
 		self->view_ = [[self.backgroundViewClass alloc] initWithFrame:CGRectMake(50.0f, 50.0f, 300.0f, 500.0f)];
-
+		
 		UIView *contentView = [[UIView alloc] initWithFrame:CGRectInset(self->view_.bounds, 5.0f, 5.0f)];
 		[self->view_ addSubview:contentView];
 		
@@ -363,17 +363,17 @@ static UIColor *screenBackgroundColor;
 		}
 		
 		buttonsCoverView.backgroundColor = [UIColor clearColor];
-
+		
 		CGFloat positionX = 0.0f;
 		CGFloat positionY = 0.0f;
 		NSUInteger i = 0;
-
+		
 		for (DWAlertViewAction *action in actions)
 		{
 			UIButton *actionButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
 			[actionButton setTitle:action.title forState:UIControlStateNormal];
 			[actionButton sizeToFit];
-									
+			
 			CGFloat buttonsPadding = 10.0f;
 			CGFloat buttonsMargin = 10.0f;
 			if ([UIDevice currentDevice].isIOS7OrLater) {
@@ -401,7 +401,7 @@ static UIColor *screenBackgroundColor;
 												buttonsCoverView.frame.origin.y,
 												buttonsCoverView.frame.size.width + (7.0f * i),
 												buttonsCoverView.frame.size.height);
-
+			
 		}
 		
 		CGFloat viewWidth = MAX(self->view_.frame.size.width,buttonsCoverView.frame.size.width + 20.0f);
@@ -434,7 +434,7 @@ static UIColor *screenBackgroundColor;
 		}
 		
 		UIFont *messageFont = [UIFont systemFontOfSize:15.0f];
-
+		
 		OHAttributedLabel *messageLabel = [[OHAttributedLabel alloc] initWithFrame:CGRectZero];
 		messageLabel.font = messageFont;
 		messageLabel.backgroundColor = [UIColor clearColor];
@@ -442,9 +442,12 @@ static UIColor *screenBackgroundColor;
 		messageLabel.textAlignment = UITextAlignmentCenter;
 		messageLabel.lineBreakMode = UILineBreakModeWordWrap;
 		messageLabel.numberOfLines = 0;
-
+		
 		messageLabel.attributedText = self.attributedMessage;
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wundeclared-selector"
 		[messageLabel performSelector:@selector(recomputeLinksInTextIfNeeded)];
+#pragma clang diagnostic pop
 		CGSize messageSize = [messageLabel sizeThatFits:CGSizeMake(contentWidth, 500.0f)];
 		
 		messageLabel.frame = CGRectMake(10.0f,
@@ -453,9 +456,9 @@ static UIColor *screenBackgroundColor;
 										messageSize.height);
 		positionY = CGRectGetMaxY(messageLabel.frame);
 		
-//		CGSize messageSize = [self.message sizeWithFont:messageFont
-//									  constrainedToSize:CGSizeMake(contentWidth, 500.0f)
-//										  lineBreakMode:UILineBreakModeWordWrap];
+		//		CGSize messageSize = [self.message sizeWithFont:messageFont
+		//									  constrainedToSize:CGSizeMake(contentWidth, 500.0f)
+		//										  lineBreakMode:UILineBreakModeWordWrap];
 		
 		[contentView addSubview:messageLabel];
 		
@@ -560,7 +563,7 @@ static UIColor *screenBackgroundColor;
 {
 	if (alertView != nil)
 	{
-
+		
 		if ([self instances].count == 0)
 		{
 			if (coverWindow == nil)
@@ -621,7 +624,7 @@ static UIColor *screenBackgroundColor;
 		} else {
 			[self showNextAlertView];
 		}
-	}];		
+	}];
 	
 }
 
@@ -643,8 +646,8 @@ static UIColor *screenBackgroundColor;
 	[UIView animateWithDuration:animationDuration
 					 animations:^{
 						 self.view.center = CGPointMake(self.view.superview.bounds.size.width / 2.0f,
-														self.view.superview.bounds.size.height / 2.0f - hiddenHeight - 20.0f); 
-
+														self.view.superview.bounds.size.height / 2.0f - hiddenHeight - 20.0f);
+						 
 					 }];
 }
 
@@ -654,9 +657,9 @@ static UIColor *screenBackgroundColor;
 	CGFloat animationDuration = [animationDurationValue floatValue];
 	[UIView animateWithDuration:animationDuration
 					 animations:^{
-						self.view.center = CGPointMake(self.view.superview.bounds.size.width / 2.0f,
-													   self.view.superview.bounds.size.height / 2.0f); 
-					 }];	
+						 self.view.center = CGPointMake(self.view.superview.bounds.size.width / 2.0f,
+														self.view.superview.bounds.size.height / 2.0f);
+					 }];
 }
 
 @end

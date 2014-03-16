@@ -21,7 +21,7 @@
 		staticDateFormatters = [[NSMutableDictionary alloc] init];
 	}
 	
-	NSString *dateFormatterIdentifier = [NSString stringWithFormat:@"%ui-%ui",dateStyle, timeStyle];
+	NSString *dateFormatterIdentifier = [NSString stringWithFormat:@"%lu-%lu",(long)dateStyle, (long)timeStyle];
 	NSDateFormatter *dateFormatter = [staticDateFormatters objectForKey:dateFormatterIdentifier];
 	
 	if (dateFormatter == nil) {

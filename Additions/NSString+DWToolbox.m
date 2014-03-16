@@ -26,7 +26,7 @@
 	const char *utf8Self = [self UTF8String];
 	unsigned char MD5Buffer[CC_MD5_DIGEST_LENGTH];
 	
-	CC_MD5(utf8Self, strlen(utf8Self), MD5Buffer);
+	CC_MD5(utf8Self, (CC_LONG)strlen(utf8Self), MD5Buffer);
 	
 	NSMutableString *MD5String = [NSMutableString stringWithCapacity:2*CC_MD5_DIGEST_LENGTH];
 	for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {

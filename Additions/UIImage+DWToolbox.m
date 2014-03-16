@@ -236,7 +236,7 @@
 	NSData *imageData = (__bridge_transfer NSData *)CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage));
 	
 	//	NSData *imageData = [NSData dataWithData:UIImagePNGRepresentation(self)];
-	CC_MD5([imageData bytes], [imageData length], result);
+	CC_MD5([imageData bytes], (CC_LONG)[imageData length], result);
 	NSString *  s = [NSString stringWithFormat:
                      @"%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X%02X",
                      result[0], result[1], result[2], result[3], 
