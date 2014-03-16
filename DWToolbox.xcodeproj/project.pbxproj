@@ -60,7 +60,6 @@
 		656FDB62165161ED0073A6F8 /* NSBundle+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB60165161ED0073A6F8 /* NSBundle+DWToolbox.m */; };
 		657E613B1653BF7F003411F7 /* DWUploadField.h in Headers */ = {isa = PBXBuildFile; fileRef = 657E61391653BF7F003411F7 /* DWUploadField.h */; };
 		657E613C1653BF7F003411F7 /* DWUploadField.m in Sources */ = {isa = PBXBuildFile; fileRef = 657E613A1653BF7F003411F7 /* DWUploadField.m */; };
-		6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6582A2EA171E7EC4005694F0 /* DWCheckbox.h */; };
 		6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 6587FA67171C19D500AD09B1 /* NSURL+DWToolbox.h */; };
 		6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 6587FA68171C19D500AD09B1 /* NSURL+DWToolbox.m */; };
 		65A277D81684885B00E12523 /* ISO8601DateFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = 65A277D61684885B00E12523 /* ISO8601DateFormatter.h */; };
@@ -550,7 +549,6 @@
 				65FF051D169C46ED0081290E /* DWObjectPropertyDescription_Private.h in Headers */,
 				65FF051E169C46ED0081290E /* DWObjectPropertyDescription.h in Headers */,
 				6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */,
-				6582A2EC171E7EC4005694F0 /* DWCheckbox.h in Headers */,
 				65675FCE17A4F65400A1FFDC /* NSDate+Additions.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
