@@ -128,13 +128,18 @@
 	
 	if (shouldStart)
 	{
-		
-		DWLog(@"Webview requests %@",request.URL);
-		if (navigationType == UIWebViewNavigationTypeLinkClicked)
-		{
-			self.URL = request.URL;
-		}
-		return YES;
+		if (navigationType == UIWebViewNavigationTypeLinkClicked && self.useSystemBrowserForLinks) {
+            DWLog(@"Webview opens system browser");
+            [[UIApplication sharedApplication] openURL:request.URL];
+            return NO;
+        } else {
+            DWLog(@"Webview requests %@",request.URL);
+            if (navigationType == UIWebViewNavigationTypeLinkClicked)
+            {
+                self.URL = request.URL;
+            }
+            return YES;
+        }
 	}
 	else
 	{

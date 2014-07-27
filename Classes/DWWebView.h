@@ -22,6 +22,8 @@
 
 @property(nonatomic) BOOL scalesPageToFit;
 
+@property (nonatomic, assign) BOOL useSystemBrowserForLinks;
+
 + (BOOL)enableRemoteDebugging;
 
 - (void)loadURL:(NSURL *)url;
