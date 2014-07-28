@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface NSDate (Additions)
+@interface NSDate (DWToolbox)
 
 - (NSString*)stringFromDateWithStyle:(NSDateFormatterStyle)style localeIdentifier:(NSString*)localeIdent;
 - (NSString*)stringFromDateWithLongStyle;
@@ -26,8 +26,10 @@
 
 - (BOOL)isBeforeDate:(NSDate *)otherDate;
 - (BOOL)isAfterDate:(NSDate *)otherDate;
-- (BOOL)isEqualToTheDay:(NSDate*)date;
+- (BOOL)isPast;
 - (BOOL)isToday;
+- (BOOL)isFuture;
+- (BOOL)isEqualToTheDay:(NSDate*)date;
 
 - (NSString *)relativeTimeText;
 

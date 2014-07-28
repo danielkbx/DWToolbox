@@ -52,8 +52,8 @@
 		655E6B3115A61A2D00F9E6C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 655E6B3015A61A2D00F9E6C5 /* Foundation.framework */; };
 		656284BB1679DB1B00D5B7DC /* DWTreeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284B91679DB1B00D5B7DC /* DWTreeNode.h */; };
 		656284BF1679DC1200D5B7DC /* DWTreeCoder.h in Headers */ = {isa = PBXBuildFile; fileRef = 656284BD1679DC1200D5B7DC /* DWTreeCoder.h */; };
-		65675FCE17A4F65400A1FFDC /* NSDate+Additions.h in Headers */ = {isa = PBXBuildFile; fileRef = 65675FCC17A4F65400A1FFDC /* NSDate+Additions.h */; };
-		65675FCF17A4F65400A1FFDC /* NSDate+Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = 65675FCD17A4F65400A1FFDC /* NSDate+Additions.m */; };
+		65675FCE17A4F65400A1FFDC /* NSDate+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 65675FCC17A4F65400A1FFDC /* NSDate+DWToolbox.h */; };
+		65675FCF17A4F65400A1FFDC /* NSDate+DWToolbox.m in Sources */ = {isa = PBXBuildFile; fileRef = 65675FCD17A4F65400A1FFDC /* NSDate+DWToolbox.m */; };
 		656FDB41165159CF0073A6F8 /* DWStatusLight.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB3F165159CF0073A6F8 /* DWStatusLight.h */; };
 		656FDB42165159CF0073A6F8 /* DWStatusLight.m in Sources */ = {isa = PBXBuildFile; fileRef = 656FDB40165159CF0073A6F8 /* DWStatusLight.m */; };
 		656FDB61165161ED0073A6F8 /* NSBundle+DWToolbox.h in Headers */ = {isa = PBXBuildFile; fileRef = 656FDB5F165161ED0073A6F8 /* NSBundle+DWToolbox.h */; };
@@ -164,8 +164,8 @@
 		656284BE1679DC1200D5B7DC /* DWTreeCoder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWTreeCoder.m; path = Classes/DWTreeCoder.m; sourceTree = SOURCE_ROOT; };
 		656284C11679E01C00D5B7DC /* DWTreeNode_Private.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = DWTreeNode_Private.h; path = Classes/DWTreeNode_Private.h; sourceTree = SOURCE_ROOT; };
 		656284D61679E20200D5B7DC /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		65675FCC17A4F65400A1FFDC /* NSDate+Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Additions.h"; sourceTree = "<group>"; };
-		65675FCD17A4F65400A1FFDC /* NSDate+Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Additions.m"; sourceTree = "<group>"; };
+		65675FCC17A4F65400A1FFDC /* NSDate+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+DWToolbox.h"; sourceTree = "<group>"; };
+		65675FCD17A4F65400A1FFDC /* NSDate+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+DWToolbox.m"; sourceTree = "<group>"; };
 		656FDB3F165159CF0073A6F8 /* DWStatusLight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWStatusLight.h; path = Classes/DWStatusLight.h; sourceTree = SOURCE_ROOT; };
 		656FDB40165159CF0073A6F8 /* DWStatusLight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWStatusLight.m; path = Classes/DWStatusLight.m; sourceTree = SOURCE_ROOT; };
 		656FDB4D16515F800073A6F8 /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
@@ -390,8 +390,8 @@
 		65D4CF8C161F18120093076D /* Additions */ = {
 			isa = PBXGroup;
 			children = (
-				65675FCC17A4F65400A1FFDC /* NSDate+Additions.h */,
-				65675FCD17A4F65400A1FFDC /* NSDate+Additions.m */,
+				65675FCC17A4F65400A1FFDC /* NSDate+DWToolbox.h */,
+				65675FCD17A4F65400A1FFDC /* NSDate+DWToolbox.m */,
 				65D4CF8D161F18120093076D /* CAKeyframeAnimation+DWToolbox.h */,
 				65D4CF8E161F18120093076D /* CAKeyframeAnimation+DWToolbox.m */,
 				65D4CF8F161F18120093076D /* UIColor+DWToolbox.h */,
@@ -549,7 +549,7 @@
 				65FF051D169C46ED0081290E /* DWObjectPropertyDescription_Private.h in Headers */,
 				65FF051E169C46ED0081290E /* DWObjectPropertyDescription.h in Headers */,
 				6587FA69171C19D500AD09B1 /* NSURL+DWToolbox.h in Headers */,
-				65675FCE17A4F65400A1FFDC /* NSDate+Additions.h in Headers */,
+				65675FCE17A4F65400A1FFDC /* NSDate+DWToolbox.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -675,7 +675,7 @@
 				65A277D91684885B00E12523 /* ISO8601DateFormatter.m in Sources */,
 				65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */,
 				6587FA6A171C19D500AD09B1 /* NSURL+DWToolbox.m in Sources */,
-				65675FCF17A4F65400A1FFDC /* NSDate+Additions.m in Sources */,
+				65675FCF17A4F65400A1FFDC /* NSDate+DWToolbox.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

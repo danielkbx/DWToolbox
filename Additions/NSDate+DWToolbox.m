@@ -7,9 +7,9 @@
 //
 
 
-#import "NSDate+Additions.h"
+#import "NSDate+DWToolbox.h"
 
-@implementation NSDate (Additions)
+@implementation NSDate (DWToolbox)
 
 - (NSString*)stringFromDateWithStyle:(NSDateFormatterStyle)style localeIdentifier:(NSString*)localeIdent
 {
@@ -97,8 +97,16 @@
 	return ([self earlierDate:otherDate] == otherDate);
 }
 
+- (BOOL)isPast {
+    return ([self timeIntervalSinceNow] < 0.0);
+}
+
 - (BOOL)isToday {
 	return ([[self noon] timeIntervalSinceDate:[[NSDate date] noon]] == 0);
+}
+
+- (BOOL)isFuture {
+    return ([self timeIntervalSinceNow] > 0.0);
 }
 
 
