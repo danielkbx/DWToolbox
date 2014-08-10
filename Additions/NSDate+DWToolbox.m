@@ -141,7 +141,26 @@
     assert(day != nil);
     NSDate *dayAfter = [NSDate dateWithTimeInterval:(60*60*24) sinceDate:[day noon]];
 	return [dayAfter noon];
+}
 
+- (NSDate *)dateByAddingSeconds:(NSInteger)seconds {
+    return [NSDate dateWithTimeInterval:(double)seconds sinceDate:self];
+}
+
+- (NSDate *)dateByAddingMinutes:(NSInteger)minutes {
+    return [self dateByAddingSeconds:(60 * minutes)];
+}
+
+- (NSDate *)dateByAddingHours:(NSInteger)hours {
+    return [self dateByAddingMinutes:(60 * hours)];
+}
+
+- (NSDate *)dateByAddingDays:(NSInteger)days {
+    return [self dateByAddingHours:(24 * days)];
+}
+
+- (NSDate *)dateByAddingWeeks:(NSInteger)weeks {
+    return [self dateByAddingDays:(7 * weeks)];
 }
 
 - (NSString *)relativeTimeText {

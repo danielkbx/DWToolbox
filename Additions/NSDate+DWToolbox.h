@@ -31,6 +31,12 @@
 - (BOOL)isFuture;
 - (BOOL)isEqualToTheDay:(NSDate*)date;
 
+- (NSDate *)dateByAddingSeconds:(NSInteger)seconds;
+- (NSDate *)dateByAddingMinutes:(NSInteger)minutes;
+- (NSDate *)dateByAddingHours:(NSInteger)hours;
+- (NSDate *)dateByAddingDays:(NSInteger)days;
+- (NSDate *)dateByAddingWeeks:(NSInteger)weeks;
+
 - (NSString *)relativeTimeText;
 
 @end
