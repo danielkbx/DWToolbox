@@ -17,6 +17,7 @@ static UIImage *staticDefaultImage;
 
 @interface DWImageView ()
 
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
 @property (nonatomic, strong) DWURLDownload *download;
 
 @end
@@ -31,11 +32,23 @@ static UIImage *staticDefaultImage;
 	return staticDefaultImage;
 }
 
+- (id)initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        [self awakeFromNib];
+    }
+    return self;
+}
+
 - (id)initWithURL:(NSURL *)URL {
-	if ((self = [super initWithFrame:CGRectZero])) {
+	if ((self = [self initWithFrame:CGRectZero])) {
 		self.URL = URL;
 	}
 	return self;
+}
+
+- (void)awakeFromNib {
+    self.showActivityIndicator = NO;
+    self.clipsToBounds = YES;
 }
 
 - (UIImage *)effectiveDefaultImage {
@@ -70,8 +83,12 @@ static UIImage *staticDefaultImage;
 		
 		if (URL != nil) {
 			
+            __block BOOL showActivityIndicator = YES;
+            
 			self.download = [DWURLDownload downloadWithURL:self.URL];
 			[self.download downloadToFileURL:nil completion:^(NSData *receivedData, NSURL *fileURL, NSError *error) {
+                [self _hideActivityIndicator];
+                showActivityIndicator = NO;
 				if (receivedData.length > 0) {
 					UIImage *image = [UIImage imageWithData:receivedData];
 					if (image) {
@@ -82,6 +99,10 @@ static UIImage *staticDefaultImage;
 					}
 				}
 			}];
+            
+            if (showActivityIndicator) {
+                [self _showActivityIndicator];
+            }
 		} else {
 			self.download = nil;
 		}
@@ -96,6 +117,24 @@ static UIImage *staticDefaultImage;
 	}
 	
 	[super setImage:effectiveImage];
+}
+
+- (void)_showActivityIndicator {
+    
+    if (self.showActivityIndicator && !self.activityIndicator) {
+        self.activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        [self.activityIndicator startAnimating];
+        self.activityIndicator.center = CGPointMake(CGRectGetMidX(self.bounds), CGRectGetMidY(self.bounds));
+        self.activityIndicator.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleBottomMargin | UIViewAutoresizingFlexibleLeftMargin;
+        [self addSubview:self.activityIndicator];
+    }
+}
+
+- (void)_hideActivityIndicator {
+    if (self.activityIndicator && self.activityIndicator.superview == self) {
+        [self.activityIndicator removeFromSuperview];
+        self.activityIndicator = nil;
+    }
 }
 
 

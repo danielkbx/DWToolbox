@@ -24,6 +24,9 @@ typedef enum {
 
 @property (nonatomic, weak) id <DWImageViewDelegate> delegate;
 
+@property (nonatomic, assign) BOOL showActivityIndicator;
+@property (nonatomic, readonly) BOOL isDownloading;
+
 + (void)setDefaultImage:(UIImage *)defaultImage;
 + (UIImage *)defaultImage;
 
