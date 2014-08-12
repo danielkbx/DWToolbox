@@ -109,23 +109,6 @@
 		65FF051F169C46ED0081290E /* DWObjectPropertyDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 65FF051C169C46ED0081290E /* DWObjectPropertyDescription.m */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		652BC8FF18D5C4E600CBB2C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 652BC8FB18D5C4E600CBB2C3 /* OHAttributedLabel.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 09E159E8160F573A003025B4;
-			remoteInfo = OHAttributedLabel;
-		};
-		652BC90118D5C4F600CBB2C3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 652BC8FB18D5C4E600CBB2C3 /* OHAttributedLabel.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 09E159E7160F573A003025B4;
-			remoteInfo = OHAttributedLabel;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		650978BD1625D129004A6A04 /* NSString+DWToolbox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+DWToolbox.h"; sourceTree = "<group>"; };
 		650978BE1625D129004A6A04 /* NSString+DWToolbox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+DWToolbox.m"; sourceTree = "<group>"; };
@@ -146,7 +129,6 @@
 		6524524F1656960F00657594 /* DWConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWConfiguration.h; path = Classes/DWConfiguration.h; sourceTree = SOURCE_ROOT; };
 		652452501656960F00657594 /* DWConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWConfiguration.m; path = Classes/DWConfiguration.m; sourceTree = SOURCE_ROOT; };
 		6529B89E1625A53000A82EC4 /* CoreText.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreText.framework; path = System/Library/Frameworks/CoreText.framework; sourceTree = SDKROOT; };
-		652BC8FB18D5C4E600CBB2C3 /* OHAttributedLabel.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = OHAttributedLabel.xcodeproj; path = ThirdParty/OHAttributedLabel/OHAttributedLabel/OHAttributedLabel.xcodeproj; sourceTree = SOURCE_ROOT; };
 		65359200164826A70002FB40 /* DWBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DWBadge.h; path = Classes/DWBadge.h; sourceTree = SOURCE_ROOT; };
 		65359201164826A70002FB40 /* DWBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DWBadge.m; path = Classes/DWBadge.m; sourceTree = SOURCE_ROOT; };
 		6536600C169D6F2B003F15B0 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -260,14 +242,6 @@
 			name = Events;
 			sourceTree = "<group>";
 		};
-		652BC8FC18D5C4E600CBB2C3 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				652BC90018D5C4E600CBB2C3 /* libOHAttributedLabel.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		654525DB161F1F2100EAAEE7 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,7 +353,6 @@
 		65CAE95B15AEF3A5000B2FE7 /* Third Party */ = {
 			isa = PBXGroup;
 			children = (
-				652BC8FB18D5C4E600CBB2C3 /* OHAttributedLabel.xcodeproj */,
 				65F2861918CD027F00D6173F /* RaptureXML */,
 				65A277D41684885400E12523 /* iso-8601-date-formatter */,
 				65FE5944165A3EAF00B73BE4 /* uicolor-utilities */,
@@ -567,7 +540,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				652BC90218D5C4F600CBB2C3 /* PBXTargetDependency */,
 			);
 			name = DWToolbox;
 			productName = dwToolbox;
@@ -592,12 +564,6 @@
 			mainGroup = 655E6B2215A61A2D00F9E6C5;
 			productRefGroup = 655E6B2E15A61A2D00F9E6C5 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 652BC8FC18D5C4E600CBB2C3 /* Products */;
-					ProjectRef = 652BC8FB18D5C4E600CBB2C3 /* OHAttributedLabel.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
 				655E6B2C15A61A2D00F9E6C5 /* DWToolbox */,
@@ -605,16 +571,6 @@
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		652BC90018D5C4E600CBB2C3 /* libOHAttributedLabel.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libOHAttributedLabel.a;
-			remoteRef = 652BC8FF18D5C4E600CBB2C3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
 		65F23275169D7BAE00C8FD87 /* Appledoc */ = {
@@ -680,14 +636,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		652BC90218D5C4F600CBB2C3 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = OHAttributedLabel;
-			targetProxy = 652BC90118D5C4F600CBB2C3 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		655E6B3815A61A2D00F9E6C5 /* Debug */ = {

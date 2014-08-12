@@ -63,6 +63,9 @@ typedef enum {
 + (void)setScreenBackgroundColor:(UIColor *)color;
 + (UIColor *)screenBackgroundColor;
 
++ (UIColor *)messageColor;
++ (UIFont *)messageFont;
+
 + (DWAlertView *)alertViewWithTitle:(NSString *)title andMessage:(id)message;
 - (id)initWithTitle:(NSString *)title andMessage:(id)message;
 

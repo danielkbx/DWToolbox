@@ -8,9 +8,7 @@
 
 #import "DWAlertView.h"
 #import "CAKeyframeAnimation+DWToolbox.h"
-#import "OHAttributedLabel.h"
 #import <CoreText/CoreText.h>
-#import "NSAttributedString+Attributes.h"
 
 #import "UIView+DWToolbox.h"
 #import "DWAlertViewBackgroundView.h"
@@ -171,6 +169,14 @@ static UIColor *screenBackgroundColor;
 	return screenBackgroundColor;
 }
 
++ (UIColor *)messageColor {
+    return [UIColor grayColor];
+}
+
++ (UIFont *)messageFont {
+    return [UIFont systemFontOfSize:15.0f];
+}
+
 #pragma mark - Creation & Lifecycle
 
 + (void)initialize {
@@ -210,9 +216,14 @@ static UIColor *screenBackgroundColor;
 		if ([newMessage isKindOfClass:[NSString class]])
 		{
 			self->attributedMessage = [[NSMutableAttributedString alloc] initWithString:newMessage];
-			[self.attributedMessage setTextAlignment:kCTCenterTextAlignment lineBreakMode:kCTLineBreakByWordWrapping];
-			[self.attributedMessage setTextColor:[UIColor grayColor]];
-			[self.attributedMessage setFont:[UIFont systemFontOfSize:15.0f]];
+            NSRange allRange = NSMakeRange(0, ((NSString *)newMessage).length);
+            NSMutableParagraphStyle *pStyle = [[NSMutableParagraphStyle defaultParagraphStyle] mutableCopy];
+            pStyle.alignment = NSTextAlignmentCenter;
+            
+            [self.attributedMessage addAttribute:NSForegroundColorAttributeName value:[[self class] messageColor] range:allRange];
+            [self.attributedMessage addAttribute:NSFontAttributeName value:[[self class] messageFont] range:allRange];
+            [self.attributedMessage addAttribute:NSParagraphStyleAttributeName value:pStyle range:allRange];
+            
 			self->message = [newMessage copy];
 		}
 		else if ([newMessage isKindOfClass:[NSAttributedString class]])
@@ -435,7 +446,7 @@ static UIColor *screenBackgroundColor;
 		
 		UIFont *messageFont = [UIFont systemFontOfSize:15.0f];
 		
-		OHAttributedLabel *messageLabel = [[OHAttributedLabel alloc] initWithFrame:CGRectZero];
+		UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectZero];
 		messageLabel.font = messageFont;
 		messageLabel.backgroundColor = [UIColor clearColor];
 		messageLabel.textColor = [UIColor whiteColor];
@@ -444,10 +455,6 @@ static UIColor *screenBackgroundColor;
 		messageLabel.numberOfLines = 0;
 		
 		messageLabel.attributedText = self.attributedMessage;
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Wundeclared-selector"
-		[messageLabel performSelector:@selector(recomputeLinksInTextIfNeeded)];
-#pragma clang diagnostic pop
 		CGSize messageSize = [messageLabel sizeThatFits:CGSizeMake(contentWidth, 500.0f)];
 		
 		messageLabel.frame = CGRectMake(10.0f,
