@@ -48,7 +48,8 @@ static DWConfiguration *UIConfiguration;
 	if ((self = [super init])) {
 		
 		NSURL *fileURL = [[NSBundle mainBundle] URLForResource:filename withExtension:@"plist"];
-		if (fileURL && [[NSFileManager defaultManager] fileExistsAtPath:[fileURL path] isDirectory:NO]) {
+        BOOL isDirectory = NO;
+		if (fileURL && [[NSFileManager defaultManager] fileExistsAtPath:[fileURL path] isDirectory:&isDirectory]) {
 			
 			self.data = [NSDictionary dictionaryWithContentsOfURL:fileURL];
 			self.identifier = [filename MD5];
