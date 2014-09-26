@@ -28,9 +28,26 @@ static NSUInteger staticNetworkActivity;
 	return [mainScreen respondsToSelector:@selector(displayLinkWithTarget:selector:)] && (mainScreen.scale == 2.0);
 }
 
+- (BOOL)has35Display
+{
+    return ([UIScreen mainScreen].bounds.size.height == 480.0f);
+}
+
+- (BOOL)hasRetina35Display
+{
+    return ([self has35Display] && [UIScreen mainScreen].scale == 2.0f);
+}
+
 - (BOOL)hasRetina4Display {
-	UIScreen *mainScreen = [UIScreen mainScreen];
-	return (self.hasRetinaDisplay && mainScreen.bounds.size.height > 480.0f);
+	return ([UIScreen mainScreen].bounds.size.height == 568.0f);
+}
+
+- (BOOL)hasRetina47Display {
+	return ([UIScreen mainScreen].bounds.size.height == 667.0f);
+}
+
+- (BOOL)hasRetina55Display {
+	return ([UIScreen mainScreen].bounds.size.height == 736.0f);
 }
 
 - (BOOL)isIOS5OrLater

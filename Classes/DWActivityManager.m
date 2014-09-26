@@ -140,13 +140,27 @@ static DWWindow *containerWindow;
 			
 			UIFont *textFont = [UIFont boldSystemFontOfSize:12.0f];
 			
-			UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 100.0f)];
+            CGFloat height = 100.0f;
+            CGFloat width = 320.0f;
+
+            CGFloat deviceOffset = 24.0f;
+            if ([UIDevice currentDevice].hasRetina47Display) {
+                deviceOffset = 24.0f;
+                width = 375.0f;
+            } else if ([UIDevice currentDevice].hasRetina55Display) {
+                deviceOffset = 24.0f;
+                width = 414.0f;
+            }
+            
+            
+            
+			UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, width, 100)];
 			view.backgroundColor = self.backgroundColor;
 			
 			if (self.type == DWActivityItemTypeDefault) {
 				
 				UIActivityIndicatorView *activityView = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
-				activityView.center = CGPointMake(ceilf(activityView.frame.size.width / 2.0f) + 10, (view.bounds.size.height - activityView.frame.size.height) / 2.0f + 35.0f);
+				activityView.center = CGPointMake(ceilf(activityView.frame.size.width / 2.0f) + 10, (view.bounds.size.height - activityView.frame.size.height) / 2.0f + 35.0f - (deviceOffset / 2.0f));
 				activityView.autoresizingMask = UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
 				activityView.color = self.textColor;
 				[activityView startAnimating];
@@ -154,11 +168,10 @@ static DWWindow *containerWindow;
 				
 				CGFloat offsetX = CGRectGetMaxX(activityView.frame) + 10.0f;
 				CGFloat textWidth = view.bounds.size.width - offsetX - 10.0f;
-				
-				
+								
 				CGSize textSize = [self.title sizeWithFont:textFont forWidth:textWidth lineBreakMode:NSLineBreakByWordWrapping];
 				CGFloat viewHeight = MAX(activityView.frame.size.height, textSize.height);
-				view.frame = CGRectMake(0.0f, 0.0f, 320.0f, viewHeight + 44.0f);
+				view.frame = CGRectMake(0.0f, 0.0f, width, [UIApplication sharedApplication].statusBarFrame.size.height + viewHeight + deviceOffset);
 				
 				
 				DWLabel *textLabel = [[DWLabel alloc] initWithFrame:CGRectMake(offsetX, 30.0f, textSize.width, textSize.height)];
@@ -348,7 +361,7 @@ static DWWindow *containerWindow;
 	[item itemWillAppear];
 	
 	if ([UIDevice currentDevice].isIOS7OrLater) {
-		
+		item.view.frame = CGRectMake(0.0f, 0.0f, containerWindow.bounds.size.width, item.view.frame.size.height);
 		item.view.center = DWMakeCenter(CGPointMake(containerWindow.bounds.size.width / 2.0f, item.view.frame.size.height / -2.0f), item.view.frame.size);
 		[containerWindow addSubview:item.view];
 		
